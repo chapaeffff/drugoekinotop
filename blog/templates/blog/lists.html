@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+		{% for list in lists%}
+			<p>
+				<a href = {{list.slug}}>{{list}}</a>
+		    </p>
+		{% endfor %}
+{% endblock %}

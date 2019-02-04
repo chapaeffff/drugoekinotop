@@ -1,0 +1,81 @@
+{% extends 'blog/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ film.title}} / {{film.director}} {{film.year}} смотреть фильм онлайн{% endblock %}
+
+
+{% block content %}
+
+<div class = "post">
+
+
+<a href="http://vk.com/share.php?url=http://drugoekino.top/film/{{film.pk}}"
+   target="_blank" rel="nofollow">
+   поделиться ВК
+</a>
+
+<br><br>
+Вернуться в статью: <a href = http://drugoekino.top/lists/{{from_lists.owner_list.slug}}>{{from_lists.owner_list}}</a>
+
+
+
+<!-- 		{% for dir in directors %}
+			<div class = "">
+		    	<h1><a href="{% url 'director' pk=director.pk %}">{{ dir }}</a></h1>
+		        <!-- <p>{{ post.text|linebreaksbr }}</p> -->
+<!-- 		    </div>
+		{% endfor %} -->
+<!-- 		<h1>{{ director.name }}</h1>
+-->
+
+	<h1>{{ film.title}} / {{film.director}} {{film.year}} </h1>
+
+	<img src = "{{film.image}}" width = 853>
+
+	<br><br>
+
+
+
+
+{{from_lists.text}}
+
+<br><br>
+
+Цитата из статьи: <a href = http://drugoekino.top/lists/{{from_lists.owner_list.slug}}>{{from_lists.owner_list}}</a>
+
+<br><br>
+
+{% if videos.count > 0%}
+
+
+<h3>Смотреть фильм {{film.title}} ({{film.director}}, {{film.year}}) онлайн: </h3>
+{%endif%}
+
+
+
+		{% for video in videos%}
+			<div class="embed-responsive embed-responsive-16by9">
+
+
+			<iframe src= {{video.player}} width = 100% height = 100% frameborder="0" allowfullscreen></iframe>
+
+			<br><br>
+			</div>
+		{% endfor %}
+
+			<br><br>
+
+
+<a href="http://vk.com/share.php?url=http://drugoekino.top/film/{{film.pk}}"
+   target="_blank" rel="nofollow">
+   поделиться ВК
+</a>
+
+<br><br>
+Вернуться в статью: <a href = http://drugoekino.top/lists/{{from_lists.owner_list.slug}}>{{from_lists.owner_list}}</a>
+
+</div>
+
+{% endblock %}
+
