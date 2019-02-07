@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'blog',
     'filmbase',
     'video',
-    'vkgrab',
+    #'vkgrab',
     'vkposts',
 ]
 

@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 
 
 def index(request):
-    return HttpResponseRedirect('vk/top')
+    return HttpResponseRedirect('vk/top/')
     # return render(request, 'blog/index.html')
 
 

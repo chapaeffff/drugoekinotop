@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
     # url(r'^$', views.vkgrab, name='vkgrab'),
     url(r'^top/$', views.vktop, name='vktop'),
-    url(r'^$', views.vktop, name='vktop'),
+    # url(r'^$', views.vktop, name='vktop'),
 
 
     # url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
