@@ -5,12 +5,11 @@ from django.db import models
 from filmbase.models import *
 
 class Video(models.Model):
-    link  = models.CharField(max_length=150, null = True, blank = True)
-    vid = models.PositiveIntegerField(null = True, blank = True)
+    video_id = models.PositiveIntegerField(null = True, blank = True)
     owner_id = models.IntegerField(null=True, blank=True)
 
     class Meta:
-        unique_together = ('vid', 'owner_id',)
+        unique_together = ('video_id', 'owner_id',)
 
     title = models.CharField(max_length=150, null = True, blank = True)
     film = models.ForeignKey('filmbase.Film', on_delete=models.PROTECT, null = True, blank = True)

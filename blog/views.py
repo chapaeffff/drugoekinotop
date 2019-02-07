@@ -1,8 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
-
+from django.http import HttpResponseRedirect
 
 # Create your views here.
+
+
+def index(request):
+    return HttpResponseRedirect('vk/top')
+    # return render(request, 'blog/index.html')
 
 
 def lists(request):
@@ -12,6 +17,7 @@ def lists(request):
 
 def list(request, slug):
     cur_list = get_object_or_404(List, slug=slug)
+    print (slug)
     print(cur_list)
     items = Film_List_Elem.objects.filter(owner_list=cur_list.pk)
     return render(request, 'blog/list.html', {'list': cur_list, 'items': items})

@@ -1,10 +1,13 @@
 from django.contrib import admin
 from .models import *
+from video.models import Video
 
 # Register your models here.
 
 admin.site.register(List)
 admin.site.register(Film_List_Elem)
+admin.site.register(Video)
+
 
 
 # from django.contrib import admin

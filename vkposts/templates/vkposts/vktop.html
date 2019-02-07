@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% load staticfiles %}
+
+
+
+{% block content %}
+
+
+{% for vk_post in vk_posts %}
+            {% autoescape off %}
+            {{vk_post.widget}}
+            {% endautoescape %}
+{% endfor %}
+
+
+{% endblock %}
+

@@ -23,9 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '5$p_)7vlvk_xpte4*q5n#ebv-hi74ro_@7)!6dqar5vp1__4_z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['drugoekino.top']
+ALLOWED_HOSTS = ['drugoekino.top', '127.0.0.1', 'localhost']
+
 
 # Application definition
 
@@ -39,6 +40,8 @@ INSTALLED_APPS = [
     'blog',
     'filmbase',
     'video',
+    'vkgrab',
+    'vkposts',
 ]
 
 MIDDLEWARE = [
