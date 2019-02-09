@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df9d59a5-bae0-421c-a2ad-3efa346758a6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/passenger_wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/passenger_wsgi.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,7 +16,7 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vkgrab/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state>
               <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
@@ -36,7 +34,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
@@ -45,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="passenger_wsgi.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="passenger_wsgi.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/passenger_wsgi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state>
+              <caret selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -140,13 +138,13 @@
         <option value="$PROJECT_DIR$/blog/templates/blog/list.html" />
         <option value="$PROJECT_DIR$/blog/urls.py" />
         <option value="$PROJECT_DIR$/blog/templates/blog/index.html" />
-        <option value="$PROJECT_DIR$/passenger_wsgi.py" />
         <option value="$PROJECT_DIR$/blog/views.py" />
         <option value="$PROJECT_DIR$/vkposts/urls.py" />
         <option value="$PROJECT_DIR$/mysite/settings.py" />
         <option value="$PROJECT_DIR$/mysite/urls.py" />
         <option value="$PROJECT_DIR$/mysite/wsgi.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/passenger_wsgi.py" />
       </list>
     </option>
   </component>
@@ -173,18 +171,7 @@
             </path>
             <path>
               <item name="drugoekinotop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drugoekinotop" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drugoekinotop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drugoekinotop" type="462c0819:PsiDirectoryNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drugoekinotop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drugoekinotop" type="462c0819:PsiDirectoryNode" />
-              <item name="vkposts" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -525,13 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/passenger_wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -541,7 +521,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vkgrab/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state>
           <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
@@ -595,6 +575,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/passenger_wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="15" />
         </state>
       </provider>
     </entry>
