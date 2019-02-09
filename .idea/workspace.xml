@@ -47,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/passenger_wsgi.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret selection-end-line="15" />
+              <caret column="1" selection-start-column="1" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -581,7 +581,7 @@
     <entry file="file://$PROJECT_DIR$/passenger_wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret selection-end-line="15" />
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
         </state>
       </provider>
     </entry>
