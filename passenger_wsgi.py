@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 
- import os, sys
+import os, sys
 
 #project directory
 sys.path.append('/home/d/drimspb/.local/lib/python2.7/site-packages')
