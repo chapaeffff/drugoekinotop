@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'lists/', include('blog.urls')),
     url(r'sugg/', include('suggested.urls')),
 
-    url(r'', include('index.urls')),
+    url(r'^$', include('index.urls')),
+
 
 ]

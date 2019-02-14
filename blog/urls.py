@@ -31,7 +31,7 @@ from . import views
 
 urlpatterns = [
 
-    url(r'(?P<slug>[\w-]+)/$', views.list, name='list'),
+    url(r'(?P<slug>[\w-]+)$', views.list, name='list'),
     url(r'$', views.lists, name='lists'),
     # url('',  views.index, name='index' ),
 
