@@ -1,0 +1,7 @@
+User-agent: * #указываем, для каких роботов установлены директивы
+Disallow: /filmbase/
+Disallow: /mysite/
+Disallow: /suggested/
+Disallow: /video/
+Disallow: /vkgrab/
+Disallow: /vkposts/
