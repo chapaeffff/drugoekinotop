@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['drugoekino.top', '127.0.0.1', 'localhost']
 
+APPEND_SLASH = True
 
 # Application definition
 
@@ -37,11 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'index',
     'blog',
     'filmbase',
     'video',
-    #'vkgrab',
+    'vkgrab',
     'vkposts',
+    'suggested',
 ]
 
 MIDDLEWARE = [

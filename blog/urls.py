@@ -31,9 +31,9 @@ from . import views
 
 urlpatterns = [
 
-    url(r'lists/$', views.lists, name='lists'),
-    url(r'lists/(?P<slug>[\w-]+)/$', views.list, name='list'),
-    url('',  views.index, name='index' ),
+    url(r'(?P<slug>[\w-]+)/$', views.list, name='list'),
+    url(r'$', views.lists, name='lists'),
+    # url('',  views.index, name='index' ),
 
     # (?P<slug>[\w-]+)/$
 # url(r'lists/<slug:slug>/', views.list, name='list'),

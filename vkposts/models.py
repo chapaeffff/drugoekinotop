@@ -3,25 +3,36 @@ from video.models import Video
 
 # Create your models here.
 
-class VKPost(models.Model):
+class VKPostBase(models.Model):
+    class Meta:
+        abstract = True
     post_id = models.PositiveIntegerField()
     owner_id = models.SmallIntegerField()
     date = models.PositiveIntegerField()
     text = models.TextField()
-    reposts = models.PositiveIntegerField()
+    def __str__(self):
+        return self.text[:100]
+
+
+class VKPost(VKPostBase):
+    # post_id = models.PositiveIntegerField()
+    # owner_id = models.SmallIntegerField()
+    # date = models.PositiveIntegerField()
+    # text = models.TextField()
+    reposts = models.PositiveIntegerField(blank=True, null = True)
     updated = models.DateTimeField(auto_now=True)
     show_in_raw_rating = models.BooleanField(default=True)
     widget = models.TextField(blank=True)
     blocked = models.BooleanField(default=False)
     side_video = models.BooleanField(blank = True, default = False)
+    copy = models.BooleanField(blank = True, default = False)
 
-    def __str__(self):
-        return self.text[:100]
+
 
 class VKAtt(models.Model):
     type = models.CharField(max_length=30)
     order = models.PositiveSmallIntegerField()
-    post_owner =  models.ForeignKey('VKPost', on_delete=models.CASCADE)
+    post_owner = models.ForeignKey('VKPost', on_delete=models.CASCADE)
 
 class VideoAtt(VKAtt):
     # host_att = models.ForeignKey('VKAtt', on_delete=models.CASCADE)

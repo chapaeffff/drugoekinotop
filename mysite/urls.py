@@ -20,10 +20,11 @@ urlpatterns = [
 
     url(r'admin/', admin.site.urls),
     url(r'film/', include ('filmbase.urls')),
-    #url(r'vkgrab/', include('vkgrab.urls')),
+    url(r'vkgrab/', include('vkgrab.urls')),
     url(r'vk/', include('vkposts.urls')),
-    # url(r'lists/', include('blog.urls')),
+    url(r'lists/', include('blog.urls')),
+    url(r'sugg/', include('suggested.urls')),
 
-    url('', include('blog.urls')),
+    url(r'', include('index.urls')),
 
 ]

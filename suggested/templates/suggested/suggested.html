@@ -1,0 +1,58 @@
+{% extends 'blog/base.html' %}
+
+{% load staticfiles %}
+
+
+
+{% block content %}
+
+{{ len}}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+            <script>
+            function get_suggested(){
+                     $.get("{% url 'get_suggested' %}");
+                };
+
+        </script>
+
+
+
+
+<button onclick="get_suggested()">
+get suggs
+</button>
+
+
+
+
+{% for sugg_array in suggs_array%}
+        <div class="vk_post">
+
+            <b>{{sugg_array.sugg.rating}}</b> <p>{{ sugg_array.sugg.text }}
+                <!--<br>-->
+                <!--<a href = https://vk.com/wall{{ vk_post.owner_id}}_{{vk_post.post_id}}>вконтакте</a>-->
+                <!--<br>-->
+                <!--<a href = /admin/vkposts/vkpost/{{vk_post.id}}/change/>в админке</a>-->
+            </p>
+
+            {% for sugg_video in sugg_array.videos %}
+                {{sugg_video.title}}
+            <br>
+            <a href = https://vk.com/video{{sugg_video.owner_id}}_{{sugg_video.video_id}}>
+                https://vk.com/video{{sugg_video.owner_id}}_{{sugg_video.video_id}}
+            </a>
+            <br><br>
+            {% endfor %}
+
+            <!--{% autoescape off %}-->
+            <!--{{vk_post.widget}}-->
+            <!--{% endautoescape %}-->
+
+        </div>
+    {% endfor %}
+
+
+{% endblock %}
+

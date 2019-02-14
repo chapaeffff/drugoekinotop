@@ -16,6 +16,7 @@ def lists(request):
 
 
 def list(request, slug):
+    print ('im here')
     cur_list = get_object_or_404(List, slug=slug)
     print (slug)
     print(cur_list)
