@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+#
 from django.shortcuts import render
 from vkposts.models import VKPost
 from django.http import HttpResponse
