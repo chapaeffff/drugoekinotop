@@ -5,4 +5,11 @@ from .models import *
 # Register your models here.
 
 admin.site.register(Director)
-admin.site.register(Film)
+
+
+class FilmAdmin(admin.ModelAdmin):
+    pass
+    ordering = ('-id',)
+
+admin.site.register(Film, FilmAdmin)
+

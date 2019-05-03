@@ -6,6 +6,7 @@ from django.http import HttpResponse
 
 from vkposts.models import VKPost, VKAtt, VideoAtt, PhotoAtt, Photo, ElseAtt
 from video.models import Video
+from filmbase.models import *
 
 
 import vk
@@ -22,18 +23,19 @@ def vkgrab(request):
     till = request.GET.get("till", 0)
     # posts = VKPost.objects.all()
     month_ago_ts = time.time() - 30*24*3600
-    beg_time = (2019, 1, 1, 0, 0, 0, 0, 0, 0)
-    end_time = (2019, 2, 1, 0, 0, 0, 0, 0, 0)
+    beg_time = (2019, 3, 1, 0, 0, 0, 0, 0, 0)
+    end_time = (2019, 4, 1, 0, 0, 0, 0, 0, 0)
     beg_ts = time.mktime(beg_time)
     end_ts = time.mktime(end_time)
     print (month_ago_ts, beg_ts, end_ts)
     till = month_ago_ts #request.GET.get("till", 0)
     #vk_posts = VKPost.objects.filter(date__gte=beg_ts, date__lte = end_ts).order_by('-reposts').exclude(show_in_raw_rating = False) #exclude(widget__exact='').
     # vk_posts = VKPost.objects.all().order_by('-date').exclude(show_in_raw_rating = False) #exclude(widget__exact='').
-    vk_posts = VKPost.objects.filter(date__gte=beg_ts, date__lte = end_ts, reposts__gte = 45).order_by('-reposts').exclude(show_in_raw_rating = False) #exclude(widget__exact='').
+    vk_posts = VKPost.objects.filter(date__gte=beg_ts, date__lte = end_ts, reposts__gte = 45).order_by('-reposts')#.exclude(show_in_raw_rating = False) #exclude(widget__exact='').
     len_base = len(vk_posts)
     #узнать кто я по acces token
 
+    #этот блок выводит топ месяца в консоль
     # for post in vk_posts:
     #     text = post.text
     #     name = text[:text.find('\n')]
@@ -65,6 +67,7 @@ def vkgrab(request):
 
 
 def check_video(att):
+    print (att)
     #на входе - видео из атта?
     #на выходе?
     video_fields = set(v.name for v in Video._meta.get_fields())
@@ -83,8 +86,8 @@ def check_video(att):
 def get_posts(request):
     print ("get posts")
     vkpost_fields = set(v.name for v in VKPost._meta.get_fields())
-    start = 200
-    limit = 1000
+    start = 0
+    limit = 50
     while start < limit:
         posts = vk_api.wall.get(v=v, count=100, owner_id=-4569, offset=start)
         time.sleep((0.33))
@@ -169,7 +172,7 @@ def get_posts(request):
 
 def get_videos(request):
     added = 0
-    videos = vk_api.video.get(v=v, count=200, owner_id=-4569, offset=110)
+    videos = vk_api.video.get(v=v, count=200, owner_id=-4569, offset=0)
     for video in videos['items']:
 
         if (check_video(video)):
@@ -181,17 +184,138 @@ def get_videos(request):
     return HttpResponse('')
 
 
+def next_post(request):
+    top = VKPost.objects.all().order_by('-reposts')[20:30]
+    for c, item in enumerate(top):
+        print (c, ': ', item.text.splitlines()[0], item.reposts, '\n')
+
+    return HttpResponse('')
+
+
+from django.db.models import Count
+from kinopoisk.movie import Movie
+
+def test_func(request):
+
+    #найти остров собак в базе фильмов:
+    print ('-----------')
+    search = 'Остров собак'
+    films = Film.objects.filter(title__icontains = search)
+    print (films)
+    videos = Video.objects.filter(film = films[0])
+    for v in videos:
+        if v.duration > 3600:
+            print('--Видео--', v.duration, v.owner_id, v)
+            v_atts = VideoAtt.objects.filter(video=v)
+            # print(v_atts)
+            for v_att in v_atts:
+                post = v_att.post_owner
+                print(post.date, post.text[:50])
+                print('===')
+            # print('---===0000')
+
+    #https: // vk.com / video - 4569_456243153
+
+    #https: // vk.com / video - 4569_456243154
+
+
+    # search = 'KИCЛOTA'
+    # videos = Video.objects.filter(title__icontains=search)
+    # print (videos)
+    # for video in videos:
+    #     print()
+    #     print(video)
+    # # posts = VKPost.objects.filter(text__icontains = search)
+    # print (posts)
+
+    # video1 = '-4569_456243148' #капернаум
+    # video1 = '-4569_456243154'  # ахмед
+    # video1 = '-4569_456243155'  # долгий день
+    #
+    # video = vk_api.video.get(videos = str(video1), v=v)
+    # print (video)
+
+    # movie_list = Movie.objects.search('Redacted')
+    #
+    # print( movie_list[0].id)
+    # movie = Movie(id=257818)
+    # print (movie.year)
+    # print ('hey')
+    # name = "Саакянц"
+    #
+    # # # name = "Алексей Балабанов"
+    #
+    # posts = VKPost.objects.filter(text__contains = name).order_by('-date')
+    # print(len(posts))
+    #
+    # for post in posts:
+    #     print (post)
+    #     print ('-------------')
+
+
+    # # title = "Война"
+    # dir_base = Director.objects.filter(name = name)
+    # for dir in dir_base:
+    #     print(dir.kp_id)
+
+    # dir_films = Film.objects.filter(director__name = name)
+    # # print (dir_base)
+    # # print(dir_films)
+    #
+    # dupes = Director.objects.values('name')\
+    #     .annotate(Count('id'))\
+    #     .order_by()\
+    #     .filter(id__count__gt=1)
+    #
+    # fdupes = Film.objects.values('title')\
+    #     .annotate(Count('id'))\
+    #     .order_by()\
+    #     .filter(id__count__gt=1)
+    #
+    #
+    # # dupes2 = Director.objects.filter(name__in=[item['name'] for item in dupes])
+    #
+    # fdupes2 = Film.objects.filter(title__in=[item['title'] for item in fdupes])
+    #
+    # for fdupe in fdupes2:
+    #     print(fdupe)
+    #     # print (Film.objects.filter(director__name = dupe))
+
+
+    # # print (dupes2)
+    # for dupe in dupes2:
+    #     print(dupe)
+    #     print (Film.objects.filter(director__name = dupe))
+
+    # dups = Director.objects.values('name')\
+    #     .annotate(Count('id'))\
+    #     .order_by()\
+    #     .filter(id__count__gt=1)
+
+    # top = VKPost.objects.all().order_by('-reposts')[20:30]
+    # for c, item in enumerate(top):
+    #     print (c, ': ', item.text.splitlines()[0], item.reposts, '\n')
+
+    return HttpResponse('')
+
 def get_hidden(request):
     hidden = Video.objects.filter(views__lte = 5000, duration__gte = 600,  owner_id = -4569).order_by('-views')
 
-    for video in hidden[:10]:
-        print ("Отобрано: ", video.title)
-        posted = VideoAtt.objects.filter(video = video)
-        print('Запощено: ', len(posted))
-        for c, post in enumerate(posted):
-            squad = (VideoAtt.objects.filter(post_owner = post.post_owner))
-            print (c, ": в наборе видео, штук -", len(squad), ' позиция -', post.order )
-        print ('----------')
+    for video in hidden:
+    #     if not brand.cars_set.all().exists():
+    # # delete
+        if not video.videoatt_set.all().exists():
+            print (video.title, video.views)
+
+
+    # for video in hidden[5:20]:
+    #     print ("Отобрано: ", video.title)
+    #     posted = VideoAtt.objects.filter(video = video)
+    #     print('Запощено: ', len(posted))
+    #     for c, post in enumerate(posted):
+    #         squad = (VideoAtt.objects.filter(post_owner = post.post_owner))
+    #         print (c, ": в наборе видео, штук -", len(squad), ' позиция -', post.order )
+    #     print ('----------')
 
     #есть ли пост ккоторому прилеплено видео?
     #если есть пост - есть видеоатт, к которому прилеплено.

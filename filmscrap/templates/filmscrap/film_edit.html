@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+
+<h1>Добавить новый фильм</h1>
+
+
+<form method="POST" class="post-form">{% csrf_token %}
+<button type="submit" name = "_search_kp_id" class="save btn btn-default">Найти и подргурзить kp_id</button>
+<button type="submit" name = "_save" class="save btn btn-default">Save</button>
+
+    {{ form.as_p }}
+
+</form>
+
+{% endblock %}

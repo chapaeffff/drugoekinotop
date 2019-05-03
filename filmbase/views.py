@@ -4,6 +4,7 @@ from kinopoisk.movie import Movie
 
 from blog.models import *
 from video.models import *
+from images.models import *
 
 def film_detail(request, pk):
     film = get_object_or_404(Film, pk=pk)
@@ -15,12 +16,21 @@ def film_detail(request, pk):
         videos = None
 
     try:
-        from_lists = Film_List_Elem.objects.get(film=film)
+        shots = Shot.objects.filter(film = film)
+    except Shot.DoesNotExist:
+        videos = None
+
+
+    try:
+        from_lists = Film_List_Elem.objects.filter(film=film)
     except Film_List_Elem.DoesNotExist:
         from_lists = None
 
-    return render(request, 'filmbase/film_detail.html', {'film': film, 'videos': videos,
-                                                     'from_lists': from_lists})
+    reviews = Review.objects.filter(film=film)
+
+    return render(request, 'filmbase/film_detail.html',
+                  {'film': film, 'videos': videos,
+                   'from_lists': from_lists, 'shots':shots, 'reviews':reviews})
     # return render(request, 'filmbase/film_detail.html', {'pk': pk})
 
 
@@ -50,7 +60,7 @@ def searching(request):
         #
         message = m.title
 
-        google_kp(message)
+        # google_kp(message)
         #
         # movie_list = Movie.objects.search('Redacted')
         # print(movie_list[0].id)

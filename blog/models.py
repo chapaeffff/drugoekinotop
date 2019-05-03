@@ -4,13 +4,31 @@ from transliterate import translit
 from django.utils.encoding import python_2_unicode_compatible
 
 from filmbase.models import *
+from images.models import *
+
+# from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+
+class Author (models.Model):
+    name = models.CharField(max_length=30)
+    surname = models.CharField(max_length=30)
+    comment = models.CharField(max_length=100, blank=True)
+    vk = models.CharField(max_length=40)
+    def __str__(self):
+        return self.name + ' ' + self.surname + '(' + self.comment + ')'
+
 
 @python_2_unicode_compatible
 class List(models.Model):
     title = models.CharField(max_length=400)
-    intro = models.TextField()
+    intro = models.TextField(blank = True)
     slug = models.SlugField(max_length=60, blank=True)
     fin_count = models.PositiveSmallIntegerField(blank = True, null = True)
+    author = models.ForeignKey('Author', on_delete = models.SET_NULL, blank = True, null = True)
+    finished = models.BooleanField(default = False)
+    publish = models.BooleanField(default = True)
+    numered = models.BooleanField(default = False)
+    compact = models.BooleanField(default = False)
 
     def save(self, *args, **kwargs):
         # if not self.id:
@@ -24,16 +42,43 @@ class List(models.Model):
     def __str__(self):
         return self.title
 
+class Section (models.Model):
+    name =  models.CharField(max_length=100)
+    owner = models.ForeignKey('List', on_delete = models.SET_NULL, blank = True, null = True)
+    order = models.IntegerField(null = True, blank = True)
+    def __str__(self):
+        return self.name
 
 class Film_List_Elem(models.Model):
     film = models.ForeignKey('filmbase.Film', on_delete=models.PROTECT)
-    text = models.TextField()
-    order = models.IntegerField()
+    elem_image =  models.ForeignKey('images.Shot',  on_delete=models.PROTECT, blank = True, null = True)
+    text = models.TextField(blank = True)
+    order = models.IntegerField(null = True, blank = True)
     owner_list = models.ForeignKey('List', on_delete=models.PROTECT, null=True, blank=True, default=1)
+    section = models.ForeignKey('Section', on_delete = models.SET_NULL, blank = True, null = True)
+
+
 
     def __str__(self):
         return self.film.title
 
+
+class Review(models.Model):
+    title = models.CharField(max_length=400, blank = True, null = True)
+    film = models.ForeignKey('filmbase.Film', on_delete=models.PROTECT)
+    # text = models.TextField(blank = True)
+    content = RichTextUploadingField(blank = True, null = True)
+    extract = models.TextField(blank = True)
+    author = models.ForeignKey('Author', on_delete = models.SET_NULL, blank = True, null = True)
+    single_article = models.BooleanField(default = False)
+    def __str__(self):
+        return self.title
+
+
+# class Author (models.Model):
+#     name = models.CharField(max_length=30)
+#     surname = models.CharField(max_length=30)
+#     vk = models.CharField(max_length=40)
 
 # from django.db import models
 # from django.utils import timezone

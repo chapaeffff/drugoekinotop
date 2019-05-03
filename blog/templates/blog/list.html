@@ -14,34 +14,50 @@
 </a>
 
 		<h1>{{list.title}}</h1>
-		{{list.intro}}
+		{{list.intro|linebreaks}}
 		{% for item in items %}
 			<div class = "post">
 				<h2>
 										<a href="{% url 'filmbase:film_detail' item.film.pk %}">
 
+					{%if list.numered%}
 					{{list.fin_count|my_substract:forloop.counter0}}.
+											{%endif%}
 					{{item.film.title}} / {{item.film.director}} / {{item.film.year}}</h2>
 
-				<img src = "{{item.film.image}}"> <br> <br>
-</a>
-				<p>{{item.text}}</p>
-		    	{#<a href="{% url 'filmbase.film_detail' pk=item.film.pk %}">страница фильма</a>#}
+
+				{% if  item.elem_image %}
+				<img src = "{{item.elem_image.image.url}}" width = 100%> <br> <br>
+				{% elif item.film.image %}
+				<img src = "{{item.film.image}}" width = 100%> <br> <br>
+				{%endif%}
+				</a>
+
+
+				<p>{{item.text|linebreaks}}</p>
+		    	<!--{#<a href="{% url 'filmbase.film_detail' pk=item.film.pk %}">страница фильма</a>#}-->
 				<a href="{% url 'filmbase:film_detail' item.film.pk %}">страница фильма, смотреть онлайн</a>
 		    </div>
 		{% endfor %}
-
-
 <a href="http://vk.com/share.php?url=http://drugoekino.top/lists/{{list.slug}}"
 
    target="_blank" rel="nofollow">
-	поделиться ВК
+	<b>поделиться</b> этим постом <b>ВКонтакте</b>
 </a>
 
+<br><br>
+{% if list.author %}
+<i>Автор текста:</i> <a href = vk.com/{{list.author.vk}}>{{list.author.name}} {{list.author.surname}}</a>
 <br>
-<br>
+{% endif %}
 
-<div align = center> <b>Продолжение следует... </b><br> Подпишитесь, чтобы получить уведомление о новых публикациях! </div>
+<div align = center>
+	<br>
+	{%if list.finished is False%}
+	<b>Продолжение следует... </b>
+	{%endif%}
+	<br>
+	Подпишитесь на рассылку, для уведомлений о новых публикациях! </div>
 
 
 

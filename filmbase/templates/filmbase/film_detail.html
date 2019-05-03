@@ -16,7 +16,7 @@
 </a>
 
 <br><br>
-Вернуться в статью: <a href = http://drugoekino.top/lists/{{from_lists.owner_list.slug}}>{{from_lists.owner_list}}</a>
+<!--Вернуться в статью: <a href = /lists/{{from_lists.owner_list.slug}}>{{from_lists.owner_list}}</a>-->
 
 
 
@@ -31,20 +31,34 @@
 
 	<h1>{{ film.title}} / {{film.director}} {{film.year}} </h1>
 
-	<img src = "{{film.image}}" width = 853>
+	{%if film.image%}
+	<img src = "{{film.image}}" width = 100%>
+	{%endif%}
+
+	{%if shots%}
+	{%for shot in shots%}
+	<img src = "{{shot.image.url}}" width = 100%>
+	{%endfor%}
+	{%endif%}
 
 	<br><br>
 
+{%for review in reviews%}
+	{{review.extract|linebreaks}}
+{%endfor%}
+{% for list in from_lists %}
+	{% if list.text%}
+		<br>
+		<b>«</b>
+		{{list.text|linebreaks}}
+		<b>»</b> - цитата из статьи
+	{%else %}
+		входит в список:
+	{%endif%}
+	 <a href = /lists/{{list.owner_list.slug}}>{{list.owner_list}}</a>
+	<br><br>
+{% endfor %}
 
-
-
-{{from_lists.text}}
-
-<br><br>
-
-Цитата из статьи: <a href = http://drugoekino.top/lists/{{from_lists.owner_list.slug}}>{{from_lists.owner_list}}</a>
-
-<br><br>
 
 {% if videos.count > 0%}
 
@@ -65,7 +79,7 @@
 			<br><br>
 		{% endfor %}
 
-			<br><br>
+			<br>
 
 
 <a href="http://vk.com/share.php?url=http://drugoekino.top/film/{{film.pk}}"
@@ -73,8 +87,8 @@
    поделиться ВК
 </a>
 
-<br><br>
-Вернуться в статью: <a href = http://drugoekino.top/lists/{{from_lists.owner_list.slug}}>{{from_lists.owner_list}}</a>
+<!--<br><br>-->
+<!--Вернуться в статью: <a href = /lists/{{from_lists.owner_list.slug}}>{{from_lists.owner_list}}</a>-->
 
 </div>
 

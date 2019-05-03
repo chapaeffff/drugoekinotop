@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1>Разбираем видео из раздела видео</h1>
+
+
+        <form method="POST" class="post-form">{% csrf_token %}
+                <button type="submit" name = "_search" class="save btn btn-default">К форме добавления</button>
+    <button type="submit" name = "_save" class="save btn btn-default">Сохранить </button>
+                 <button type="submit" name = "_delete" class="delete btn btn-default">Удалить из базы </button>
+
+            <a href = https://vk.com/video{{form.owner_id.value}}_{{form.video_id.value}}>vk.com/video{{form.owner_id.value}}_{{form.video_id.value}}</a>
+        {{ form.as_p }}
+
+
+
+    </form>
+{% endblock %}

@@ -2,11 +2,36 @@ from django.contrib import admin
 from .models import *
 from video.models import Video
 
+from django.forms import TextInput, Textarea
+from django.db import models
+
+
 # Register your models here.
 
-admin.site.register(List)
-admin.site.register(Film_List_Elem)
-admin.site.register(Video)
+class ListAdmin(admin.ModelAdmin):
+    pass
+    ordering = ('-id',)
+
+admin.site.register(List, ListAdmin)
+admin.site.register(Author)
+admin.site.register(Section)
+admin.site.register(Review)
+
+
+
+
+class Film_List_Elem_Admin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size':'20'})},
+        models.TextField: {'widget': Textarea(attrs={'rows':22, 'cols':100})},
+    }
+
+
+admin.site.register(Film_List_Elem, Film_List_Elem_Admin)
+# admin.site.register(YourModel, YourModelAdmin)
+
+
+
 
 
 

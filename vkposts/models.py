@@ -11,7 +11,7 @@ class VKPostBase(models.Model):
     date = models.PositiveIntegerField()
     text = models.TextField()
     def __str__(self):
-        return self.text[:100]
+        return  self.text[:80] + str(self.post_id)
 
 
 class VKPost(VKPostBase):

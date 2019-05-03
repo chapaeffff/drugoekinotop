@@ -30,9 +30,12 @@ get suggs
 {% for sugg_array in suggs_array%}
         <div class="vk_post">
 
+            <a href = http://127.0.0.1:8000/admin/suggested/suggested/{{sugg_array.sugg.id}}/change/>админка</a>
+
             <b>{{sugg_array.sugg.rating}}</b> <p>{{ sugg_array.sugg.text }}
-                <!--<br>-->
-                <!--<a href = https://vk.com/wall{{ vk_post.owner_id}}_{{vk_post.post_id}}>вконтакте</a>-->
+
+                <br>
+                <a href = https://vk.com/wall{{ sugg_array.sugg.owner_id}}_{{sugg_array.sugg.post_id}}>вконтакте</a>
                 <!--<br>-->
                 <!--<a href = /admin/vkposts/vkpost/{{vk_post.id}}/change/>в админке</a>-->
             </p>

@@ -3,5 +3,5 @@ from .models import *
 
 # Register your models here.
 #
-# admin.site.register(Suggested)
-# admin.site.register(VideoSugg)
+admin.site.register(Suggested)
+admin.site.register(VideoSugg)

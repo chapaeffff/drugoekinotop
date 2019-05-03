@@ -1,0 +1,53 @@
+{% extends 'blog/base.html' %}
+{% load my_substract %}
+
+{% block title %}{{list.title}}{% endblock %}
+
+{% block content %}
+
+
+
+<a href="http://vk.com/share.php?url=http://drugoekino.top/lists/{{list.slug}}"
+
+   target="_blank" rel="nofollow">
+   поделиться ВК
+</a>
+
+		<h1>{{list.title}}</h1>
+		{{list.intro}}
+		{% for item in items %}
+			<div class = "post">
+				<h2>
+
+
+					<a href = http://127.0.0.1:8000/admin/blog/film_list_elem/{{item.id}}/change/> админка</a>
+					<br>
+
+										<a href="{% url 'filmbase:film_detail' item.film.pk %}">
+
+					{{list.fin_count|my_substract:forloop.counter0}}.
+					{{item.film.title}} / {{item.film.director}} / {{item.film.year}}</h2>
+
+				<img src = "{{item.film.image}}"> <br> <br>
+</a>
+				<p>{{item.text|linebreaks}}</p>
+		    	<!--{#<a href="{% url 'filmbase.film_detail' pk=item.film.pk %}">страница фильма</a>#}-->
+				<!--<a href="{% url 'filmbase:film_detail' item.film.pk %}">страница фильма, смотреть онлайн</a>-->
+		    </div>
+		{% endfor %}
+
+
+<a href="http://vk.com/share.php?url=http://drugoekino.top/lists/{{list.slug}}"
+
+   target="_blank" rel="nofollow">
+	поделиться ВК
+</a>
+
+<br>
+<br>
+
+<div align = center> <b>Продолжение следует... </b><br> Подпишитесь, чтобы получить уведомление о новых публикациях! </div>
+
+
+
+{% endblock %}

@@ -30,6 +30,26 @@
 
         </script>
 
+            <script>
+            function video_dechaos(){
+                     $.get("{% url 'video_dechaos' %}");
+                };
+
+        </script>
+
+            <script>
+            function next_post(){
+                     $.get("{% url 'next_post' %}");
+                };
+
+        </script>
+
+            <script>
+            function test_func(){
+                     $.get("{% url 'test_func' %}");
+                };
+
+        </script>
 
 
 
@@ -46,6 +66,17 @@ get videos
 get hidden
 </button>
 
+<button onclick="video_dechaos()">
+video dechaous
+</button>
+
+<button onclick="next_post()">
+next post
+</button>
+
+<button onclick="test_func()">
+test func
+</button>
 
 {% for vk_post in vk_posts %}
         <div class="vk_post">

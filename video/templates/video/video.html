@@ -1,0 +1,76 @@
+{% extends 'blog/base.html' %}
+
+{% load staticfiles %}
+
+
+
+{% block content %}
+
+{{ len}}
+<br>
+{{vi_fi}}
+
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+
+            <!--<script>-->
+            <!--function get_posts(){-->
+                     <!--$.get("{% url 'get_posts' %}");-->
+                <!--};-->
+
+        <!--</script>-->
+
+            <!--<script>-->
+            <!--function get_videos(){-->
+                     <!--$.get("{% url 'get_videos' %}");-->
+                <!--};-->
+
+        <!--</script>-->
+            <!--<script>-->
+            <!--function get_hidden(){-->
+                     <!--$.get("{% url 'get_hidden' %}");-->
+                <!--};-->
+
+        <!--</script>-->
+
+
+
+
+<!--<button onclick="get_posts()">-->
+<!--get posts-->
+<!--</button>-->
+
+
+<!--<button onclick="get_videos()">-->
+<!--get videos-->
+<!--</button>-->
+
+<!--<button onclick="get_hidden()">-->
+<!--get hidden-->
+<!--</button>-->
+
+
+<!--{% for vk_post in vk_posts %}-->
+        <!--<div class="vk_post">-->
+
+
+
+
+
+            <!--<div>-->
+            <!--<b>{{vk_post.reposts}}</b><p>{{ vk_post.text }}-->
+                <!--<br>-->
+                <!--<a href = https://vk.com/wall{{ vk_post.owner_id}}_{{vk_post.post_id}}>вконтакте</a>-->
+                <!--<br>-->
+                <!--<a href = /admin/vkposts/vkpost/{{vk_post.id}}/change/>в админке</a>-->
+            <!--</p>-->
+
+            <!--&lt;!&ndash;{% autoescape off %}&ndash;&gt;-->
+            <!--&lt;!&ndash;{{vk_post.widget}}&ndash;&gt;-->
+            <!--&lt;!&ndash;{% endautoescape %}&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--{% endfor %}-->
+
+
+{% endblock %}
+

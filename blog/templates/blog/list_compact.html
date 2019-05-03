@@ -1,0 +1,111 @@
+{% extends 'blog/base.html' %}
+{% load my_substract %}
+
+{% block title %}{{list.title}}{% endblock %}
+
+{% block content %}
+
+
+
+<a href="http://vk.com/share.php?url=http://drugoekino.top/lists/{{list.slug}}"
+
+   target="_blank" rel="nofollow">
+   поделиться ВК
+
+
+</a>
+
+
+		<h1>{{list.title}}</h1>
+		{{list.intro}}
+
+		{% for section, section_items in sorted_by_section.items%}
+			<h2>{{section}}</h2>
+
+			{% for item in section_items%}
+				<div>
+					<!--class = "post"-->
+					<!--тут надо проверить - есть ли секции-->
+
+
+					<a href="{% url 'filmbase:film_detail' item.film.pk %}">
+						{%if list.numered%}
+							{{list.fin_count|my_substract:forloop.counter0}}.
+						{%endif%}
+						{{item.film.title}}
+						{%if item.film.title_en%}/ {{item.film.title_en}}{%endif%}
+					</a>
+					/ {{item.film.director}}  {{item.film.year}}
+
+
+
+						<!--{% if  item.elem_image %}-->
+						<!--<img src = "{{item.elem_image.image.url}}" width = 100%> <br> <br>-->
+						<!--{% elif item.film.image %}-->
+						<!--<img src = "{{item.film.image}}" width = 100%> <br> <br>-->
+						<!--{%endif%}-->
+
+
+
+					<p>{{item.text|linebreaks}}</p>
+					<!--{#<a href="{% url 'filmbase.film_detail' pk=item.film.pk %}">страница фильма</a>#}-->
+					<!--<a href="{% url 'filmbase:film_detail' item.film.pk %}">страница фильма, смотреть онлайн</a>-->
+			</div>
+			{% endfor %}
+	{% endfor %}
+
+
+		<!--{% for item in items %}-->
+			<!--<div>-->
+				<!--&lt;!&ndash;class = "post"&ndash;&gt;-->
+				<!--&lt;!&ndash;тут надо проверить - есть ли секции&ndash;&gt;-->
+
+
+				<!--<a href="{% url 'filmbase:film_detail' item.film.pk %}">-->
+					<!--{%if list.numered%}-->
+						<!--{{list.fin_count|my_substract:forloop.counter0}}.-->
+					<!--{%endif%}-->
+					<!--{{item.film.title}}-->
+					<!--{%if item.film.title_en%}/ {{item.film.title_en}}{%endif%}-->
+				<!--</a>-->
+				<!--/ {{item.film.director}}  {{item.film.year}}-->
+
+
+
+					<!--&lt;!&ndash;{% if  item.elem_image %}&ndash;&gt;-->
+					<!--&lt;!&ndash;<img src = "{{item.elem_image.image.url}}" width = 100%> <br> <br>&ndash;&gt;-->
+					<!--&lt;!&ndash;{% elif item.film.image %}&ndash;&gt;-->
+					<!--&lt;!&ndash;<img src = "{{item.film.image}}" width = 100%> <br> <br>&ndash;&gt;-->
+					<!--&lt;!&ndash;{%endif%}&ndash;&gt;-->
+
+
+
+				<!--<p>{{item.text|linebreaks}}</p>-->
+		    	<!--&lt;!&ndash;{#<a href="{% url 'filmbase.film_detail' pk=item.film.pk %}">страница фильма</a>#}&ndash;&gt;-->
+				<!--&lt;!&ndash;<a href="{% url 'filmbase:film_detail' item.film.pk %}">страница фильма, смотреть онлайн</a>&ndash;&gt;-->
+		<!--</div>-->
+		<!--{% endfor %}-->
+<br>
+<a href="http://vk.com/share.php?url=http://drugoekino.top/lists/{{list.slug}}"
+
+   target="_blank" rel="nofollow">
+	<b>поделиться</b> этим постом <b>ВКонтакте</b>
+</a>
+
+<br><br>
+{% if list.author %}
+<i>Автор текста:</i> <a href = vk.com/{{list.author.vk}}>{{list.author.name}} {{list.author.surname}}</a>
+<br>
+{% endif %}
+
+<div align = center>
+	<br>
+	{%if list.finished is False%}
+	<b>Список дополняется... </b>
+	{%endif%}
+	<br>
+	Подпишитесь на рассылку, чтобы не пропустить обновления! </div>
+
+
+
+{% endblock %}

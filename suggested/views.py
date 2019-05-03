@@ -14,7 +14,7 @@ v = '5.75'
 
 def get_suggested(request):
     print ("suggested")
-    suggs = vk_api.wall.get(v=v, count=60, owner_id=-4569, offset=25, filter = 'suggests')
+    suggs = vk_api.wall.get(v=v, count=100, owner_id=-4569, offset=50, filter = 'suggests')
     # print (suggs)
 
     vkpost_fields = set(v.name for v in Suggested._meta.get_fields())
@@ -53,9 +53,13 @@ def get_suggested(request):
                 # # print (video_data_clean)
                 #добавить проверку - есть ли видос уже в моих видео? если есть - то пусть просто отдельная процедура?
                 #но я хочу сохранять порядок. А значит мне нужно куда-то его писать.
-                video_sugg, created = VideoSugg.objects.update_or_create(video_id=att['id'],
-                                                                         sugg_post = sugg,
-                                                                         defaults=video_data_clean)
+                try:
+                    video_sugg, created = VideoSugg.objects.update_or_create(video_id=att['id'],
+                                                                             sugg_post = sugg,
+                                                                             defaults=video_data_clean)
+
+                except:
+                    pass
 
 
 
@@ -70,7 +74,7 @@ def get_suggested(request):
 
 def suggested(request):
     suggs_array = []
-    suggs = Suggested.objects.filter(rating__gte = 6).order_by('date')
+    suggs = Suggested.objects.filter(rating__gte = 6).order_by('date').order_by('-rating')
     for sugg in suggs:
         s = {}
         s['sugg']=sugg

@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% load staticfiles %}
+
+
+
+{% block content %}
+
+<!--content-->
+<form action="{% url 'get_vk_video_link' %}" method="POST">{% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock %}
+

@@ -8,6 +8,7 @@ from video.models import VideoBase
 class Suggested(VKPostBase):
     from_id = models.PositiveIntegerField(blank=True)
     rating = models.PositiveSmallIntegerField(default=1)
+    published = models.BooleanField(default=False)
 
 
 # # class Suggested(models.Model):

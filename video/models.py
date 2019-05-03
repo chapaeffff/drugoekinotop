@@ -51,4 +51,5 @@ class Video(VideoBase):
     description = models.TextField(null=True, blank=True)
     kp_id = models.PositiveIntegerField(null=True, blank=True)
     prop_title = models.BooleanField(blank=True, default=False)
+    deleted = models.BooleanField(blank=True, default=False)
     # timeout = models.PositiveSmallIntegerField (null = True, blank = True)
