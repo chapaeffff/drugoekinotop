@@ -24,8 +24,8 @@ def list(request, slug):
 
     print ('im here')
     cur_list = get_object_or_404(List, slug=slug)
-    print (slug)
-    print(cur_list)
+    # print (slug)
+    # print(cur_list)
     if cur_list.compact:
         type = 'compact'
     items = Film_List_Elem.objects.filter(owner_list=cur_list.pk).order_by('section')
@@ -38,9 +38,8 @@ def list(request, slug):
             now_section = ''
         #
         if prev_section != now_section: #now_section:
-            print ('=', item.section)
+            # print ('=', item.section)
             prev_section = now_section
-        print (item)
 
     #надо сперва отсортировать по секциям
     sorted_by_section = {}
