@@ -33,10 +33,3 @@ admin.site.register(ConnectionVKPost)
 # class Tag (models.Model):
 #     tag=  models.CharField(max_length=50)
 #
-#
-# class  ConnectionTag(Connection):
-#     tag = models.ForeignKey("Tag", on_delete=models.CASCADE) #например тег - советские / мультфильмы, пересекаем получаем советские муль
-#
-# class  ConnectionVKPost(Connection):
-#     # post_fid  = models.CharField(max_length=100)
-#     post = models.ForeignKey('vkposts.VKPost', on_delete=models.CASCADE)
