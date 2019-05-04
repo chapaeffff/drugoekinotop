@@ -41,7 +41,6 @@ def list(request, slug):
             # print ('=', item.section)
             prev_section = now_section
 
-    #надо сперва отсортировать по секциям
     sorted_by_section = {}
     sections = Section.objects.filter(owner = cur_list)
     for section in sections:
