@@ -1,8 +1,6 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from django.urls import path
-
 from . import views
 
 # addfilm_url = reverse('admin:filmbase_film_add')
