@@ -24,6 +24,6 @@ from . import views
 
 
 urlpatterns = [
-path('new/', views.image_new, name='image_new'),
+url(r'^new/$', views.image_new, name='image_new'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

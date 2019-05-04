@@ -16,7 +16,6 @@ from django.conf.urls import include, url
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
-from django.urls import path
 
 
 
@@ -31,7 +30,7 @@ urlpatterns = [
     url(r'sugg/', include('suggested.urls')),
     url(r'video/', include('video.urls')),
     url(r'images/', include('images.urls')),
-    path('concepts/', include('concept.urls')),
+    url(r'concepts/', include('concept.urls')),
 
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 

@@ -24,7 +24,7 @@
 #from django.urls import include, path
 
 from django.conf.urls import include, url
-from django.urls import path
+
 from . import views
 
 
@@ -33,7 +33,7 @@ from . import views
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    url(r'$', views.index, name='index'),
     # url(r'(?P<slug>[\w-]+)$', views.list, name='list'),
     # url(r'$', views.lists, name='lists'),
     # # url('',  views.index, name='index' ),

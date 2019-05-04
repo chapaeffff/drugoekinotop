@@ -11,12 +11,12 @@ urlpatterns = [
     url(r'^search/$', views.search, name='search'),
     url(r'^searching/$', views.searching, name='searching'),
     # url(r'^addfilm/$', addfilm_url, name = 'addfilm'),
-    path('film/new/', views.film_new, name='film_new'),
+    url(r'film/new/$', views.film_new, name='film_new'),
     url(r'^video/dechaos/$', views.video_dechaos, name='video_dechaos'),
     url(r'^video/addbylink/$', views.video_addbylink, name='video_addbylink'),
     url(r'^video/link2form/$', views.video_link2form, name='video_link2form'),
 
-    path('', views.filmscrap, name='filmscrap'),
+    url('', views.filmscrap, name='filmscrap'),
     # url('^post/new/', admin.
     #     views.post_new, name='post_new'),
 

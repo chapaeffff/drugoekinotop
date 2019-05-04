@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
 
-    url(r'',  views.index, name='index'),
+    url(r'$',  views.index, name='index'),
 
     # (?P<slug>[\w-]+)/$
 # url(r'lists/<slug:slug>/', views.list, name='list'),
