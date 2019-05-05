@@ -13,6 +13,16 @@
    поделиться ВК
 </a>
 
+
+		{% for item in items %}
+		{{item.film.title}} ({{item.film.year}} /
+		{% endfor%}
+
+		{% for item in items %}
+		{{item.film.title}} |  
+		{% endfor%}
+
+
 		<h1>{{list.title}}</h1>
 		{{list.intro}}
 		{% for item in items %}
