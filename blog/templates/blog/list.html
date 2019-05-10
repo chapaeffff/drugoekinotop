@@ -23,7 +23,11 @@
 					{%if list.numered%}
 					{{list.fin_count|my_substract:forloop.counter0}}.
 											{%endif%}
-					{{item.film.title}} / {{item.film.director}} / {{item.film.year}}</h2>
+					{{item.film.title}} /
+					{%if item.film.title_en%}
+						{{item.film.title_en}} /
+					{%endif%}
+					{{item.film.director}} {{item.film.year}}</h2>
 
 
 				{% if  item.elem_image %}
@@ -36,7 +40,7 @@
 
 				<p>{{item.text|linebreaks}}</p>
 		    	<!--{#<a href="{% url 'filmbase.film_detail' pk=item.film.pk %}">страница фильма</a>#}-->
-				<a href="{% url 'filmbase:film_detail' item.film.pk %}">страница фильма, смотреть онлайн</a>
+				<a href="{% url 'filmbase:film_detail' item.film.pk %}">страница фильма «{{item.film.title}}», смотреть онлайн</a>
 		    </div>
 			<div align = center>***</div>
 		{% endfor %}

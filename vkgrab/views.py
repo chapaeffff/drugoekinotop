@@ -7,6 +7,9 @@ from django.http import HttpResponse
 from vkposts.models import VKPost, VKAtt, VideoAtt, PhotoAtt, Photo, ElseAtt
 from video.models import Video
 from filmbase.models import *
+from concept.models import *
+from blog.models import *
+
 
 
 import vk
@@ -196,23 +199,74 @@ from django.db.models import Count
 from kinopoisk.movie import Movie
 
 def test_func(request):
+    fles = Film_List_Elem.objects.all().order_by('-id')
+    for fle in fles[:1]:
+        value = fle.text
+        value.replace("\"", "\"")
+        value.replace("«", "\"")
+        value.replace("»", "\"")
+        value.replace("<<", "\"")
+        value.replace(">>", "\"")
+        fle.text = value
+        print (fle.text)
+    # posts = VKPost.objects.all().order_by('-id')#objects.all()[:10]
+    # limit = 20
+    # count = 0
+    # print ('---------------------------')
+    # for post in posts:
+    #
+    #     first_line = post.text.split(sep ='\n')[0]
+    #
+    #     till_slash = first_line.split(sep = '/')[0].strip()
+    #
+    #     film = Film.objects.filter(title = till_slash)
+    #
+    #
+    #     if film:
+    #         connections = ConnectionFilm.objects.filter(film=film[0])
+    #         # for c in connections:
+    #         #     print (c)
+    #         if connections:
+    #             for c in connections:
+    #                     concept_connections=\
+    #                         ConnectionFilm.objects.filter(concept = c.concept)
+    #                     if (len(concept_connections) == 1):
+    #
+    #                         print(c.concept, '<-это концепт')
+    #                         print(first_line, '<- это из поста')
+    #                         connectionsVK = ConnectionVKPost.objects.filter(post = post)
+    #                         if (len(connectionsVK) ==1 ):
+    #                             print('подвязан')
+    #                         else:
+    #                             print ('не подвязан')
+    #                         print (film[0], '<- это фильм из базы')
+    #                         print()
+    #                         count += 1
+    #
+    #
+    #
+    #     if count > limit:
+    #         break
+
+    # for post in posts[]:
+    #      print(post[:50])
 
     #найти остров собак в базе фильмов:
-    print ('-----------')
-    search = 'Остров собак'
-    films = Film.objects.filter(title__icontains = search)
-    print (films)
-    videos = Video.objects.filter(film = films[0])
-    for v in videos:
-        if v.duration > 3600:
-            print('--Видео--', v.duration, v.owner_id, v)
-            v_atts = VideoAtt.objects.filter(video=v)
-            # print(v_atts)
-            for v_att in v_atts:
-                post = v_att.post_owner
-                print(post.date, post.text[:50])
-                print('===')
-            # print('---===0000')
+    # print ('-----------')
+    # search = 'Остров собак'
+    # films = Film.objects.filter(title__icontains = search)
+    # print (films)
+    # videos = Video.objects.filter(film = films[0])
+    # for v in videos:
+    #     if v.duration > 3600:
+    #         print('--Видео--', v.duration, v.owner_id, v)
+    #         v_atts = VideoAtt.objects.filter(video=v)
+    #         # print(v_atts)
+    #         for v_att in v_atts:
+    #             post = v_att.post_owner
+    #             print(post.date, post.text[:50])
+    #             print('===')
+    #         # print('---===0000')
 
     #https: // vk.com / video - 4569_456243153
 
