@@ -199,16 +199,17 @@ from django.db.models import Count
 from kinopoisk.movie import Movie
 
 def test_func(request):
-    fles = Film_List_Elem.objects.all().order_by('-id')
-    for fle in fles[:1]:
-        value = fle.text
-        value.replace("\"", "\"")
-        value.replace("«", "\"")
-        value.replace("»", "\"")
-        value.replace("<<", "\"")
-        value.replace(">>", "\"")
-        fle.text = value
-        print (fle.text)
+    print ()
+    # fles = Film_List_Elem.objects.all().order_by('-id')
+    # for fle in fles[:1]:
+    #     value = fle.text
+    #     value.replace("\"", "\"")
+    #     value.replace("«", "\"")
+    #     value.replace("»", "\"")
+    #     value.replace("<<", "\"")
+    #     value.replace(">>", "\"")
+    #     fle.text = value
+    #     print (fle.text)
     # posts = VKPost.objects.all().order_by('-id')#objects.all()[:10]
     # limit = 20
     # count = 0

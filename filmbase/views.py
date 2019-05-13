@@ -18,7 +18,8 @@ def film_detail(request, pk):
         videos = None
 
     try:
-        shots = Shot.objects.filter(film = film)
+        shots = Shot.objects.filter(movie = film)
+        print(shots)
     except Shot.DoesNotExist:
         videos = None
 

@@ -37,7 +37,7 @@
 
 	{%if shots%}
 	{%for shot in shots%}
-	<img src = "{{shot.image.url}}" width = 100%>
+	<img src = "{{ request.scheme }}://{{ request.get_host }}{{shot.image.url}}" width = 100%>
 	{%endfor%}
 	{%endif%}
 
