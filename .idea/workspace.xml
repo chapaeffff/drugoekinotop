@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="df9d59a5-bae0-421c-a2ad-3efa346758a6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/blog/templates/blog/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmbase/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/filmbase/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmbase/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/filmbase/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmbase/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/filmbase/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vkgrab/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="list.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blog/templates/blog/list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="20" column="93" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
+            <state relative-caret-position="241">
+              <caret line="20" column="91" selection-start-line="20" selection-start-column="91" selection-end-line="20" selection-end-column="91" />
             </state>
           </provider>
         </entry>
@@ -36,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/filmbase/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
@@ -46,6 +41,11 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lists.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/templates/blog/lists.html">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="film_detail.html" pinned="false" current-in-tab="false">
@@ -107,18 +107,6 @@
               <folding>
                 <element signature="e#26#61#0" expanded="true" />
                 <marker date="1557742615621" expanded="true" signature="9288:9336" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="0007_auto_20190513_1240.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/filmbase/migrations/0007_auto_20190513_1240.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-              <folding>
-                <element signature="e#24#63#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -221,10 +209,10 @@
         <option value="$PROJECT_DIR$/filmbase/migrations/0008_auto_20190513_1240.py" />
         <option value="$PROJECT_DIR$/filmbase/migrations/0007_auto_20190513_1240.py" />
         <option value="$PROJECT_DIR$/filmbase/models.py" />
-        <option value="$PROJECT_DIR$/blog/templates/blog/list.html" />
         <option value="$PROJECT_DIR$/filmbase/views.py" />
         <option value="$PROJECT_DIR$/vkgrab/views.py" />
         <option value="$PROJECT_DIR$/filmbase/urls.py" />
+        <option value="$PROJECT_DIR$/blog/templates/blog/list.html" />
       </list>
     </option>
   </component>
@@ -790,9 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/templates/blog/lists.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/templates/blog/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -856,24 +841,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/filmbase/templates/filmbase/film_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/templates/blog/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="20" column="93" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
         </state>
       </provider>
     </entry>
@@ -919,6 +890,23 @@
           <folding>
             <element signature="e#39#80#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/templates/blog/lists.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/templates/blog/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="20" column="91" selection-start-line="20" selection-start-column="91" selection-end-line="20" selection-end-column="91" />
         </state>
       </provider>
     </entry>
