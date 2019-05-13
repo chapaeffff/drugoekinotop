@@ -7,7 +7,11 @@ app_name = 'filmbase'
 
 urlpatterns = [
     # url(r'^/$', views.searchkp, name='searchkp'),
-    url('(?P<pk>\d+)/$', views.film_detail, name='film_detail'),
+    url('(?P<pk>\d+)', views.film_detail, name='film_detail'),
+
+    # url(r'^post/(?P<slug>.+)/$', views.post_detail, name='post_detail'),
+    url(r'(?P<slug>[\w-]+)$', views.film_detail, name='film_detail'),
+
     url(r'^search/$', views.search, name='search'),
     url(r'^searching/$', views.searching, name='searching'),
 

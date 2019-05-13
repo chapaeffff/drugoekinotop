@@ -8,8 +8,11 @@ from blog.models import *
 from video.models import *
 from images.models import *
 
-def film_detail(request, pk):
-    film = get_object_or_404(Film, pk=pk)
+def film_detail(request, pk = '', slug = ''):
+    if slug:
+        film = get_object_or_404(Film, slug=slug)
+    else:
+        film = get_object_or_404(Film, pk=pk)
     # video = get_object_or_404(Video, film=film)
 
     try:

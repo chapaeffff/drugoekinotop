@@ -210,6 +210,11 @@ def test_func(request):
     #     value.replace(">>", "\"")
     #     fle.text = value
     #     print (fle.text)
+
+    films = Film.objects.all().order_by('-id')[:10]
+    for film in films:
+        print (film)
+        film.save()
     # posts = VKPost.objects.all().order_by('-id')#objects.all()[:10]
     # limit = 20
     # count = 0

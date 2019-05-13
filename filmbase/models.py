@@ -4,6 +4,11 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.encoding import python_2_unicode_compatible
 
+from transliterate import translit
+
+import uuid
+
+
 # from images.models import *
 
 
@@ -36,8 +41,33 @@ class Film(models.Model):
     imdb_votes = models.PositiveIntegerField(null=True, blank=True)
     # stars = models.ManyToManyField('Actor',  null = True, blank = True,)
     kp_plot = models.TextField(blank = True)
+
+    slug = models.SlugField(max_length=200, default=uuid.uuid4, unique=True)
+
+
     def __str__(self):
-        try: fulltitle= self.title + ' / ' + self.director.name
-        except: fulltitle = self.title + 'no dir'
+        try: fulltitle= self.title + ' / ' + self.director.name + ' ' + self.year
+        except: fulltitle = self.title #+ 'no dir'
         return fulltitle
 
+
+    def save(self, *args, **kwargs):
+        # if not self.id:
+        # Only set the slug when the object is created.
+        self.slug = '{0}-{1}'.format(self.pk,
+                                     slugify(translit(self.title +'-'+str(self.year),
+                                                      'ru', reversed=True)))
+        super(Film, self).save(*args, **kwargs)
+
+# default to 1 day from now
+# def get__film_slug(self):
+#     try:
+#         fulltitle = self.title + ' / ' + self.director.name + ' ' + self.year
+#     except:
+#         fulltitle = self.title  # + 'no dir'
+#     return fulltitle
+#
+#
+#
+# class MyModel(models.Model):
+#   my_date = models.DateTimeField(default=get_default_my_date)
