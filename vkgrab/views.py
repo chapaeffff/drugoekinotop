@@ -90,9 +90,10 @@ def get_posts(request):
     print ("get posts")
     vkpost_fields = set(v.name for v in VKPost._meta.get_fields())
     start = 0
-    limit = 50
+    limit = 2
+    count = min (limit, 100)
     while start < limit:
-        posts = vk_api.wall.get(v=v, count=100, owner_id=-4569, offset=start)
+        posts = vk_api.wall.get(v=v, count=count, owner_id=-4569, offset=start)
         time.sleep((0.33))
         start+=100
         print (start)
@@ -113,7 +114,27 @@ def get_posts(request):
             # print (VKPost.objects.filter(post_id = post['id']))
             # vkpost = VKPost(post_id=post['id'], **data_clean)
             # vkpost.save()pdate_or_create
+
+            check = VKPost.objects.filter(post_id = post['id'])
+
             vkpost, created = VKPost.objects.update_or_create(post_id=post['id'], defaults=data_clean)
+            if created:
+                print ('создан новый')
+            else:
+                print ('обновляем')
+
+            #если новый - то создается, если старый - то апдейт. А
+            #а если в базе есть, а на стене нет?
+            #и если в базе нет - а на стене есть - то он добавится снова, даже удаленный. т.е. либо надо метку
+            #не добавляйся, либо удалять вслед за стеной - это проще?
+
+            #беру 100 постов записанных.
+            #беру 100 постов
+            #надо обозначить границы
+            #айди первого поста
+            #айди последнего поста
+
+
             # print ('updating')
             #1
             # print (atts)
@@ -169,6 +190,70 @@ def get_posts(request):
                 # att.save()
                 # # print(a)
 
+
+    #учитываем закреп - берем пост со второго
+
+    #начало - найти пост с макс айди, который есть в обеих
+    #конец - найти пост с мин айд, которые есть в обеих выборках
+
+    print ('---------------------')
+    count = 100
+    posts = vk_api.wall.get(v=v, count=count, owner_id=-4569, offset=1)
+
+    for newest, post in enumerate(posts['items']):
+        if VKPost.objects.filter(id = post['id']):
+            print ('первое совпадение: ', post['id'], post['text'][:100])
+            newest = post['id']
+            break
+
+    for oldest, post in enumerate(reversed(posts['items'])):
+        if VKPost.objects.filter(id = post['id']):
+            print ('последнее совпадение: ', post['id'], post['text'][:100])
+            oldest = post['id']
+            break
+
+    # for post in posts['items'][newest: oldest]:
+    #     if not VKPost.objects.filter(id = post['id']):
+    #         print ('нЕ НАЙДЕНО: ', post['id'], post['text'][:100])
+
+    #наоборот надо
+    dbposts = VKPost.objects.filter(id__lte = newest, id__gte = oldest).order_by('-id')
+    # print(dbposts[0].id, dbposts[0].text[:100])
+    # print('-')
+    # print(dbposts.last().id, dbposts.last().text[:100])
+    print()
+    for dbpost in dbposts:
+        finded = False
+        for post in posts['items']:
+            if post['id'] == dbpost.id:
+                #совпадение найдено
+                finded = True
+            if finded:
+                continue
+        if not finded:
+            print('нет совпадения: ', dbpost.id,  dbpost.text[:50])
+            dbpost.delete()
+
+        #если айди этого поста нет в свежей выдаче.
+        #как проверить: пошагово сравнить? id и з
+
+    #
+    # p
+    #
+    #
+    #
+    # print('-')
+    # print('-')
+    # print(posts['items'][0]['id'], posts['items'][0]['text'][:100])
+    # print('-')
+    # print(posts['items'][98]['id'], posts['items'][98]['text'][:100])
+    #
+    # print('-------')
+    # dbposts = VKPost.objects.all().order_by('-id')[:100]
+    # print(dbposts[0].id, dbposts[0].text[:100])
+    # print('-')
+    # print(dbposts[96].id, dbposts[96].text[:100])
+
     return HttpResponse('')
 
 
@@ -188,15 +273,28 @@ def get_videos(request):
 
 
 def next_post(request):
-    top = VKPost.objects.all().order_by('-reposts')[20:30]
-    for c, item in enumerate(top):
-        print (c, ': ', item.text.splitlines()[0], item.reposts, '\n')
+    # top = VKPost.objects.all().order_by('-reposts')[20:30]
+    # for c, item in enumerate(top):
+    #     print (c, ': ', item.text.splitlines()[0], item.reposts, '\n')
+
+    # concepts = Concept.objects.all()[:10]
+    # for concept in concepts:
+    #     Conn
+    #
+    postpone = vk_api.wall.get(v=v, count=10, owner_id=-4569, filter = 'postponed')
+    print (postpone)
+    post = vk_api.wall.get(v=v, count=1, owner_id=-4569, offset = 1)
+    print (post)
 
     return HttpResponse('')
 
 
 from django.db.models import Count
 from kinopoisk.movie import Movie
+
+import re
+
+
 
 def test_func(request):
     print ()
@@ -211,49 +309,88 @@ def test_func(request):
     #     fle.text = value
     #     print (fle.text)
 
-    films = Film.objects.all().order_by('-id')[:10]
-    for film in films:
-        print (film)
-        film.save()
-    # posts = VKPost.objects.all().order_by('-id')#objects.all()[:10]
-    # limit = 20
-    # count = 0
-    # print ('---------------------------')
-    # for post in posts:
-    #
-    #     first_line = post.text.split(sep ='\n')[0]
-    #
-    #     till_slash = first_line.split(sep = '/')[0].strip()
-    #
-    #     film = Film.objects.filter(title = till_slash)
-    #
-    #
-    #     if film:
-    #         connections = ConnectionFilm.objects.filter(film=film[0])
-    #         # for c in connections:
-    #         #     print (c)
-    #         if connections:
-    #             for c in connections:
-    #                     concept_connections=\
-    #                         ConnectionFilm.objects.filter(concept = c.concept)
-    #                     if (len(concept_connections) == 1):
-    #
-    #                         print(c.concept, '<-это концепт')
-    #                         print(first_line, '<- это из поста')
-    #                         connectionsVK = ConnectionVKPost.objects.filter(post = post)
-    #                         if (len(connectionsVK) ==1 ):
-    #                             print('подвязан')
-    #                         else:
-    #                             print ('не подвязан')
-    #                         print (film[0], '<- это фильм из базы')
-    #                         print()
-    #                         count += 1
-    #
-    #
-    #
-    #     if count > limit:
-    #         break
+    # films = Film.objects.all().order_by('-id')[:10]
+    # for film in films:
+    #     print (film)
+    #     film.save()
+    # concepts = Concept.objects.all()
+    # for con in concepts:
+    #     connections = ConnectionFilm.objects.filter(concept = con)
+    #     if len(connections) == 0:
+    #         print ('сирота: ', con)
+    # for c in connections:
+    #     concept_connections=\
+    #     ConnectionFilm.objects.filter(concept = c.concept)
 
+
+
+    ##################
+    posts = VKPost.objects.all().order_by('-id')#objects.all()[:10]
+    limit = 350
+    count = 0
+    print ('---------------------------')
+    for post in posts:
+
+        first_line = post.text.split(sep ='\n')[0]
+
+        till_slash = first_line.split(sep = '/')[0].strip()
+
+        try:
+            year = re.findall(r'\d+', first_line)[-1]
+        except:
+            year = 0
+
+
+        film = Film.objects.filter(title = till_slash, year = year)
+
+
+        if film:
+            print(first_line, '<- это из поста')
+            print (year)
+            print(film[0], '<- это фильм из базы')
+            connections = ConnectionFilm.objects.filter(film=film[0])
+            # for c in connections:
+            #     print (c)
+            if connections:
+                print ('есть связи фильм-концепт')
+                for c in connections:
+                        concept_connections=\
+                            ConnectionFilm.objects.filter(concept = c.concept)
+                        if (len(concept_connections) == 1):
+
+                            print(c.concept, '<-это концепт')
+
+                            connectionsVK = ConnectionVKPost.objects.filter(post = post)
+                            if (len(connectionsVK) ==1 ):
+                                print('пост подвязан')
+
+                            else:
+                                print ('пост не подвязан')
+                                # значит надо подвязать?
+                                new_vk = ConnectionVKPost.objects.create(concept = c.concept, post = post)
+                                print ('ПОДВЯЗАЛИ, проверь повторным запуском')
+                        else:
+                            print ('нет фильма-концепта (но есть какой-то другой?)')
+            else:
+                print (('НЕТ связи фильм-концепт'))
+                #но если фильм-концепты не создаются без предв создания связи,
+                #то значит нет и самого концепта
+                #значит надо создать концепт и связь!
+                #для этого сперва делаем концепт
+                #а потом - связь
+                #ну заодно и подвязать пост? ну пусть в 2 этапа сначла
+                new_concept = Concept.objects.create()
+                new_film_conn = ConnectionFilm.objects.create(concept = new_concept, film = film[0])
+                new_vk = ConnectionVKPost.objects.create(concept=new_concept, post=post)
+                print('ПОДВЯЗАЛИ, проверь повторным запуском')
+            print()
+            count += 1
+
+
+
+        if count > limit:
+            break
+    ######################
     # for post in posts[]:
     #      print(post[:50])
 

@@ -18,7 +18,7 @@
 		{% for item in items %}
 			<div class = "post">
 				<h2>
-										<a href="{% url 'filmbase:film_detail' item.film.pk %}">
+										<a href="{% url 'filmbase:film_detail' item.film.slug %}">
 
 					{%if list.numered%}
 					{{list.fin_count|my_substract:forloop.counter0}}.
