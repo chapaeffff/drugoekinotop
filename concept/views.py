@@ -128,7 +128,7 @@ def index(request):
         concepts_ext[concept] = c
         # print(concepts_ext[concept]['rating'])
     for s in sorted(concepts_ext.items(),
-                    key = lambda k_v: k_v[1]['rating'], reverse = True)[3:4]:
+                    key = lambda k_v: k_v[1]['rating'], reverse = True)[4:5]:
         print (concepts_ext[s[0]], s[0])
 
         con_film = ConnectionFilm.objects.filter(concept= (s[0]))
@@ -151,13 +151,15 @@ def index(request):
                 print()
             print ('---посты ---')
 
-            video_finds = vk_api.video.search (v = v, q = the_film.title, longer = 3600)
+            video_finds = vk_api.video.search (v = v, q = the_film.title, longer = 36)
+            top10 = False
             for p, vf in enumerate(video_finds['items'][:10]):
                 if vf['owner_id'] == -4569:
                     print (p, 'позиция')
+                    top10 = True
                     break
-                else:
-                    print ('не вошло в десятку')
+            if not top10:
+                print ('не вошло в десятку')
 
             for v in videos:
 
