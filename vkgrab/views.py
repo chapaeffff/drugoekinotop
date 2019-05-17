@@ -281,10 +281,16 @@ def next_post(request):
     # for concept in concepts:
     #     Conn
     #
-    postpone = vk_api.wall.get(v=v, count=10, owner_id=-4569, filter = 'postponed')
-    print (postpone)
-    post = vk_api.wall.get(v=v, count=1, owner_id=-4569, offset = 1)
-    print (post)
+    # postpone = vk_api.wall.get(v=v, count=10, owner_id=-4569, filter = 'postponed')
+    # print (postpone)
+    # post = vk_api.wall.get(v=v, count=1, owner_id=-4569, offset = 1)
+    # print (post)
+
+    films = Film.objects.all()
+    for film in films:
+        print (film.slug)
+        film.save()
+        print (film.slug)
 
     return HttpResponse('')
 
