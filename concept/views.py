@@ -128,7 +128,7 @@ def index(request):
         concepts_ext[concept] = c
         # print(concepts_ext[concept]['rating'])
     for s in sorted(concepts_ext.items(),
-                    key = lambda k_v: k_v[1]['rating'], reverse = True)[4:5]:
+                    key = lambda k_v: k_v[1]['rating'], reverse = True)[5:7]:
         print (concepts_ext[s[0]], s[0])
 
         con_film = ConnectionFilm.objects.filter(concept= (s[0]))
