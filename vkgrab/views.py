@@ -26,8 +26,8 @@ def vkgrab(request):
     till = request.GET.get("till", 0)
     # posts = VKPost.objects.all()
     month_ago_ts = time.time() - 30*24*3600
-    beg_time = (2019, 3, 1, 0, 0, 0, 0, 0, 0)
-    end_time = (2019, 4, 1, 0, 0, 0, 0, 0, 0)
+    beg_time = (2019, 4, 1, 0, 0, 0, 0, 0, 0)
+    end_time = (2019, 5, 1, 0, 0, 0, 0, 0, 0)
     beg_ts = time.mktime(beg_time)
     end_ts = time.mktime(end_time)
     print (month_ago_ts, beg_ts, end_ts)
@@ -39,20 +39,20 @@ def vkgrab(request):
     #узнать кто я по acces token
 
     #этот блок выводит топ месяца в консоль
-    # for post in vk_posts:
-    #     text = post.text
-    #     name = text[:text.find('\n')]
-    #     print(name)
-    #     # # print (post['reposts']['count'], name)
-    #     print('http://vk.com/wall-' + '4569' + '_' + str(post.post_id))
-    #     # print(post)
-    #     atts = VideoAtt.objects.filter(post_owner = post, video__duration__gte = 3600)
-    #     if (len(atts))<5:
-    #         for att in atts:
-    #             # print (att.video.title)
-    #             print ('https://vk.com/video'+str(att.video.owner_id) + '_' + str(att.video.video_id))
-    #
-    #     print()
+    for post in vk_posts:
+        text = post.text
+        name = text[:text.find('\n')]
+        print(name)
+        # # print (post['reposts']['count'], name)
+        print('http://vk.com/wall-' + '4569' + '_' + str(post.post_id))
+        # print(post)
+        atts = VideoAtt.objects.filter(post_owner = post, video__duration__gte = 3600)
+        if (len(atts))<5:
+            for att in atts:
+                # print (att.video.title)
+                print ('https://vk.com/video'+str(att.video.owner_id) + '_' + str(att.video.video_id))
+
+        print()
 
 
     return render(request, 'vkgrab/vkgrab.html',{'len': len_base, 'vk_posts':vk_posts})
@@ -90,7 +90,7 @@ def get_posts(request):
     print ("get posts")
     vkpost_fields = set(v.name for v in VKPost._meta.get_fields())
     start = 0
-    limit = 2
+    limit = 40
     count = min (limit, 100)
     while start < limit:
         posts = vk_api.wall.get(v=v, count=count, owner_id=-4569, offset=start)
