@@ -26,11 +26,6 @@ def film_detail(request, pk = '', slug = ''):
     except Shot.DoesNotExist:
         videos = None
 
-    # for video in videos:
-    #     # print (video)
-    #     # print (video.player)
-    #     # print ('http://127.0.0.1:8000/admin/video/video/'+str(video.id) + '/change/')
-    #     print()
 
 
     try:
