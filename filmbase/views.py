@@ -21,9 +21,9 @@ def film_detail(request, pk = '', slug = ''):
 
     try:
         shots = Shot.objects.filter(movie = film)
-        print(shots)
+        # print(shots)
     except Shot.DoesNotExist:
-        videos = None
+        shots = None
 
 
 
