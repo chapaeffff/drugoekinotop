@@ -32,6 +32,9 @@ class List(models.Model):
     numered = models.BooleanField(default = False)
     compact = models.BooleanField(default = False)
 
+    elem_image =  models.ForeignKey('images.Image',  on_delete=models.SET_NULL, blank = True, null = True)
+
+
     def save(self, *args, **kwargs):
         # if not self.id:
         # Only set the slug when the object is created.

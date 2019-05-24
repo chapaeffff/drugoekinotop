@@ -24,9 +24,6 @@ def film_detail(request, pk = '', slug = ''):
         # print(shots)
     except Shot.DoesNotExist:
         shots = None
-
-
-
     try:
         from_lists = Film_List_Elem.objects.filter(film=film)
     except Film_List_Elem.DoesNotExist:
