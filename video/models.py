@@ -24,7 +24,7 @@ class VideoBase(models.Model):
 
     def __str__(self):
         if self.title:
-            return self.title.encode('utf-8')
+            return self.title#.encode('utf-8')
         else:
             return 'Untitled'
 

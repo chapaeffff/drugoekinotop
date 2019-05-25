@@ -13,6 +13,7 @@ def film_detail(request, pk = '', slug = ''):
         film = get_object_or_404(Film, slug=slug)
     else:
         film = get_object_or_404(Film, pk=pk)
+    print (film, 'here')
 
     try:
         videos = Video.objects.filter(film = film)

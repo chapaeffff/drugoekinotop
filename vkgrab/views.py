@@ -286,12 +286,21 @@ def next_post(request):
     # post = vk_api.wall.get(v=v, count=1, owner_id=-4569, offset = 1)
     # print (post)
 
-    films = Film.objects.all()
+    # films = Film.objects.all()
+    # for film in films:
+    #     print (film.slug)
+    #     film.save()
+    #     print (film.slug)
+    q = "Высшее общество"
+    films = Film.objects.filter(title__contains=q)
+    # print (film)
     for film in films:
-        print (film.slug)
-        film.save()
-        print (film.slug)
-
+        print ('film/'+film.slug)
+        videos = Video.objects.filter(film = film)
+        # print (str(videos))
+        for v in videos:
+            print (v)
+            print ('vk.com/video' + str (v.owner_id)+ '_' + str(v.video_id))
     return HttpResponse('')
 
 
