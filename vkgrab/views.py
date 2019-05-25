@@ -291,10 +291,11 @@ def next_post(request):
     #     print (film.slug)
     #     film.save()
     #     print (film.slug)
-    q = "Высшее общество"
+    q = "Ван Гоги"
     films = Film.objects.filter(title__contains=q)
     # print (film)
     for film in films:
+        film.save()
         print ('film/'+film.slug)
         videos = Video.objects.filter(film = film)
         # print (str(videos))
