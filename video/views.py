@@ -124,7 +124,7 @@ def video_edit(request):
         vk_video = vk_api.video.get(videos = str(owner_id)+'_'+str(video_id), v = v)['items'][0]
         # print (vk_video['items'][0])
         video =  check_video(vk_video)
-        print (video)#Video.objects.get(owner_id=owner_id, video_id=video_id)
+        # print (video)#Video.objects.get(owner_id=owner_id, video_id=video_id)
         form = VideoForm(instance = video)
     return render(request, 'filmscrap/video_dechaos.html', {'form': form})
 
