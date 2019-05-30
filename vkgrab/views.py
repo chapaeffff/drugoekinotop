@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 #
+import datetime
 from django.shortcuts import render
 from vkposts.models import VKPost
 from django.http import HttpResponse
@@ -13,7 +14,9 @@ from blog.models import *
 
 
 import vk
-access_token = '9b778d9a0a4d6b24bdd3c3ae1cdf59185e9e163902090df400ef7d9eb288c19619cedc9f1fcef39f4a86d'
+from django.conf import settings
+
+access_token = settings.VK_TOKEN
 
 session = vk.Session(access_token=access_token)
 vk_api = vk.API(session)
@@ -272,7 +275,82 @@ def get_videos(request):
     return HttpResponse('')
 
 
+import tmdbsimple as tmdb
+tmdb.API_KEY = 'aef80e218767375116820b75d9dddf69'
+
+from time import sleep
+from filmscrap.views import search_kp_id, clean_kp_film,get_kp_data
+
+from django.utils import timezone
+
+
+
+
 def next_post(request):
+
+    # #апдейтим по одному с кинопоиска, актуально! может еще добавить динамику
+    # #альтернативные названия и т.п.
+    # for_updating = Film.objects.filter(year__gte = 2017, modified = None)
+    # for film in for_updating[:1]:
+    #     # print  (film.__dict__)
+    #     print (film.kp_id)
+    #     print (film.title, film.year)
+    #     print (film.votes)
+    #     print (film.rating)
+    #
+    #     kp_data = get_kp_data(film.kp_id)
+    #     kp_data.pop('kp_id', None)
+    #     kp_data.pop('id', None)
+    #     kp_data['modified'] = timezone.now()
+    #     # print(kp_data)
+    #     # print('here kp data')
+    #
+    #     Film.objects.filter(kp_id=film.kp_id).update(**kp_data)
+    #     # m = Film.objects.get(kp_id=film.kp_id)
+    #     #
+    #     # for (key, value) in kp_data.items():
+    #     #     setattr(m, key, value)
+    #     #     print (m['key'])
+    #
+    #
+    #     # upd_film = Film.objects.get(kp_id = m.kp_id)
+    #     # upd_film = m
+    #     # m.save()
+    #     m = Film.objects.get(kp_id=film.kp_id)
+    #     print (m.votes)
+    #     print (m.rating)
+    #     # print (m.__dict__)
+
+
+    #тестируем тмдб
+    #
+    # m = tmdb.Movies(507076)
+    # response = m.info( language = 'ru')
+    # d = m.__dict__
+    # # print (d)
+    # # print (m.alternative_titles())
+    # # print (m.release_dates())
+    # releases = (m.release_dates()['results'])
+    # print()
+    # # print (releases)
+    # for r in releases:
+    #     if r['iso_3166_1'] == 'RU':
+    #         print (r)
+    # for r in releases:
+    #     print (r)
+    # q = 'Экстаз'
+    #
+    # search = tmdb.Search()
+    # response = search.movie(query=q)
+    # for s in search.results[:1]:
+    #     print(s['title'], s['id'], s['release_date'], s['popularity'])
+    #     print (s)
+
+
+
+
+
+
     # top = VKPost.objects.all().order_by('-reposts')[20:30]
     # for c, item in enumerate(top):
     #     print (c, ': ', item.text.splitlines()[0], item.reposts, '\n')
@@ -291,17 +369,78 @@ def next_post(request):
     #     print (film.slug)
     #     film.save()
     #     print (film.slug)
-    q = "Ван Гоги"
-    films = Film.objects.filter(title__contains=q)
-    # print (film)
-    for film in films:
-        film.save()
-        print ('film/'+film.slug)
-        videos = Video.objects.filter(film = film)
-        # print (str(videos))
-        for v in videos:
-            print (v)
-            print ('vk.com/video' + str (v.owner_id)+ '_' + str(v.video_id))
+    # q = "Дама пик"
+    # films = Film.objects.filter(title__contains=q)
+    # # print (film)
+    # for film in films:
+    #     film.save()
+    #     print ('film/'+film.slug)
+    #     videos = Video.objects.filter(film = film)
+    #     # print (str(videos))
+    #     for v in videos:
+    #         print (v)
+    #         print ('vk.com/video' + str (v.owner_id)+ '_' + str(v.video_id))
+
+    #найти фильмы для которых нет видео
+    month_ago = timezone.now()-datetime.timedelta(days=30)
+    films = Film.objects.filter(year__gte = 2017,  rating__gte = 6.5)
+    for_upd = films.filter(last_search__lte = month_ago)|films.filter(last_search = None)
+    films = for_upd
+    print (films)
+    api_count = 0
+    api_break = 1
+    for f in films:
+        if api_count>=api_break:
+            break
+        v = Video.objects.filter(film=f, duration__gte = 600)
+
+        if not v:
+            print (f.title, f.director, f.year, f.rating, f.votes)
+            str1 = f.title + ' ' + str(f.director)
+            str2 =  f.title + ' ' + str(f.year)
+            str3 = f.title + ' ' + str(f.year+1)
+            str4 = f.title
+            #здесь выбираем поиск строку
+            q = str1
+            print ('q', q)
+
+            # search = vk_api.video.search( v = '5.75', q = f.title + ' ' + str(f.director), longer = 3600) # + str(f.year)
+            print('---------------------------------')
+            search_feed = vk_api.newsfeed.search(v= '5.75', q = q, count = 200)
+            api_count +=1
+            # sleep(0.33)
+
+            for s in search_feed['items']:
+                full_video = False
+                try:
+                    atts= (s['attachments'])
+                    for att in atts:
+                        if att['type'] ==  'video':
+                            video = att['video']
+                            if (video['duration'])>(f.runtime*60 -450):
+                                full_video =  True
+                                print (video['duration'])
+                                print(video['title'])
+
+                                print('vk.com/video'+str(video['owner_id'])+ '_'+str(video['id']))
+                                print(video)
+                                print()
+                    if full_video:
+                        print('vk.com/wall'+str(s['owner_id'])+ '_' + str(s['id']))
+                        # print (s)
+                        print('---------------------------')
+                        print('---------------------------')
+                except:
+                    pass
+            print(f.last_search)
+            f.last_search =  timezone.now()
+
+            f.save()
+            print(f.last_search)
+
+    #обновить инфу о свежих фильмах
+
+
     return HttpResponse('')
 
 
@@ -342,7 +481,7 @@ def test_func(request):
 
     ##################
     posts = VKPost.objects.all().order_by('-id')#objects.all()[:10]
-    limit = 350
+    limit = 1500
     count = 0
     print ('---------------------------')
     for post in posts:
@@ -351,6 +490,9 @@ def test_func(request):
 
         till_slash = first_line.split(sep = '/')[0].strip()
 
+        if till_slash == "Дама Пик":
+            print ('dama pik')
+
         try:
             year = re.findall(r'\d+', first_line)[-1]
         except:
@@ -358,34 +500,46 @@ def test_func(request):
 
 
         film = Film.objects.filter(title = till_slash, year = year)
+        try:
+            if film[0].title == "Дама пик":
+                print('dama pik film')
+        except:
+            pass
 
 
         if film:
-            print(first_line, '<- это из поста')
-            print (year)
-            print(film[0], '<- это фильм из базы')
+            # print(first_line, '<- это из поста')
+            # print (year)
+            # print(film[0], '<- это фильм из базы')
             connections = ConnectionFilm.objects.filter(film=film[0])
             # for c in connections:
             #     print (c)
             if connections:
-                print ('есть связи фильм-концепт')
+                # print ('есть связи фильм-концепт')
                 for c in connections:
                         concept_connections=\
                             ConnectionFilm.objects.filter(concept = c.concept)
                         if (len(concept_connections) == 1):
 
-                            print(c.concept, '<-это концепт')
+                            # print(c.concept, '<-это концепт')
 
                             connectionsVK = ConnectionVKPost.objects.filter(post = post)
                             if (len(connectionsVK) ==1 ):
-                                print('пост подвязан')
+                                # print('пост подвязан')
+                                pass
 
                             else:
                                 print ('пост не подвязан')
                                 # значит надо подвязать?
                                 new_vk = ConnectionVKPost.objects.create(concept = c.concept, post = post)
+                                print(first_line, '<- это из поста')
+                                print (year)
+                                print(film[0], '<- это фильм из базы')
+
                                 print ('ПОДВЯЗАЛИ, проверь повторным запуском')
                         else:
+                            print((len(concept_connections)))
+                            print(first_line)
                             print ('нет фильма-концепта (но есть какой-то другой?)')
             else:
                 print (('НЕТ связи фильм-концепт'))
@@ -398,8 +552,12 @@ def test_func(request):
                 new_concept = Concept.objects.create()
                 new_film_conn = ConnectionFilm.objects.create(concept = new_concept, film = film[0])
                 new_vk = ConnectionVKPost.objects.create(concept=new_concept, post=post)
+                print(first_line, '<- это из поста')
+                print(year)
+                print(film[0], '<- это фильм из базы')
+
                 print('ПОДВЯЗАЛИ, проверь повторным запуском')
-            print()
+            # print()
             count += 1
 
 

@@ -85,7 +85,9 @@ def get_vk_video_link(request):
 from vkgrab.views import check_video
 
 import vk
-access_token = '9b778d9a0a4d6b24bdd3c3ae1cdf59185e9e163902090df400ef7d9eb288c19619cedc9f1fcef39f4a86d'
+from django.conf import settings
+
+access_token = settings.VK_TOKEN
 
 session = vk.Session(access_token=access_token)
 vk_api = vk.API(session)

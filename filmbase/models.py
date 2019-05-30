@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from django.utils import timezone
+
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.encoding import python_2_unicode_compatible
@@ -41,8 +43,17 @@ class Film(models.Model):
     imdb_votes = models.PositiveIntegerField(null=True, blank=True)
     # stars = models.ManyToManyField('Actor',  null = True, blank = True,)
     kp_plot = models.TextField(blank = True)
+    moratory10 = models.PositiveSmallIntegerField(blank = True, null = True) #1 - wait a bit, #10 - wait a lot
+
+    release = models.DateTimeField(blank = True, null = True)
+    profit_usa = models.PositiveIntegerField(null=True, blank=True)
+    profit_russia = models.PositiveIntegerField(null=True, blank=True)
+
+    last_search = models.DateTimeField(blank = True, null = True)
 
     slug = models.SlugField(max_length=200, default=uuid.uuid4, unique=True)
+
+    modified = models.DateTimeField(blank=True, null = True)
 
 
     def __str__(self):
@@ -57,6 +68,7 @@ class Film(models.Model):
         self.slug = '{0}-{1}'.format(self.pk,
                                      slugify(translit(self.title +'-'+str(self.year),
                                                       'ru', reversed=True)))
+        self.modified = timezone.now()
         super(Film, self).save(*args, **kwargs)
 
 # default to 1 day from now

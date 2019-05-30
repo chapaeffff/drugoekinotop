@@ -4,7 +4,7 @@ __pycache__
 myvenv
 .DS_Store
 
-
+mysite/settings.py
 
 manage.py
 

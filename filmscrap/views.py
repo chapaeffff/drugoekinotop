@@ -89,10 +89,18 @@ def google_kp(name):
 
 def clean_kp_film(m):
     data = (vars(m))
+    print ('data')
+    print (data)
     data = dict(data, kp_plot=data['plot'], kp_id = data['id'])
     fields = set(f.name for f in Film._meta.get_fields())
     data_clean = {k: v for k, v in data.items() if k in fields}
     return data_clean
+
+def get_kp_data(kp_id):
+    m = Movie(id=kp_id)
+    m.get_content('main_page')
+    return clean_kp_film(m)
+
 
 
 def search_kp_id(kp_id):
@@ -100,14 +108,22 @@ def search_kp_id(kp_id):
     print ('here')
     print (kp_id)
     m = Movie(id=kp_id)
-    print (m)
-    print (m.title)
     m.get_content('main_page')
-    print(m.directors)
+    # print (m)
+    # print (m.title)
+    # print (m.release)
+    # # print (m.)
+    # print (m.series)
+    # print (m.actors)
+    # print (m.profit_russia)
+    # print (m.profit_world)
     dir_name = m.directors[0]
-    print (dir_name)
     dir_kp_id = m.directors[0].id
-    print (m.directors)
+    # l = dir(m)
+    # print (l)
+    # d = m.__dict__
+    # print (d)
+    # print (m.directors)
     director, created = Director.objects.get_or_create(name = dir_name, kp_id = dir_kp_id)
     print (created)
 
@@ -120,6 +136,11 @@ def search_kp_id(kp_id):
     # f = Film (director = d, **clean_kp_film(m))
     # f.save()
     return film
+
+
+# def search_tmdb(kp_id):
+
+
 
 
 def film_new(request):
@@ -301,9 +322,10 @@ def film_new(request):
             check = Film.objects.filter(kp_id=kp_id)
             if len (check)>0:
                 print (check)
-            else:
-                print ('no entry')
+            # else:
+            #     print ('no entry')
                 film = search_kp_id(kp_id)
+
                 form = FilmForm(instance=film)
         elif '_save' in request.POST:
             form = FilmForm(request.POST)

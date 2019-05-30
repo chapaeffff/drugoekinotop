@@ -13,8 +13,9 @@ import re
 from time import sleep
 
 import vk
-access_token = '9b778d9a0a4d6b24bdd3c3ae1cdf59185e9e163902090df400ef7d9eb288c19619cedc9f1fcef39f4a86d'
+from django.conf import settings
 
+access_token = settings.VK_TOKEN
 session = vk.Session(access_token=access_token)
 vk_api = vk.API(session)
 v = '5.75'
@@ -157,7 +158,7 @@ def index(request):
                 if vf['owner_id'] == -4569:
                     print (p, 'позиция')
                     top10 = True
-                    break
+                    # break
             if not top10:
                 print ('не вошло в десятку')
 

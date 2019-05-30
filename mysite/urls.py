@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
 
     url(r'admin/', admin.site.urls),
-    url(r'film/', include ('filmbase.urls')),
+    url(r'film/', include ('filmbase.urls', namespace='filmbase')),
     url(r'scrap/', include('filmscrap.urls')),
     url(r'vkgrab/', include('vkgrab.urls')),
     url(r'vk/', include('vkposts.urls')),

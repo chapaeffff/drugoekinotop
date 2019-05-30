@@ -142,4 +142,4 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+VK_TOKEN = '9b778d9a0a4d6b24bdd3c3ae1cdf59185e9e163902090df400ef7d9eb288c19619cedc9f1fcef39f4a86d'

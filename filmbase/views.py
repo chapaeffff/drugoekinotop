@@ -1,18 +1,30 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 from kinopoisk.movie import Movie
 
 from blog.models import *
 from video.models import *
 from images.models import *
 
+
+
 def film_detail(request, pk = '', slug = ''):
     if slug:
         film = get_object_or_404(Film, slug=slug)
+        print ('slug here')
     else:
         film = get_object_or_404(Film, pk=pk)
+        print ('no slug!')
+        #
+        # return redirect('/film/'+film.slug + '?slug = '+ film.slug)
+        # print(film.slug )
+        return redirect('filmbase:film_detail_slug', slug=film.slug)
+        # return HttpResponseRedirect(reverse('film_detail_slug', args=(film.slug,)))
+        # # return HttpResponseRedirect(reverse('film_detail', slug =(film.slug)))
+
     print (film, 'here')
 
     try:
