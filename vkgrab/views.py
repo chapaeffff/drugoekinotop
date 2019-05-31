@@ -275,8 +275,8 @@ def get_videos(request):
     return HttpResponse('')
 
 
-import tmdbsimple as tmdb
-tmdb.API_KEY = 'aef80e218767375116820b75d9dddf69'
+# import tmdbsimple as tmdb
+# tmdb.API_KEY = 'aef80e218767375116820b75d9dddf69'
 
 from time import sleep
 from filmscrap.views import search_kp_id, clean_kp_film,get_kp_data
@@ -382,63 +382,80 @@ def next_post(request):
     #         print ('vk.com/video' + str (v.owner_id)+ '_' + str(v.video_id))
 
     #найти фильмы для которых нет видео
-    month_ago = timezone.now()-datetime.timedelta(days=30)
-    films = Film.objects.filter(year__gte = 2017,  rating__gte = 6.5)
-    for_upd = films.filter(last_search__lte = month_ago)|films.filter(last_search = None)
-    films = for_upd
-    print (films)
-    api_count = 0
-    api_break = 1
-    for f in films:
-        if api_count>=api_break:
+    # month_ago = timezone.now()-datetime.timedelta(days=30)
+    # films = Film.objects.filter(year__gte = 2017,  rating__gte = 6.5)
+    # for_upd = films.filter(last_search__lte = month_ago)|films.filter(last_search = None)
+    # films = for_upd
+    # print (films)
+    # api_count = 0
+    # api_break = 1
+    # for f in films:
+    #     if api_count>=api_break:
+    #         break
+    #     v = Video.objects.filter(film=f, duration__gte = 600)
+    #
+    #     if not v:
+    #         print (f.title, f.director, f.year, f.rating, f.votes)
+    #         str1 = f.title + ' ' + str(f.director)
+    #         str2 =  f.title + ' ' + str(f.year)
+    #         str3 = f.title + ' ' + str(f.year+1)
+    #         str4 = f.title
+    #         #здесь выбираем поиск строку
+    #         q = str1
+    #         print ('q', q)
+    #
+    #         # search = vk_api.video.search( v = '5.75', q = f.title + ' ' + str(f.director), longer = 3600) # + str(f.year)
+    #         print('---------------------------------')
+    #         search_feed = vk_api.newsfeed.search(v= '5.75', q = q, count = 200)
+    #         api_count +=1
+    #         # sleep(0.33)
+    #
+    #         for s in search_feed['items']:
+    #             full_video = False
+    #             try:
+    #                 atts= (s['attachments'])
+    #                 for att in atts:
+    #                     if att['type'] ==  'video':
+    #                         video = att['video']
+    #                         if (video['duration'])>(f.runtime*60 -450):
+    #                             full_video =  True
+    #                             print (video['duration'])
+    #                             print(video['title'])
+    #
+    #                             print('vk.com/video'+str(video['owner_id'])+ '_'+str(video['id']))
+    #                             print(video)
+    #                             print()
+    #                 if full_video:
+    #                     print('vk.com/wall'+str(s['owner_id'])+ '_' + str(s['id']))
+    #                     # print (s)
+    #                     print('---------------------------')
+    #                     print('---------------------------')
+    #             except:
+    #                 pass
+    #         print(f.last_search)
+    #         f.last_search =  timezone.now()
+    #
+    #         f.save()
+    #         print(f.last_search)
+
+    # фильмы для которых есть длинное видео, но которых нет в постах.
+    # еще проще - длинное видео, которого нет в постах
+    #да концепты могут оперировать разными видео, но пока ведь мы не просто так добавляем новое длинное видео?
+    videos = Video.objects.filter(duration__gte = 3600).order_by('-id')
+    count = 0
+    for v in videos:
+        if count > 15:
             break
-        v = Video.objects.filter(film=f, duration__gte = 600)
+        v_atts = VideoAtt.objects.filter(video = v)
+        if not v_atts:
+            print (v.title, 'vk.com/video'+str(v.owner_id)+ '_'+ str(v.video_id))
+            count +=1
 
-        if not v:
-            print (f.title, f.director, f.year, f.rating, f.votes)
-            str1 = f.title + ' ' + str(f.director)
-            str2 =  f.title + ' ' + str(f.year)
-            str3 = f.title + ' ' + str(f.year+1)
-            str4 = f.title
-            #здесь выбираем поиск строку
-            q = str1
-            print ('q', q)
 
-            # search = vk_api.video.search( v = '5.75', q = f.title + ' ' + str(f.director), longer = 3600) # + str(f.year)
-            print('---------------------------------')
-            search_feed = vk_api.newsfeed.search(v= '5.75', q = q, count = 200)
-            api_count +=1
-            # sleep(0.33)
+        # films = Film.objects.all()
+        # for f in films:
+        #     ConnectionVKPost
 
-            for s in search_feed['items']:
-                full_video = False
-                try:
-                    atts= (s['attachments'])
-                    for att in atts:
-                        if att['type'] ==  'video':
-                            video = att['video']
-                            if (video['duration'])>(f.runtime*60 -450):
-                                full_video =  True
-                                print (video['duration'])
-                                print(video['title'])
-
-                                print('vk.com/video'+str(video['owner_id'])+ '_'+str(video['id']))
-                                print(video)
-                                print()
-                    if full_video:
-                        print('vk.com/wall'+str(s['owner_id'])+ '_' + str(s['id']))
-                        # print (s)
-                        print('---------------------------')
-                        print('---------------------------')
-                except:
-                    pass
-            print(f.last_search)
-            f.last_search =  timezone.now()
-
-            f.save()
-            print(f.last_search)
-
-    #обновить инфу о свежих фильмах
 
 
     return HttpResponse('')
@@ -500,11 +517,11 @@ def test_func(request):
 
 
         film = Film.objects.filter(title = till_slash, year = year)
-        try:
-            if film[0].title == "Дама пик":
-                print('dama pik film')
-        except:
-            pass
+        # try:
+        #     if film[0].title == "Дама пик":
+        #         print('dama pik film')
+        # except:
+        #     pass
 
 
         if film:
