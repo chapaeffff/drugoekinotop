@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df9d59a5-bae0-421c-a2ad-3efa346758a6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vkgrab/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/concept/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/concept/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,14 +13,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/concept/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
-              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+              <caret line="102" column="43" selection-start-line="102" selection-start-column="43" selection-end-line="102" selection-end-column="43" />
               <folding>
                 <element signature="e#25#60#0" expanded="true" />
-                <marker date="1559227866461" expanded="true" signature="595:766" ph="..." />
+                <marker date="1559396464773" expanded="true" signature="619:790" ph="..." />
               </folding>
             </state>
           </provider>
@@ -37,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vkgrab/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-673">
-              <caret line="279" lean-forward="true" selection-start-line="279" selection-end-line="279" />
+            <state relative-caret-position="578">
+              <caret line="279" selection-start-line="279" selection-end-line="279" />
               <folding>
                 <element signature="e#26#41#0" expanded="true" />
                 <marker date="1559327311227" expanded="true" signature="20118:20166" ph="..." />
@@ -209,9 +207,9 @@
         <option value="$PROJECT_DIR$/mysite/settings.py" />
         <option value="$PROJECT_DIR$/video/views.py" />
         <option value="$PROJECT_DIR$/suggested/views.py" />
-        <option value="$PROJECT_DIR$/concept/views.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/vkgrab/views.py" />
+        <option value="$PROJECT_DIR$/concept/views.py" />
       </list>
     </option>
   </component>
@@ -354,21 +352,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.875" visible="true" weight="0.27444795" />
       <window_info id="Structure" order="2" sideWeight="0.125" side_tool="true" weight="0.1564805" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Run" order="6" />
-      <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Python Console" order="0" />
+      <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.006651885" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.3292683" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Python Console" order="0" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -724,24 +722,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/concept/views.py">
+    <entry file="file://$PROJECT_DIR$/vkgrab/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="578">
+          <caret line="279" selection-start-line="279" selection-end-line="279" />
           <folding>
-            <element signature="e#25#60#0" expanded="true" />
-            <marker date="1559227866461" expanded="true" signature="595:766" ph="..." />
+            <element signature="e#26#41#0" expanded="true" />
+            <marker date="1559327311227" expanded="true" signature="20118:20166" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vkgrab/views.py">
+    <entry file="file://$PROJECT_DIR$/concept/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-673">
-          <caret line="279" lean-forward="true" selection-start-line="279" selection-end-line="279" />
+        <state relative-caret-position="459">
+          <caret line="102" column="43" selection-start-line="102" selection-start-column="43" selection-end-line="102" selection-end-column="43" />
           <folding>
-            <element signature="e#26#41#0" expanded="true" />
-            <marker date="1559327311227" expanded="true" signature="20118:20166" ph="..." />
+            <element signature="e#25#60#0" expanded="true" />
+            <marker date="1559396464773" expanded="true" signature="619:790" ph="..." />
           </folding>
         </state>
       </provider>

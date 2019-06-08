@@ -10,6 +10,9 @@ from vkposts.models import *
 import time
 import re
 
+from math import sqrt
+
+
 from time import sleep
 
 import vk
@@ -97,7 +100,7 @@ def index(request):
                 # print (connection.connectionfilm)
                 year = (connection.connectionfilm.film.year)
                 year_k = delta *(year-mid_year)
-                c['rating'] += year_k
+                c['rating'] += sqrt(year_k)
                 # if newbetter:
                 #     c['rating']+=delta
                 # else:
