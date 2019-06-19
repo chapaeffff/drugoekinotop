@@ -50,6 +50,7 @@ headers = {
       }
 
 def google_kp(name):
+    print (13324234)
     # name = name.replace('Trailer', '')
     # name = name.replace('Трейлер', '')
     # name = name.replace('трейлер', '')
@@ -59,7 +60,7 @@ def google_kp(name):
     print(google_link)
     r = requests.get(google_link, headers = headers)
     soup = BeautifulSoup(r.text, "lxml")
-    print (soup)
+    # print (soup)
     kp_link = soup.find('div', {'class': 'r'}).a['href']
     print (kp_link)
     try:
@@ -142,27 +143,36 @@ def search_kp_id(kp_id):
 
 
 
-
-def film_new(request):
-    form = FilmForm()
-    if request.method == "POST":
-        kp_id = request.POST['kp_id']
-        title = request.POST['title']
-        if '_search_kp_id' in request.POST:
-            if kp_id is '':
-                print ('no kpid')
-                kp_id = google_kp(title)
-            else:
-                print (kp_id)
-            check = Film.objects.filter(kp_id=kp_id)
-            if len (check)>0:
-                print (check)
-            else:
-                print ('no entry')
-                search_kp_id(kp_id)
-        #      return redirect('film_edit', pk=check.first().pk)
-
-    return render(request, 'filmscrap/film_edit.html', {'form': form})
+#
+# def film_new(request):
+#
+#     form = FilmForm()
+#     print(request.method)
+#     if request.method == "POST":
+#         print (2346345345345)
+#         kp_id = request.POST['kp_id']
+#         title = request.POST['title']
+#         if '_search_kp_id' in request.POST:
+#             print('1')
+#             if kp_id is '':
+#                 print ('no kpid')
+#                 kp_id = google_kp(title)
+#
+#             else:
+#                 print(2)
+#                 print (kp_id)
+#             check = Film.objects.filter(kp_id=kp_id)
+#             if len (check)>0:
+#                 print (check)
+#             else:
+#                 print(3)
+#                 print ('no entry')
+#                 search_kp_id(kp_id)
+#         #      return redirect('film_edit', pk=check.first().pk)
+#         else:
+#             print ('пошло не так')
+#
+#     return render(request, 'filmscrap/film_edit.html', {'form': form})
 
 
 def filmscrap(request):
@@ -308,12 +318,15 @@ def film_new(request):
     #     print (field)
     # print (title)
     # print (request.method)
+    print (request)
     if request.method == "POST":
+
         print (request.POST['title'])
         kp_id = request.POST['kp_id']
         title = request.POST['title']
         # form = FilmForm(initial={'title': title})
         if '_search_kp_id' in request.POST:
+            print ('searchkpid')
             if kp_id is '':
                 print ('no kpid')
                 kp_id = google_kp(title)
@@ -321,9 +334,10 @@ def film_new(request):
                 print (kp_id)
             check = Film.objects.filter(kp_id=kp_id)
             if len (check)>0:
+                print ('check valid')
                 print (check)
-            # else:
-            #     print ('no entry')
+            else:
+                print ('no entry')
                 film = search_kp_id(kp_id)
 
                 form = FilmForm(instance=film)

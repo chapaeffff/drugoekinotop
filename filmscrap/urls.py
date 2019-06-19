@@ -4,6 +4,7 @@ from django.contrib import admin
 from . import views
 
 # addfilm_url = reverse('admin:filmbase_film_add')
+app_name = 'filmscrap'
 
 urlpatterns = [
     url(r'^search/$', views.search, name='search'),

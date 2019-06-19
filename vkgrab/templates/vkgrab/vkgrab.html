@@ -44,11 +44,16 @@
 
         </script>
 
-            <script>
-            function test_func(){
-                     $.get("{% url 'test_func' %}");
-                };
+        <script>
+        function test_func(){
+                 $.get("{% url 'test_func' %}");
+            };
+        </script>
 
+        <script>
+        function test_func2(){
+                 $.get("{% url 'test_func2' %}");
+            };
         </script>
 
 
@@ -75,7 +80,11 @@ next post
 </button>
 
 <button onclick="test_func()">
-test func
+    test func
+</button>
+
+<button onclick="test_func2()">
+    test func 2
 </button>
 
 {% for vk_post in vk_posts %}

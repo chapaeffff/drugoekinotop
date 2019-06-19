@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 #
 import datetime
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from vkposts.models import VKPost
 from django.http import HttpResponse
 
@@ -92,8 +93,8 @@ def check_video(att):
 def get_posts(request):
     print ("get posts")
     vkpost_fields = set(v.name for v in VKPost._meta.get_fields())
-    start = 0
-    limit = 40
+    start = 5600
+    limit = 9600
     count = min (limit, 100)
     while start < limit:
         posts = vk_api.wall.get(v=v, count=count, owner_id=-4569, offset=start)
@@ -288,8 +289,8 @@ from django.utils import timezone
 
 def next_post(request):
 
-    # #апдейтим по одному с кинопоиска, актуально! может еще добавить динамику
-    # #альтернативные названия и т.п.
+    #апдейтим по одному с кинопоиска, актуально! может еще добавить динамику
+    #альтернативные названия и т.п.
     # for_updating = Film.objects.filter(year__gte = 2017, modified = None)
     # for film in for_updating[:1]:
     #     # print  (film.__dict__)
@@ -357,7 +358,6 @@ def next_post(request):
 
     # concepts = Concept.objects.all()[:10]
     # for concept in concepts:
-    #     Conn
     #
     # postpone = vk_api.wall.get(v=v, count=10, owner_id=-4569, filter = 'postponed')
     # print (postpone)
@@ -382,79 +382,79 @@ def next_post(request):
     #         print ('vk.com/video' + str (v.owner_id)+ '_' + str(v.video_id))
 
     #найти фильмы для которых нет видео
-    # month_ago = timezone.now()-datetime.timedelta(days=30)
-    # films = Film.objects.filter(year__gte = 2017,  rating__gte = 6.5)
-    # for_upd = films.filter(last_search__lte = month_ago)|films.filter(last_search = None)
-    # films = for_upd
-    # print (films)
-    # api_count = 0
-    # api_break = 1
-    # for f in films:
-    #     if api_count>=api_break:
-    #         break
-    #     v = Video.objects.filter(film=f, duration__gte = 600)
-    #
-    #     if not v:
-    #         print (f.title, f.director, f.year, f.rating, f.votes)
-    #         str1 = f.title + ' ' + str(f.director)
-    #         str2 =  f.title + ' ' + str(f.year)
-    #         str3 = f.title + ' ' + str(f.year+1)
-    #         str4 = f.title
-    #         #здесь выбираем поиск строку
-    #         q = str1
-    #         print ('q', q)
-    #
-    #         # search = vk_api.video.search( v = '5.75', q = f.title + ' ' + str(f.director), longer = 3600) # + str(f.year)
-    #         print('---------------------------------')
-    #         search_feed = vk_api.newsfeed.search(v= '5.75', q = q, count = 200)
-    #         api_count +=1
-    #         # sleep(0.33)
-    #
-    #         for s in search_feed['items']:
-    #             full_video = False
-    #             try:
-    #                 atts= (s['attachments'])
-    #                 for att in atts:
-    #                     if att['type'] ==  'video':
-    #                         video = att['video']
-    #                         if (video['duration'])>(f.runtime*60 -450):
-    #                             full_video =  True
-    #                             print (video['duration'])
-    #                             print(video['title'])
-    #
-    #                             print('vk.com/video'+str(video['owner_id'])+ '_'+str(video['id']))
-    #                             print(video)
-    #                             print()
-    #                 if full_video:
-    #                     print('vk.com/wall'+str(s['owner_id'])+ '_' + str(s['id']))
-    #                     # print (s)
-    #                     print('---------------------------')
-    #                     print('---------------------------')
-    #             except:
-    #                 pass
-    #         print(f.last_search)
-    #         f.last_search =  timezone.now()
-    #
-    #         f.save()
-    #         print(f.last_search)
+    month_ago = timezone.now()-datetime.timedelta(days=30)
+    films = Film.objects.filter(year__gte = 2017,  rating__gte = 6.5)
+    for_upd = films.filter(last_search__lte = month_ago)|films.filter(last_search = None)
+    films = for_upd
+    print (films)
+    api_count = 0
+    api_break = 1
+    for f in films:
+        if api_count>=api_break:
+            break
+        v = Video.objects.filter(film=f, duration__gte = 600)
+
+        if not v:
+            print (f.title, f.director, f.year, f.rating, f.votes)
+            str1 = f.title + ' ' + str(f.director)
+            str2 =  f.title + ' ' + str(f.year)
+            str3 = f.title + ' ' + str(f.year+1)
+            str4 = f.title
+            #здесь выбираем поиск строку
+            q = str1
+            print ('q', q)
+
+            # search = vk_api.video.search( v = '5.75', q = f.title + ' ' + str(f.director), longer = 3600) # + str(f.year)
+            print('---------------------------------')
+            search_feed = vk_api.newsfeed.search(v= '5.75', q = q, count = 200)
+            api_count +=1
+            # sleep(0.33)
+
+            for s in search_feed['items']:
+                full_video = False
+                try:
+                    atts= (s['attachments'])
+                    for att in atts:
+                        if att['type'] ==  'video':
+                            video = att['video']
+                            if (video['duration'])>(f.runtime*60 -450):
+                                full_video =  True
+                                print (video['duration'])
+                                print(video['title'])
+
+                                print('vk.com/video'+str(video['owner_id'])+ '_'+str(video['id']))
+                                print(video)
+                                print()
+                    if full_video:
+                        print('vk.com/wall'+str(s['owner_id'])+ '_' + str(s['id']))
+                        # print (s)
+                        print('---------------------------')
+                        print('---------------------------')
+                except:
+                    pass
+            print(f.last_search)
+            f.last_search =  timezone.now()
+
+            f.save()
+            print(f.last_search)
 
     # фильмы для которых есть длинное видео, но которых нет в постах.
     # еще проще - длинное видео, которого нет в постах
-    #да концепты могут оперировать разными видео, но пока ведь мы не просто так добавляем новое длинное видео?
-    videos = Video.objects.filter(duration__gte = 3600).order_by('-id')
-    count = 0
-    for v in videos:
-        if count > 15:
-            break
-        v_atts = VideoAtt.objects.filter(video = v)
-        if not v_atts:
-            print (v.title, 'vk.com/video'+str(v.owner_id)+ '_'+ str(v.video_id))
-            count +=1
-
-
-        # films = Film.objects.all()
-        # for f in films:
-        #     ConnectionVKPost
+    # #да концепты могут оперировать разными видео, но пока ведь мы не просто так добавляем новое длинное видео?
+    # videos = Video.objects.filter(duration__gte = 3600).order_by('-id')
+    # count = 0
+    # for v in videos:
+    #     if count > 15:
+    #         break
+    #     v_atts = VideoAtt.objects.filter(video = v)
+    #     if not v_atts:
+    #         print (v.title, 'vk.com/video'+str(v.owner_id)+ '_'+ str(v.video_id))
+    #         count +=1
+    #
+    #
+    #     # films = Film.objects.all()
+    #     # for f in films:
+    #     #     ConnectionVKPost
 
 
 
@@ -466,7 +466,7 @@ from kinopoisk.movie import Movie
 
 import re
 
-
+from django.db.models import Q
 
 def test_func(request):
     print ()
@@ -498,8 +498,9 @@ def test_func(request):
 
     ##################
     posts = VKPost.objects.all().order_by('-id')#objects.all()[:10]
-    limit = 1500
+    limit = 8500
     count = 0
+    orphan_count = 0
     print ('---------------------------')
     for post in posts:
 
@@ -507,16 +508,13 @@ def test_func(request):
 
         till_slash = first_line.split(sep = '/')[0].strip()
 
-        if till_slash == "Дама Пик":
-            print ('dama pik')
-
         try:
             year = re.findall(r'\d+', first_line)[-1]
         except:
             year = 0
 
 
-        film = Film.objects.filter(title = till_slash, year = year)
+        film = Film.objects.filter(title = till_slash, year__gte = int(year)-1, year__lte = int(year)+1)
         # try:
         #     if film[0].title == "Дама пик":
         #         print('dama pik film')
@@ -576,7 +574,14 @@ def test_func(request):
                 print('ПОДВЯЗАЛИ, проверь повторным запуском')
             # print()
             count += 1
-
+        elif int(year)> 1900 and int(year)<2020:
+            print(till_slash)
+            print (year)
+            orphan_count+=1
+            # return reverse('filmscrap:film_new')
+            # # return redirect('/scrap/film/new', title = till_slash + year)
+            if orphan_count >15:
+                break
 
 
         if count > limit:
@@ -685,6 +690,47 @@ def test_func(request):
     #     print (c, ': ', item.text.splitlines()[0], item.reposts, '\n')
 
     return HttpResponse('')
+
+
+def test_func2(request):
+    vk_posts = vk_api.wall.get(v=v, owner_id=-4569, filter = "owner")
+
+    print ('test func 2')
+    print ('записей на стене', vk_posts['count'])
+
+    db_posts = VKPost.objects.filter()
+    print ((len(db_posts)))
+    date = datetime.datetime.fromtimestamp(db_posts.first().date)
+    print (date)
+
+    posts = VKPost.objects.all().order_by('-id')#objects.all()[:10]
+
+    print ('---------------------------')
+    count = 0
+    print('примеры')
+    for post in posts:
+
+        first_line = post.text.split(sep ='\n')[0]
+
+        till_slash = first_line.split(sep = '/')[0].strip()
+
+        try:
+            year = re.findall(r'\d+', first_line)[-1]
+        except:
+            year = 0
+
+        #простейшая проверка что похоже на пост фильм
+        if len(till_slash) > 3 and int(year) > 1900:
+            count +=1
+
+        if count%1000 == 0:
+            print (first_line)
+
+    print ('постов типа фильмп-пост',  count)
+
+
+    return HttpResponse('')
+
 
 def get_hidden(request):
     hidden = Video.objects.filter(views__lte = 5000, duration__gte = 600,  owner_id = -4569).order_by('-views')
