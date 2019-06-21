@@ -14,10 +14,8 @@ from images.models import *
 def film_detail(request, pk = '', slug = ''):
     if slug:
         film = get_object_or_404(Film, slug=slug)
-        print ('slug here')
     else:
         film = get_object_or_404(Film, pk=pk)
-        print ('no slug!')
         #
         # return redirect('/film/'+film.slug + '?slug = '+ film.slug)
         # print(film.slug )
@@ -25,10 +23,10 @@ def film_detail(request, pk = '', slug = ''):
         # return HttpResponseRedirect(reverse('film_detail_slug', args=(film.slug,)))
         # # return HttpResponseRedirect(reverse('film_detail', slug =(film.slug)))
 
-    print (film, 'here')
+    # print (film, 'here')
 
     try:
-        videos = Video.objects.filter(film = film)
+        videos = Video.objects.filter(film = film).exclude(player__isnull=True).exclude(player__exact='')
     except Video.DoesNotExist:
         videos = None
 
