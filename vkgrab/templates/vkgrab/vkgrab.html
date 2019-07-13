@@ -1,3 +1,4 @@
+
 {% extends 'blog/base.html' %}
 
 {% load staticfiles %}
@@ -37,16 +38,10 @@
         </script>
 
             <script>
-            function next_post(){
-                     $.get("{% url 'next_post' %}");
+            function new_fulls(){
+                     $.get("{% url 'new_fulls' %}");
                 };
 
-        </script>
-
-        <script>
-        function test_func(){
-                 $.get("{% url 'test_func' %}");
-            };
         </script>
 
         <script>
@@ -56,6 +51,83 @@
         </script>
 
 
+        <script>
+        function update_kp(){
+                 $.get("{% url 'update_kp' %}");
+            };
+        </script>
+
+        <script>
+        function no_long_videos_feed2file(){
+                 $.get("{% url 'no_long_videos_feed2file' %}");
+            };
+        </script>
+
+        <script>
+        function no_long_videos_get_from_file(){
+                 $.get("{% url 'no_long_videos_get_from_file' %}");
+            };
+        </script>
+
+
+        <script>
+        function list_concepts(){
+                 $.get("{% url 'list_concepts' %}");
+            };
+        </script>
+
+
+
+        <script>
+        function posts2concept(){
+                 $.get("{% url 'posts2concept' %}");
+            };
+        </script>
+
+        <script>
+        function check_videos(){
+                 $.get("{% url 'check_videos' %}");
+            };
+        </script>
+
+
+
+        <script>
+        function calc_rating(){
+                 $.get("{% url 'calc_rating' %}");
+            };
+        </script>
+
+        <script>
+        function concept_rating(){
+                 $.get("{% url 'concept_rating' %}");
+            };
+        </script>
+
+        <script>
+
+            function not_linked(){
+                 $.get("{% url 'not_linked' %}");
+            };
+        </script>
+
+
+        <script>
+            function find_new_long_2file(){
+                 $.get("{% url 'find_new_long_2file' %}");
+            };
+        </script>
+
+        <script>
+            function upload_2_private(){
+                 $.get("{% url 'upload_2_private' %}");
+            };
+        </script>
+        <script>
+            function delete_broken_video(){
+                 $.get("{% url 'delete_broken_video' %}");
+            };
+        </script>
 
 <button onclick="get_posts()">
 get posts
@@ -74,17 +146,71 @@ get hidden
 video dechaous
 </button>
 
-<button onclick="next_post()">
-next post
+<button onclick="new_fulls()">
+new_fulls
 </button>
 
-<button onclick="test_func()">
-    test func
-</button>
 
 <button onclick="test_func2()">
     test func 2
 </button>
+
+<button onclick="update_kp()">
+    update from kp
+</button>
+
+
+<button onclick="no_long_videos_feed2file()">
+    no_long_videos_feed2file
+</button>
+
+<button onclick="no_long_videos_get_from_file()">
+    no_long_videos_get_from_file
+</button>
+
+<button onclick="list_concepts()">
+    list_concepts
+</button>
+
+
+
+<button onclick="posts2concept()">
+    posts2concept
+</button>
+
+<button onclick="check_videos()">
+    check_videos
+</button>
+
+
+<button onclick="calc_rating()">
+    calc_rating
+</button>
+
+<button onclick="concept_rating()">
+    concept_rating
+</button>
+
+
+
+<button onclick="not_linked()">
+    not_linked
+</button>
+
+
+<button onclick="find_new_long_2file()">
+    find_new_long_2file
+</button>
+
+<button onclick="upload_2_private()">
+    upload_2_private
+</button>
+
+
+<button onclick="delete_broken_video()">
+    delete_broken_video
+</button>
+
 
 {% for vk_post in vk_posts %}
         <div class="vk_post">

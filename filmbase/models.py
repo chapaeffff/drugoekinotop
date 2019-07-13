@@ -10,6 +10,8 @@ from transliterate import translit
 
 import uuid
 
+from video.models import Video
+
 
 # from images.models import *
 
@@ -54,6 +56,10 @@ class Film(models.Model):
     slug = models.SlugField(max_length=200, default=uuid.uuid4, unique=True)
 
     modified = models.DateTimeField(blank=True, null = True)
+
+    def videos(self, long = True):
+        vs = Video.objects.filter(film = self)
+        return vs
 
 
     def __str__(self):

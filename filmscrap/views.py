@@ -50,14 +50,13 @@ headers = {
       }
 
 def google_kp(name):
-    print (13324234)
     # name = name.replace('Trailer', '')
     # name = name.replace('Трейлер', '')
     # name = name.replace('трейлер', '')
     # name = name.replace('тизер', '')
 
     google_link =  'http://www.google.ru/search?q=' + name + ' kinopoisk'
-    print(google_link)
+    print(name)
     r = requests.get(google_link, headers = headers)
     soup = BeautifulSoup(r.text, "lxml")
     # print (soup)
@@ -67,6 +66,14 @@ def google_kp(name):
         kp_id = (kp_link.split('film')[1].split('/')[1].split('-'))[-1]#[:-1])
     except:
         pass
+
+    try:
+        kp_text = soup.find('span', {'class': 'st'})
+        print(kp_text.text)
+    except:
+        pass
+
+
 
 
     # i = 0

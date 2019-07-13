@@ -4,23 +4,83 @@ from django.db import models
 from video.models import Video
 from filmbase.models import Film
 
+from vkposts.models import VKPost
+
 # Create your models here.
 
+# class ConceptManager(models.Manager): # Наш менеджер, который нам дает возможность менять поведение модели
+#     def get_query_set(self):
+#         result=super(CalcManager, self).get_query_set().extra(select={'total': "first+second"})
+#         #то место где надо задавать алгоритм по которому вычисляется поле total
+#         return result
+
+
+# class ConceptManager(models.Manager):
 #
+#     def published(self):
+#
+#     def get_queryset(self):
+#         qs = super(ConceptManager, self).\
+#             get_queryset().annotate(published = self.published())
+#
+#
+#     def is_published(self):
+#         if ConnectionVKPost.objects.filter(concept=self):
+#             return True
+#         else:
+#             return False
+#        # use your method to filter results
+#        return you_custom_queryset
+
+# #
 class Concept(models.Model):
     # class Meta:
     #     abstract = True
     comment = models.TextField()
     k10 = models.PositiveSmallIntegerField(default=10, blank = True)
+    full = models.BooleanField(default = True)
+    calc_rating = models.PositiveSmallIntegerField(default=0)
+
+    def published(self):
+        if ConnectionVKPost.objects.filter(concept=self):
+            return True
+        else:
+            return False
+
+    def last_published(self):
+
+        lp = ConnectionVKPost.objects.filter(concept=self).\
+            order_by('post__date').last()
+        #у меня есть связь 1:1 с постом и я хочу отфильтровать по дате поста
+        # last_post = VKPost.objects.get(pk = lp.post_id)
+
+        return lp.post
+
+
+
+
+
+    def film(self):
+        try:
+            connection = ConnectionFilm.objects.get(concept = self)
+            if connection:
+                return connection.film
+        except:
+            return None
+
+
+
     def __str__(self):
         try:
             film = ConnectionFilm.objects.get(concept = self)
             if film:
-                strname = self.comment[:100] + 'фильм: ' + film.film.title
+                strname =  'фильм: ' + film.film.title + ' --- ' + self.comment[:100]
         except:
             strname = self.comment[:100]
+            if strname == '':
+                strname = 'no name'
 
-
+        strname = str(self.id) + ' ' + strname
         return strname
 #
 class Connection(models.Model):
