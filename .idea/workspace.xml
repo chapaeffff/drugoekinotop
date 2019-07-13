@@ -1,37 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df9d59a5-bae0-421c-a2ad-3efa346758a6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/concept/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/concept/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmbase/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/filmbase/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmscrap/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/filmscrap/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/10694.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/11_6b2c10b4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/1435930434_1297237325_screenshot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/1435930434_1297237325_screenshot_Znuh8kl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/280x178_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/29903570.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/7vqVibROHgw.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/960x540.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/MV5BN2Y2MWFiNWItNGNhYS00OTgyLWIwMDUtNWE5NzcwNjYxNDI4XkEyXkFqcGdeQXVyNTQ0OD_l0uyHre.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/QHEV-vKdfGk.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/_KVtl-enLVM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/c3089a9d19ff.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/f_terrence-malick_radegund_ratna-drama_ST.jpg-Malick-Radegund.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/f_terrence-malick_radegund_ratna-drama_ST.jpg-Malick-Radegund_hjTQAYZ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/orig.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/rcBGrlYOmTo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/skokan.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/terrence-malick-august-diehl-radegund.jpg-Terrence-Malick-Radegund.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/uORsTIvllMc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/upl_1522589074_130169.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static — копия/media/uploads/shots/xw_954730.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vkgrab/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vkgrab/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="df9d59a5-bae0-421c-a2ad-3efa346758a6" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +41,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vkgrab/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
+            <state relative-caret-position="818">
               <caret line="397" column="18" selection-start-line="397" selection-start-column="18" selection-end-line="397" selection-end-column="18" />
               <folding>
                 <element signature="e#26#41#0" expanded="true" />
@@ -776,7 +746,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vkgrab/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
+        <state relative-caret-position="818">
           <caret line="397" column="18" selection-start-line="397" selection-start-column="18" selection-end-line="397" selection-end-column="18" />
           <folding>
             <element signature="e#26#41#0" expanded="true" />
