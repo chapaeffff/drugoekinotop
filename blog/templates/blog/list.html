@@ -15,12 +15,14 @@
 
 		<h1>{{list.title}}</h1>
 		<br>
-		<img src = "{{list.elem_image.image.url}}" width = 100%> <br> <br>
+		{% if list.elem_image.image %}
+			<img src = "{{list.elem_image.image.url}}" width = 100%> <br> <br>
+		{% endif%}
 		{{list.intro|linebreaks}}
 		{% for item in items %}
 			<div class = "post">
 				<h2>
-										<a href="{% url 'filmbase:film_detail' item.film.slug %}">
+					<a href="{% url 'filmbase:film_detail' item.film.slug %}">
 
 					{%if list.numered%}
 					{{list.fin_count|my_substract:forloop.counter0}}.

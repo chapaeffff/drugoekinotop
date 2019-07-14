@@ -55,6 +55,13 @@ def vkgrab(request):
             for att in atts:
                 # print (att.video.title)
                 print ('https://vk.com/video'+str(att.video.owner_id) + '_' + str(att.video.video_id))
+                #понять какой фильм
+                if (att.video.film):
+                    print ('«'+att.video.film.title+'»', 'смотреть онлайн',
+                           'drugoekino.top/film/'+att.video.film.slug +'/')
+        #ссылка на сайт, для этого адо понять о каком фильме речь
+
+        print
 
         print()
 

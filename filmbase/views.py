@@ -19,7 +19,7 @@ def film_detail(request, pk = '', slug = ''):
         #
         # return redirect('/film/'+film.slug + '?slug = '+ film.slug)
         # print(film.slug )
-        return redirect('filmbase:film_detail_slug', slug=film.slug)
+        return redirect('filmbase:film_detail', slug=film.slug)
         # return HttpResponseRedirect(reverse('film_detail_slug', args=(film.slug,)))
         # # return HttpResponseRedirect(reverse('film_detail', slug =(film.slug)))
 
