@@ -59,6 +59,12 @@ def vkgrab(request):
                 if (att.video.film):
                     print ('«'+att.video.film.title+'»', 'смотреть онлайн',
                            'drugoekino.top/film/'+att.video.film.slug +'/')
+                #если его нет то можно найти
+                conn_vk =  ConnectionVKPost.objects.filter(post=post).first()
+                if conn_vk:
+                    concept = conn_vk.concept
+                    print (concept)
+
         #ссылка на сайт, для этого адо понять о каком фильме речь
 
         print
@@ -409,7 +415,6 @@ def delete_broken_video(request):
 from os import listdir, stat
 from os.path import isfile, join, dirname, abspath
 import requests
-from pathlib import Path
 
 def upload_2_private(request):
     print ('upload_2_private')
