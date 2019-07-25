@@ -30,6 +30,13 @@ urlpatterns = [
     url(r'^upload_2_private/$', views.upload_2_private, name='upload_2_private'),
     url(r'^delete_broken_video/$', views.delete_broken_video, name='delete_broken_video'),
 
+    url(r'^get_posts_by_kpid/$', views.get_posts_by_kpid, name='get_posts_by_kpid'),
+    url(r'^link_post_2_concept/$', views.link_post_2_concept, name='link_post_2_concept'),
+    url(r'^test_func/$', views.test_func, name='test_func'),
+    url(r'^photo_likes/$', views.photo_likes, name='photo_likes'),
+
+
+
     url(r'^$', views.vkgrab, name='vkgrab'),
 
     # url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),

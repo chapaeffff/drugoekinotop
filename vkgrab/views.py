@@ -548,8 +548,11 @@ def no_long_videos_feed2file(request):
 
 
 #а эта пусть из файла читает
+
 def no_long_videos_get_from_file(request):
+    print ('no_long_videos_get_from_file')
     with open('search_feeds.json', encoding="utf-8") as data_file:
+        print ('file opened')
         search_feeds = json.load(data_file,  encoding='utf-8')
         print (len(search_feeds))
     f = Film.objects.get(id = search_feeds[0])
@@ -640,7 +643,7 @@ def no_long_videos_get_from_file(request):
 
         print ('------')
         pass
-
+    print (vk_video_ids)
     vk_videos = vk_api.video.get(v=v, videos = vk_video_ids)['items']
 
     print('------')
@@ -772,35 +775,34 @@ import re
 
 from django.db.models import Q
 
+
+# fles = Film_List_Elem.objects.all().order_by('-id')
+# for fle in fles[:1]:
+#     value = fle.text
+#     value.replace("\"", "\"")
+#     value.replace("«", "\"")
+#     value.replace("»", "\"")
+#     value.replace("<<", "\"")
+#     value.replace(">>", "\"")
+#     fle.text = value
+#     print (fle.text)
+
+# films = Film.objects.all().order_by('-id')[:10]
+# for film in films:
+#     print (film)
+#     film.save()
+# concepts = Concept.objects.all()
+# for con in concepts:
+#     connections = ConnectionFilm.objects.filter(concept = con)
+#     if len(connections) == 0:
+#         print ('сирота: ', con)
+# for c in connections:
+#     concept_connections=\
+#     ConnectionFilm.objects.filter(concept = c.concept)
+
+
 def posts2concept(request):
-    print ()
-    # fles = Film_List_Elem.objects.all().order_by('-id')
-    # for fle in fles[:1]:
-    #     value = fle.text
-    #     value.replace("\"", "\"")
-    #     value.replace("«", "\"")
-    #     value.replace("»", "\"")
-    #     value.replace("<<", "\"")
-    #     value.replace(">>", "\"")
-    #     fle.text = value
-    #     print (fle.text)
-
-    # films = Film.objects.all().order_by('-id')[:10]
-    # for film in films:
-    #     print (film)
-    #     film.save()
-    # concepts = Concept.objects.all()
-    # for con in concepts:
-    #     connections = ConnectionFilm.objects.filter(concept = con)
-    #     if len(connections) == 0:
-    #         print ('сирота: ', con)
-    # for c in connections:
-    #     concept_connections=\
-    #     ConnectionFilm.objects.filter(concept = c.concept)
-
-
-
-    ##################
+    print ('posts2concept')
     posts = VKPost.objects.all().order_by('-id')#objects.all()[:10]
     limit = 8500
     count = 0
@@ -810,20 +812,18 @@ def posts2concept(request):
 
         connectionsVK = ConnectionVKPost.objects.filter(post=post)
         if (len(connectionsVK) >0):
-            print('пост подвязан, не надо ничего искать')
-            print (post)
+            # print('пост подвязан, не надо ничего искать')
+            # print (post)
             pass
 
         else:
 
-            first_line = post.text.split(sep ='\n')[0]
-
-            till_slash = first_line.split(sep = '/')[0].strip()
-
-            try:
-                year = re.findall(r'\d+', first_line)[-1]
-            except:
-                year = 0
+            first_line = post.first_line
+            # first_line = post.text.split(sep ='\n')[0]
+            till_slash = post.till_slash
+            # till_slash = first_line.split(sep = '/')[0].strip()
+            year = post.year_in_line
+            if not year: year = 0
 
             #сначала надо выяснить - не подвязан ли уже этот пост (может вручную)
             #предположим пост может быть подвязан только к одному концепту?
@@ -890,38 +890,36 @@ def posts2concept(request):
                     print('ПОДВЯЗАЛИ, проверь повторным запуском')
                 # print()
                 count += 1
-            elif int(year)> 1900 and int(year)<2020:
-                print(till_slash)
-                print (year)
-                film_id = input('enter film id or (s)kip or (d)elete this post: ').strip()
-                if film_id == 's':
-                    pass
-                elif film_id == 'd':
-                    #delete post
-                    #
-                    posts = VKPost.objects.all().order_by('-id')  # objects.all()[:10]
-                    VKPost.objects.filter(pk=post.pk).delete()
-
-
-                else:
-                    film = Film.objects.get(pk=int(film_id))
-                    print ('есть такой фильм')
-                    new_concept = Concept.objects.create()
-                    # print ('concept created:', created)
-                    new_film_conn = ConnectionFilm.objects.create(concept=new_concept, film=film)
-                    # print('film_conn created:', created)
-                    new_vk = ConnectionVKPost.objects.create(concept=new_concept, post=post)
-                    # print('vk_conn created:', created)
-                    print(first_line, '<- это из поста')
-                    print(year)
-                    print(film, '<- это фильм из базы')
-
-
-                orphan_count+=1
-                # return reverse('filmscrap:film_new')
-                # return redirect('/scrap/film/new', title = till_slash + year)
-                if orphan_count >15:
-                    break
+            # elif int(year)> 1900 and int(year)<2020:
+            #     print(till_slash)
+            #     print (year)
+            #     film_id = input('enter film id or (s)kip or (d)elete this post: ').strip()
+            #     if film_id == 's':
+            #         pass
+            #     elif film_id == 'd':
+            #         #delete post
+            #         posts = VKPost.objects.all().order_by('-id')
+            #         VKPost.objects.filter(pk=post.pk).delete()
+            #
+            #     else:
+            #         film = Film.objects.get(pk=int(film_id))
+            #         print ('есть такой фильм')
+            #         new_concept = Concept.objects.create()
+            #         # print ('concept created:', created)
+            #         new_film_conn = ConnectionFilm.objects.create(concept=new_concept, film=film)
+            #         # print('film_conn created:', created)
+            #         new_vk = ConnectionVKPost.objects.create(concept=new_concept, post=post)
+            #         # print('vk_conn created:', created)
+            #         print(first_line, '<- это из поста')
+            #         print(year)
+            #         print(film, '<- это фильм из базы')
+            #
+            #
+            #     orphan_count+=1
+            #     # return reverse('filmscrap:film_new')
+            #     # return redirect('/scrap/film/new', title = till_slash + year)
+            #     if orphan_count >15:
+            #         break
 
 
             if count > limit:
@@ -1332,96 +1330,108 @@ def concept_rating(request):
     # print (new_films)
     conn_films = ConnectionFilm.objects.filter(film__in = Film.objects.filter(year__gte = 2016))
     # print (conn_films.values('concept'))
+    #отобрал все связи из них я выберу те, что фильм посты
     for c_f in conn_films:
         concept = c_f.concept
+
         if ConnectionFilm.objects.filter(concept = concept).count()==1:
                 posts = ConnectionVKPost.objects.filter(concept = concept)
+                #и те, что публиковались не больше одного раза
                 if posts.count()==1:
-                    #при этом я хочу чтобы считало только полнометры
-                    #если я прикрепляю и не фулл-видео
-                    #тогда мне нужно каждый пост проверить на наличие фулл видео
-                    # print ('********')
-                    for post in posts:
-                        # print (first_line(post))
-                        full_video = False
-                        video_atts = VideoAtt.objects.filter(post_owner = post.post)
-                        for v in video_atts:
-                            # print ('video_att', v)
-                            try:
-
-                                video = v.video
-                                # print (video)
-                                # if not (video.film):
-                                #     sugg_kp_id = google_kp(video.title)
-                                #     try:
-                                #         film = Film.objects.get(kp_id = sugg_kp_id)
-                                #         print('фильм', film)
-                                #     except: print ('not found')
-                                #
-                                #     choice = input('(r)ight choice or enter manually?')
-                                #     print (choice.strip())
-                                #     if choice.strip() == 'r':
-                                #         print (v.video.film)
-                                #     else:
-                                #         film = Film.objects.get(kp_id = int(choice.strip()))
-                                #     v.video.film = film
-                                #     video.save()
-                                #     print('вот что записано ', video.film)
-
-                                # print ('фильм', video.film)
-                                d = (video.film.runtime)
-                                # print ('duration',  d)
-                                #
-                                # print ('runtime', d)
-                                # print ('v duration', video.duration)
-                                if  video.duration > d*60*0.8:
-                                    full_video = True
-
-                            except: pass #print ('no video db')
-                        if full_video:
-                            pass
-                            # print ('full video')
-                        else:
-                            pass
-                            # print('-------')
-                            #
-                            # print(first_line(post))
-                            # print ('not full')
-                            # print ('runtime', d*60)
-                            # print ('v duration', video.duration)
-
-                            if not (video.film):
-                                sugg_kp_id = google_kp(video.title)
-                                try:
-                                    film = Film.objects.get(kp_id = sugg_kp_id)
-                                    print('фильм', film)
-                                except: print ('not found')
-
-                                choice = input('(r)ight choice or enter manually?')
-                                print (choice.strip())
-                                if choice.strip() == 'r':
-                                    print (v.video.film)
-                                else:
-                                    film = Film.objects.get(kp_id = int(choice.strip()))
-                                v.video.film = film
-                                video.save()
-                            #     print('вот что записано ', video.film)
-                            #
-                            #
-                            # print (video_atts)
-
-                        #
-                    #для этого найти все аттс для этого поста
-                    #в них найти видео
-                    #если там есть видео похожее по длине на это дело
                     post = posts[0].post
-                    if post.reposts>99:
-                        print (post.reposts, first_line(post))
+                    if post.reposts>149:
+                        print (concept.calc_rating, post.reposts, first_line(post))
                         videos = Video.objects.filter(film = c_f.film )
                         # print (videos)
                         for v in videos:
                             print (v.duration, 'vk.com/video'+str(v.owner_id)+ '_'+ str(v.video_id))
                         print ('------')
+
+                    #при этом я хочу чтобы считало только полнометры
+                    #если я прикрепляю и не фулл-видео
+                    #тогда мне нужно каждый пост проверить на наличие фулл видео
+                    # print ('********')
+                    # for post in posts:
+                    #     # print (first_line(post))
+                    #     full_video = False
+                    #     video_atts = VideoAtt.objects.filter(post_owner = post.post)
+                    #     for v in video_atts:
+                    #         # print ('video_att', v)
+                    #         try:
+                    #
+                    #             video = v.video
+                    #             # print (video)
+                    #             # if not (video.film):
+                    #             #     sugg_kp_id = google_kp(video.title)
+                    #             #     try:
+                    #             #         film = Film.objects.get(kp_id = sugg_kp_id)
+                    #             #         print('фильм', film)
+                    #             #     except: print ('not found')
+                    #             #
+                    #             #     choice = input('(r)ight choice or enter manually?')
+                    #             #     print (choice.strip())
+                    #             #     if choice.strip() == 'r':
+                    #             #         print (v.video.film)
+                    #             #     else:
+                    #             #         film = Film.objects.get(kp_id = int(choice.strip()))
+                    #             #     v.video.film = film
+                    #             #     video.save()
+                    #             #     print('вот что записано ', video.film)
+                    #
+                    #             # print ('фильм', video.film)
+                    #             d = (video.film.runtime)
+                    #             # print ('duration',  d)
+                    #             #
+                    #             # print ('runtime', d)
+                    #             # print ('v duration', video.duration)
+                    #             if  video.duration > d*60*0.8:
+                    #                 full_video = True
+                    #
+                    #         except: pass #print ('no video db')
+                    #     if full_video:
+                    #         pass
+                    #         # print ('full video')
+                    #     else:
+                    #         pass
+                    #         # print('-------')
+                    #         #
+                    #         # print(first_line(post))
+                    #         # print ('not full')
+                    #         # print ('runtime', d*60)
+                    #         # print ('v duration', video.duration)
+                    #
+                    #         if not (video.film):
+                    #             sugg_kp_id = google_kp(video.title)
+                    #             try:
+                    #                 film = Film.objects.get(kp_id = sugg_kp_id)
+                    #                 print('фильм', film)
+                    #             except: print ('not found')
+                    #
+                    #             choice = input('(r)ight choice or enter manually?')
+                    #             print (choice.strip())
+                    #             if choice.strip() == 'r':
+                    #                 print (v.video.film)
+                    #             else:
+                    #                 film = Film.objects.get(kp_id = int(choice.strip()))
+                    #             v.video.film = film
+                    #             video.save()
+                    #         #     print('вот что записано ', video.film)
+                    #         #
+                    #         #
+                    #         # print (video_atts)
+                    #
+                    #     #
+                    # #для этого найти все аттс для этого поста
+                    # #в них найти видео
+                    # #если там есть видео похожее по длине на это дело
+                    # post = posts[0].post
+                    # if post.reposts>99:
+                    #     print (post.reposts, first_line(post))
+                    #     videos = Video.objects.filter(film = c_f.film )
+                    #     # print (videos)
+                    #     for v in videos:
+                    #         print (v.duration, 'vk.com/video'+str(v.owner_id)+ '_'+ str(v.video_id))
+                    #     print ('------')
                         # print (posts)
 
 
@@ -1462,5 +1472,59 @@ def not_linked(request):
 
         if not ConnectionVKPost.objects.filter(post = post):
             print ('not linked', post)
+
+    return HttpResponse('')
+
+
+def get_posts_by_kpid(request):
+    print ('get_posts_by_kpid')
+    kp_id = input ('enter kpid for film: ')
+    film = Film.objects.filter(kp_id = kp_id)[0]
+    connection = ConnectionFilm.objects.filter(film = film)[0]
+    print (connection.concept)
+    # print (connections.__dict__)
+    # print ('conn_film', connections)
+    posts = ConnectionVKPost.objects.filter(concept =  connection.concept)
+    print('posts', posts)
+
+    return HttpResponse('')
+
+
+def link_post_2_concept(request):
+    print('link_post_2_concept')
+    link = input('enter link 2 vkpost: ')
+    print (link)
+    #проверить
+
+    return HttpResponse('')
+
+
+def post_link2ids(link):
+    full_id_divided = link.split(sep='wall')[1].split('_')
+    owner_id = full_id_divided[0]
+    post_id = full_id_divided[1]
+    return owner_id, post_id
+
+
+def test_func(request):
+    print('test_func')
+    link = input('enter link 2 vkpost: ')
+    owner_id, post_id = post_link2ids(link)
+    post = VKPost.objects.get(owner_id = owner_id, post_id = post_id)
+    print (post.first_line)
+    print(post.till_slash)
+    print(post.year_in_line)
+    return HttpResponse('')
+
+def photo_likes(request):
+    print('photo_likes')
+    album_id = 264678197
+    owner_id = 16200
+    photos = vk_api.photos.get(v=v, owner_id = owner_id, album_id = album_id, count = 200, extended = True)['items']
+    for photo in photos:
+        likes = int(photo['likes']['count'])
+        if likes > 0:
+            #https: // vk.com / photo16200_457242840
+            print ('vk.com/photo'+str(owner_id)+'_'+str(photo['id']))
 
     return HttpResponse('')

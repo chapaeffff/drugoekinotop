@@ -351,6 +351,10 @@ def film_new(request):
         elif '_save' in request.POST:
             form = FilmForm(request.POST)
             if form.is_valid():
+                instance = form.save(commit=False)
+                # instance.tutor = request.user
+                instance.save()
+
                 form.save()
         #      return redirect('film_edit', pk=check.first().pk)
     # elif request.method == "GET":

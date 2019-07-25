@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df9d59a5-bae0-421c-a2ad-3efa346758a6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filmscrap/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/filmscrap/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/search_feeds.json" beforeDir="false" afterPath="$PROJECT_DIR$/search_feeds.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vkgrab/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vkgrab/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vkposts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/vkposts/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +23,17 @@
       <file leaf-file-name="vkgrab.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2159">
-              <caret line="127" column="51" selection-start-line="127" selection-start-column="51" selection-end-line="127" selection-end-column="51" />
+            <state relative-caret-position="2584">
+              <caret line="152" column="43" selection-start-line="152" selection-start-column="43" selection-end-line="152" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vkgrab/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="34" column="57" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -26,63 +41,12 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vkgrab/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2992">
-              <caret line="214" column="40" selection-start-line="214" selection-start-column="40" selection-end-line="214" selection-end-column="40" />
+            <state relative-caret-position="275">
+              <caret line="401" column="17" selection-start-line="401" selection-start-column="11" selection-end-line="401" selection-end-column="17" />
               <folding>
                 <element signature="e#26#41#0" expanded="true" />
-                <marker date="1563193676801" expanded="true" signature="16277:16278" ph="..." />
-                <marker date="1563193676801" expanded="false" signature="33418:33466" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/filmbase/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="11" column="67" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/filmbase/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
-              <folding>
-                <element signature="e#25#89#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mysite/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog/templates/blog/list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/concept/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1734">
-              <caret line="106" selection-start-line="106" selection-end-line="106" />
-              <folding>
-                <element signature="e#25#53#0" expanded="true" />
+                <marker date="1564061684951" expanded="true" signature="16277:16278" ph="..." />
+                <marker date="1564061684951" expanded="false" signature="33507:33555" ph="..." />
               </folding>
             </state>
           </provider>
@@ -91,26 +55,68 @@
       <file leaf-file-name="film_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/filmbase/templates/filmbase/film_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
+            <state relative-caret-position="843">
               <caret line="90" column="69" selection-start-line="90" selection-start-column="65" selection-end-line="90" selection-end-column="69" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mysite/settings.py">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/filmbase/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="145" column="97" selection-start-line="145" selection-start-column="97" selection-end-line="145" selection-end-column="97" />
+            <state relative-caret-position="425">
+              <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/filmbase/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+              <folding>
+                <element signature="e#25#89#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/filmscrap/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="354" column="16" selection-start-line="354" selection-start-column="16" selection-end-line="354" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/video/models.py">
+        <entry file="file://$PROJECT_DIR$/vkposts/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+            <state relative-caret-position="611">
+              <caret line="49" column="23" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="23" />
+              <folding>
+                <element signature="e#25#53#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mysite/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2465">
+              <caret line="145" column="97" selection-start-line="145" selection-start-column="97" selection-end-line="145" selection-end-column="97" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search_feeds.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search_feeds.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -127,15 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sorted</find>
-      <find>k_v</find>
-      <find>тестируем</find>
-      <find>get_post</find>
-      <find>подвязали</find>
-      <find>next</find>
-      <find>list</find>
-      <find>get</find>
-      <find>search</find>
       <find>пщщпд</find>
       <find>new_fu</find>
       <find>concepts_ra</find>
@@ -152,11 +149,20 @@
       <find>duration</find>
       <find>месяц</find>
       <find>f.</find>
-      <find>broken</find>
       <find>film_detail</find>
       <find>film</find>
       <find>slug</find>
       <find>pathl</find>
+      <find>no_long</find>
+      <find>manuall</find>
+      <find>concept_rating</find>
+      <find>get_from</find>
+      <find>posts2con</find>
+      <find>firstlin</find>
+      <find>first_line</find>
+      <find>test_func</find>
+      <find>concept_rat</find>
+      <find>broken</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -182,7 +188,6 @@
         <option value="$PROJECT_DIR$/index/models.py" />
         <option value="$PROJECT_DIR$/vkgrab/models.py" />
         <option value="$PROJECT_DIR$/vkposts/views.py" />
-        <option value="$PROJECT_DIR$/vkposts/models.py" />
         <option value="$PROJECT_DIR$/concept/admin.py" />
         <option value="$PROJECT_DIR$/index/urls.py" />
         <option value="$PROJECT_DIR$/images/urls.py" />
@@ -207,20 +212,21 @@
         <option value="$PROJECT_DIR$/mysite/urls.py" />
         <option value="$PROJECT_DIR$/filmscrap/urls.py" />
         <option value="$PROJECT_DIR$/filmbase/models.py" />
-        <option value="$PROJECT_DIR$/filmscrap/views.py" />
         <option value="$PROJECT_DIR$/concept/models.py" />
-        <option value="$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html" />
-        <option value="$PROJECT_DIR$/vkgrab/urls.py" />
         <option value="$PROJECT_DIR$/filmbase/urls.py" />
         <option value="$PROJECT_DIR$/blog/templates/blog/list.html" />
         <option value="$PROJECT_DIR$/filmbase/views.py" />
-        <option value="$PROJECT_DIR$/vkgrab/views.py" />
+        <option value="$PROJECT_DIR$/vkposts/models.py" />
+        <option value="$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html" />
+        <option value="$PROJECT_DIR$/vkgrab/urls.py" />
         <option value="$PROJECT_DIR$/mysite/settings.py" />
+        <option value="$PROJECT_DIR$/vkgrab/views.py" />
+        <option value="$PROJECT_DIR$/filmscrap/views.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1316" />
+    <option name="width" value="1181" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -237,24 +243,6 @@
             <path>
               <item name="drugoekinotop" type="b2602c69:ProjectViewProjectNode" />
               <item name="drugoekinotop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drugoekinotop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drugoekinotop" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drugoekinotop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drugoekinotop" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="drugoekinotop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="drugoekinotop" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="drugoekinotop" type="b2602c69:ProjectViewProjectNode" />
@@ -370,10 +358,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1316" height="1040" extended-state="0" />
+    <frame x="0" y="0" width="1181" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.875" visible="true" weight="0.2456964" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.875" visible="true" weight="0.27471566" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.32852387" />
       <window_info anchor="bottom" id="Version Control" order="3" />
@@ -394,21 +382,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.875" visible="true" weight="0.27444795" />
       <window_info id="Structure" order="2" sideWeight="0.125" side_tool="true" weight="0.1564805" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Run" order="6" />
-      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Python Console" order="0" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.006651885" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.3292683" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Message" order="4" />
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Python Console" order="0" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -453,7 +441,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/vkgrab/views.py</url>
-          <line>808</line>
+          <line>810</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
@@ -642,31 +630,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/filmbase/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/filmscrap/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="58" column="14" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/video/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/search_feeds.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -678,27 +645,6 @@
             <element signature="e#25#60#0" expanded="true" />
             <marker date="1559396464773" expanded="true" signature="619:790" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vkposts/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vkgrab/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="30" column="87" selection-start-line="30" selection-start-column="87" selection-end-line="30" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2159">
-          <caret line="127" column="51" selection-start-line="127" selection-start-column="51" selection-end-line="127" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -716,13 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/filmbase/templates/filmbase/film_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="90" column="69" selection-start-line="90" selection-start-column="65" selection-end-line="90" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mysite/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -737,16 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/filmbase/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
-          <folding>
-            <element signature="e#25#89#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/concept/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1734">
@@ -757,22 +686,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vkgrab/views.py">
+    <entry file="file://$PROJECT_DIR$/search_feeds.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2992">
-          <caret line="214" column="40" selection-start-line="214" selection-start-column="40" selection-end-line="214" selection-end-column="40" />
-          <folding>
-            <element signature="e#26#41#0" expanded="true" />
-            <marker date="1563193676801" expanded="true" signature="16277:16278" ph="..." />
-            <marker date="1563193676801" expanded="false" signature="33418:33466" ph="..." />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2584">
+          <caret line="152" column="43" selection-start-line="152" selection-start-column="43" selection-end-line="152" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vkgrab/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="34" column="57" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mysite/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
+        <state relative-caret-position="2465">
           <caret line="145" column="97" selection-start-line="145" selection-start-column="97" selection-end-line="145" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vkposts/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="49" column="23" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="23" />
+          <folding>
+            <element signature="e#25#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filmbase/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filmscrap/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="354" column="16" selection-start-line="354" selection-start-column="16" selection-end-line="354" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vkgrab/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="401" column="17" selection-start-line="401" selection-start-column="11" selection-end-line="401" selection-end-column="17" />
+          <folding>
+            <element signature="e#26#41#0" expanded="true" />
+            <marker date="1564061684951" expanded="true" signature="16277:16278" ph="..." />
+            <marker date="1564061684951" expanded="false" signature="33507:33555" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filmbase/templates/filmbase/film_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="843">
+          <caret line="90" column="69" selection-start-line="90" selection-start-column="65" selection-end-line="90" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filmbase/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+          <folding>
+            <element signature="e#25#89#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -129,6 +129,35 @@
             };
         </script>
 
+        <script>
+            function get_posts_by_kpid(){
+                 $.get("{% url 'get_posts_by_kpid' %}");
+            };
+        </script>
+
+        <script>
+            function link_post_2_concept(){
+                 $.get("{% url 'link_post_2_concept' %}");
+            };
+        </script>
+
+        <script>
+            function test_func(){
+                 $.get("{% url 'test_func' %}");
+            };
+        </script>
+
+
+        <script>
+            function photo_likes(){
+                 $.get("{% url 'photo_likes' %}");
+            };
+        </script>
+
+
+
+
+
 <button onclick="get_posts()">
 get posts
 </button>
@@ -211,6 +240,25 @@ new_fulls
     delete_broken_video
 </button>
 
+<button onclick="get_posts_by_kpid()">
+    get_posts_by_kpid
+</button>
+
+
+
+<button onclick="link_post_2_concept()">
+    link_post_2_concept
+</button>
+
+<button onclick="test_func()">
+    test_func
+</button>
+
+
+
+<button onclick="photo_likes()">
+    photo_likes
+</button>
 
 {% for vk_post in vk_posts %}
         <div class="vk_post">
