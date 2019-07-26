@@ -316,7 +316,8 @@ def update_kp(request):
 
     # апдейтим по одному с кинопоиска, актуально! может еще добавить динамику
     # альтернативные названия и т.п.
-    for_updating = Film.objects.filter(year__gte = 2017, modified = None)
+    for_updating = Film.objects.filter(year__gte = 2015, modified = None)
+    # print (for_updating)
     for film in for_updating[:1]:
         # print  (film.__dict__)
         print (film.kp_id)
@@ -346,7 +347,7 @@ def update_kp(request):
         print (m.votes)
         print (m.rating)
         # print (m.__dict__)
-        return HttpResponse('')
+    return HttpResponse('')
 
 import json
 
@@ -494,7 +495,7 @@ def upload_2_private(request):
 def no_long_videos_feed2file(request):
     #найти НОВЫЕ фильмы С РЕЙТИНГОМ для которых нет видео
     month_ago = timezone.now()-datetime.timedelta(days=30)
-    films = Film.objects.filter(year__gte = 2017,  rating__gte = 6.5)
+    films = Film.objects.filter(year__gte = 2016,  rating__gte = 6.4)
     for_upd = films.filter(last_search__lte = month_ago)|films.filter(last_search = None)
     films = for_upd
     print (films)
@@ -504,7 +505,7 @@ def no_long_videos_feed2file(request):
         print(api_count)
         if api_count>=api_break:
             break
-        v = Video.objects.filter(film=f, duration__gte = f.runtime*60 - 60)
+        v = Video.objects.filter(film=f, duration__gte = f.runtime*60*0.94)
         print (v)
 
         if not v:
@@ -1507,13 +1508,36 @@ def post_link2ids(link):
 
 
 def test_func(request):
-    print('test_func')
-    link = input('enter link 2 vkpost: ')
-    owner_id, post_id = post_link2ids(link)
-    post = VKPost.objects.get(owner_id = owner_id, post_id = post_id)
-    print (post.first_line)
-    print(post.till_slash)
-    print(post.year_in_line)
+    # print('test_func')
+    # link = input('enter link 2 vkpost: ')
+    # owner_id, post_id = post_link2ids(link)
+    # post = VKPost.objects.get(owner_id = owner_id, post_id = post_id)
+    # print (post.first_line)
+    # print(post.till_slash)
+    # print(post.year_in_line)
+
+    kp_id = input ('enter kp_id')
+    f = Film.objects.filter(kp_id = int(kp_id))[0]
+    videos = Video.objects.filter(film=f)#, duration__gte=f.runtime * 60 - 160)
+    for v in videos:
+        print (v.id, v.title, v.duration)
+        secs = f.runtime*60
+        print (secs)
+
+    #456247229
+    # video_pk = int(input ('enter video id to pull dur from kp: '))
+    # video = Video.objects.get (pk = video_pk)
+    # print ('видео',  video)
+    # film = video.film
+    # print ('фильм', film)
+    # print ('было', video.duration)
+    # video.duration = film.runtime*60
+    # video.save()
+    # print (('стало', video.duration))
+    # #привести конкретную запись к нужной длине
+
+
+
     return HttpResponse('')
 
 def photo_likes(request):
