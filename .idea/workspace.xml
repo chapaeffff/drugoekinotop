@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df9d59a5-bae0-421c-a2ad-3efa346758a6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmbase/templates/filmbase/film_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/filmbase/templates/filmbase/film_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmbase/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/filmbase/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search_feeds.json" beforeDir="false" afterPath="$PROJECT_DIR$/search_feeds.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/video/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vkgrab/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vkgrab/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="df9d59a5-bae0-421c-a2ad-3efa346758a6" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
