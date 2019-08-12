@@ -155,6 +155,11 @@
         </script>
 
 
+        <script>
+            function add_moonwalk(){
+                 $.get("{% url 'add_moonwalk' %}");
+            };
+        </script>
 
 
 
@@ -258,6 +263,11 @@ new_fulls
 
 <button onclick="photo_likes()">
     photo_likes
+</button>
+
+
+<button onclick="add_moonwalk()">
+    add_moonwalk
 </button>
 
 {% for vk_post in vk_posts %}

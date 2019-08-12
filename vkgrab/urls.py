@@ -34,6 +34,8 @@ urlpatterns = [
     url(r'^link_post_2_concept/$', views.link_post_2_concept, name='link_post_2_concept'),
     url(r'^test_func/$', views.test_func, name='test_func'),
     url(r'^photo_likes/$', views.photo_likes, name='photo_likes'),
+    url(r'^add_moonwalk/$', views.add_moonwalk, name='add_moonwalk'),
+
 
 
 

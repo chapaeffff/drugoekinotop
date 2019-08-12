@@ -736,7 +736,7 @@ def new_fulls(request):
 #где-то проверить - есть ли концепт для фильма
             # print ('-----')
 
-        if count > 55:
+        if count > 85:
             new_full_sorted = sorted(new_full_videos, key = lambda x: (x.rating is None, x.rating))
             for new_full in new_full_sorted:
                 print (new_full.rating, new_full, new_full.director, new_full.year)
@@ -1542,13 +1542,73 @@ def test_func(request):
 
 def photo_likes(request):
     print('photo_likes')
-    album_id = 264678197
+    album_id = 264918693
     owner_id = 16200
     photos = vk_api.photos.get(v=v, owner_id = owner_id, album_id = album_id, count = 200, extended = True)['items']
     for photo in photos:
         likes = int(photo['likes']['count'])
         if likes > 0:
             #https: // vk.com / photo16200_457242840
-            print ('vk.com/photo'+str(owner_id)+'_'+str(photo['id']))
+            print ('vk.com/photo'+str(owner_id)+'_'+str(photo['id']), likes)
+
+    return HttpResponse('')
+
+moonwalk_token = '0c9f9366442c46dcd6649369ecb8c05b'
+import requests
+import json
+
+def add_moonwalk(request):
+    print('add_moonwalk')
+    kp_id = input('enter kp_id: ')
+    r = 'http://moonwalk.cc/api/videos.json?kinopoisk_id='+kp_id+'&api_token='+moonwalk_token
+
+    out = (requests.get(r))
+    data = json.loads(out.text)[0]
+    print(data)
+    player =  (data['iframe_url'])
+    print (player)
+    film = Film.objects.get(kp_id = kp_id)
+    print (film)
+
+    videos =  (film.videos())
+    film_moonwalked = False
+    for v in videos:
+        if v.moonwalked():
+
+            print ('moonwalked')
+            film_moonwalked = True
+            break
+        else:
+            print ('not moonwalked')
+    print ('film_moonwalked: ',film_moonwalked)
+
+
+    #есть мунволк?
+    #1) пройти циклом по всем полям
+    #1) пусть будет свойство moonwalk
+    #2)
+    # duration = data['duration']['seconds']
+    # print(duration)
+    if not film_moonwalked:
+        video_title = film.title + ' ' + film.director.name + ' ' + str(film.year)
+
+        # if  data['duration']:
+        #     duration = data['duration']['seconds']
+        # else:
+        duration = film.runtime*60
+        print (duration)
+
+
+        video = Video(kp_id = kp_id, title = video_title,
+                      player = player, film = film, duration = duration)
+        print (video)
+        video.save()
+
+        print (player)
+    # если фильм есть
+    # если мунволка нет - добавить видео мунволк
+
+
+
 
     return HttpResponse('')

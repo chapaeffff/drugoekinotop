@@ -24,11 +24,14 @@ def film_detail(request, pk = '', slug = ''):
         # # return HttpResponseRedirect(reverse('film_detail', slug =(film.slug)))
 
     # print (film, 'here')
-
     try:
         videos = Video.objects.filter(film = film).exclude(player__isnull=True).exclude(player__exact='')
     except Video.DoesNotExist:
         videos = None
+
+    for v in videos:
+        if v.moonwalked():
+            videos = [v]
 
     try:
         shots = Shot.objects.filter(movie = film)

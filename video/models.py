@@ -54,4 +54,13 @@ class Video(VideoBase):
     kp_id = models.PositiveIntegerField(null=True, blank=True)
     prop_title = models.BooleanField(blank=True, default=False)
     deleted = models.BooleanField(blank=True, default=False)
+
+
+    def moonwalked(self):
+        if self.player:
+            if 'moonwalk' in self.player:
+                return True
+        else:
+            return False
+
     # timeout = models.PositiveSmallIntegerField (null = True, blank = True)
