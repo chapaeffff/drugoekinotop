@@ -75,7 +75,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/filmbase/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
+            <state relative-caret-position="442">
               <caret line="33" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="e#25#89#0" expanded="true" />
@@ -87,8 +87,8 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blog/templates/blog/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="108" column="69" lean-forward="true" selection-start-line="108" selection-start-column="69" selection-end-line="108" selection-end-column="69" />
+            <state relative-caret-position="514">
+              <caret line="98" column="391" selection-start-line="98" selection-start-column="391" selection-end-line="98" selection-end-column="391" />
             </state>
           </provider>
         </entry>
@@ -393,21 +393,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.875" visible="true" weight="0.27444795" />
       <window_info id="Structure" order="2" sideWeight="0.125" side_tool="true" weight="0.1564805" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Run" order="6" />
-      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Python Console" order="0" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.006651885" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.3292683" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Message" order="4" />
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Python Console" order="0" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -760,7 +760,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/filmbase/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
+        <state relative-caret-position="442">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="e#25#89#0" expanded="true" />
@@ -770,8 +770,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/templates/blog/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="108" column="69" lean-forward="true" selection-start-line="108" selection-start-column="69" selection-end-line="108" selection-end-column="69" />
+        <state relative-caret-position="514">
+          <caret line="98" column="391" selection-start-line="98" selection-start-column="391" selection-end-line="98" selection-end-column="391" />
         </state>
       </provider>
     </entry>
