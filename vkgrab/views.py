@@ -1612,3 +1612,20 @@ def add_moonwalk(request):
 
 
     return HttpResponse('')
+
+
+
+
+def polls(request):
+    print ('polls')
+    # vk_atts = ElseAtt.objects.filter(att_text__contains = 'question')
+    #https: // vk.com / wall - 4569_241633
+    #id   ': 313291459, '    owner_id    ': -4569, '
+    poll = vk_api.polls.getById(v = v, poll_id = 313291459, extended = 1)
+    print (poll)
+
+    voters = vk_api.polls.getVoters(v = v, poll_id = 313291459, answer_ids = [1053701637, 105370163])
+    print (voters)
+
+    # print (vk_atts.first().att_text)
+    return HttpResponse('')

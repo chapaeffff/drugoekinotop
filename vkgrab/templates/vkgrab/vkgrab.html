@@ -162,6 +162,12 @@
         </script>
 
 
+        <script>
+            function polls(){
+                 $.get("{% url 'polls' %}");
+            };
+        </script>
+
 
 <button onclick="get_posts()">
 get posts
@@ -269,6 +275,11 @@ new_fulls
 <button onclick="add_moonwalk()">
     add_moonwalk
 </button>
+
+<button onclick="polls()">
+    polls
+</button>
+
 
 {% for vk_post in vk_posts %}
         <div class="vk_post">
