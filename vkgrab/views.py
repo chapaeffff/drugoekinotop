@@ -30,15 +30,15 @@ def vkgrab(request):
     till = request.GET.get("till", 0)
     # posts = VKPost.objects.all()
     month_ago_ts = time.time() - 30*24*3600
-    beg_time = (2019, 6, 1, 0, 0, 0, 0, 0, 0)
-    end_time = (2019, 7, 1, 0, 0, 0, 0, 0, 0)
+    beg_time = (2019, 7, 1, 0, 0, 0, 0, 0, 0)
+    end_time = (2019, 8, 1, 0, 0, 0, 0, 0, 0)
     beg_ts = time.mktime(beg_time)
     end_ts = time.mktime(end_time)
     print (month_ago_ts, beg_ts, end_ts)
     till = month_ago_ts #request.GET.get("till", 0)
     #vk_posts = VKPost.objects.filter(date__gte=beg_ts, date__lte = end_ts).order_by('-reposts').exclude(show_in_raw_rating = False) #exclude(widget__exact='').
     # vk_posts = VKPost.objects.all().order_by('-date').exclude(show_in_raw_rating = False) #exclude(widget__exact='').
-    vk_posts = VKPost.objects.filter(date__gte=beg_ts, date__lte = end_ts, reposts__gte = 45).order_by('-reposts')#.exclude(show_in_raw_rating = False) #exclude(widget__exact='').
+    vk_posts = VKPost.objects.filter(date__gte=beg_ts, date__lte = end_ts, reposts__gte = 25).order_by('-reposts')#.exclude(show_in_raw_rating = False) #exclude(widget__exact='').
     len_base = len(vk_posts)
     #узнать кто я по acces token
 

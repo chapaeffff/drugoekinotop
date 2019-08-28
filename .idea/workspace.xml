@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df9d59a5-bae0-421c-a2ad-3efa346758a6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vkgrab/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vkgrab/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,12 +34,12 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vkgrab/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="1623" column="39" selection-start-line="1623" selection-start-column="39" selection-end-line="1623" selection-end-column="39" />
+            <state relative-caret-position="476">
+              <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="23" />
               <folding>
                 <element signature="e#26#41#0" expanded="true" />
-                <marker date="1566248744153" expanded="true" signature="16300:16301" ph="..." />
-                <marker date="1566248744153" expanded="false" signature="33530:33578" ph="..." />
+                <marker date="1566724610938" expanded="true" signature="16300:16301" ph="..." />
+                <marker date="1566724610938" expanded="false" signature="33530:33578" ph="..." />
               </folding>
             </state>
           </provider>
@@ -91,7 +87,7 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/templates/blog/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
+            <state relative-caret-position="1632">
               <caret line="96" column="19" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
             </state>
           </provider>
@@ -100,7 +96,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/concept/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1594">
+            <state relative-caret-position="1428">
               <caret line="100" column="54" selection-start-line="100" selection-end-line="101" />
               <folding>
                 <element signature="e#25#60#0" expanded="true" />
@@ -238,6 +234,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -328,7 +325,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -383,13 +379,13 @@
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.875" visible="true" weight="0.34739178" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.32852387" />
+      <window_info anchor="bottom" id="Run" order="6" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Python Console" order="0" />
-      <window_info anchor="bottom" id="Run" order="6" />
       <window_info id="Structure" order="2" sideWeight="0.125" side_tool="true" weight="0.1564805" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.006651885" />
-      <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -401,21 +397,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.875" visible="true" weight="0.27444795" />
       <window_info id="Structure" order="2" sideWeight="0.125" side_tool="true" weight="0.1564805" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Run" order="6" />
-      <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Python Console" order="0" />
+      <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.006651885" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" weight="0.3292683" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Python Console" order="0" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -755,14 +751,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/templates/blog/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
+        <state relative-caret-position="1632">
           <caret line="96" column="19" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/concept/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1594">
+        <state relative-caret-position="1428">
           <caret line="100" column="54" selection-start-line="100" selection-end-line="101" />
           <folding>
             <element signature="e#25#60#0" expanded="true" />
@@ -773,12 +769,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vkgrab/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="1623" column="39" selection-start-line="1623" selection-start-column="39" selection-end-line="1623" selection-end-column="39" />
+        <state relative-caret-position="476">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="23" />
           <folding>
             <element signature="e#26#41#0" expanded="true" />
-            <marker date="1566248744153" expanded="true" signature="16300:16301" ph="..." />
-            <marker date="1566248744153" expanded="false" signature="33530:33578" ph="..." />
+            <marker date="1566724610938" expanded="true" signature="16300:16301" ph="..." />
+            <marker date="1566724610938" expanded="false" signature="33530:33578" ph="..." />
           </folding>
         </state>
       </provider>
