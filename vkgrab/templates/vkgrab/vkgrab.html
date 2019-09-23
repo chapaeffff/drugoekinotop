@@ -168,6 +168,11 @@
             };
         </script>
 
+        <script>
+            function ak_upload(){
+                 $.get("{% url 'ak_upload' %}");
+            };
+        </script>
 
 <button onclick="get_posts()">
 get posts
@@ -278,6 +283,10 @@ new_fulls
 
 <button onclick="polls()">
     polls
+</button>
+
+<button onclick="ak_upload()">
+    ak_upload
 </button>
 
 

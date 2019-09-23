@@ -18,7 +18,7 @@
 
 		<h1>{{list.title}}</h1>
 		{{list.intro}}
-
+		{% if sorted_by_section%}
 		{% for section, section_items in sorted_by_section.items%}
 			<h2>{{section}}</h2>
 
@@ -28,13 +28,18 @@
 					<!--тут надо проверить - есть ли секции-->
 
 
-					<a href="{% url 'filmbase:film_detail' item.film.pk %}">
+					{%if item.put_link %}
+						<a href="{% url 'filmbase:film_detail' item.film.pk %}">
+					{%endif%}
 						{%if list.numered%}
 							{{list.fin_count|my_substract:forloop.counter0}}.
 						{%endif%}
+
 						{{item.film.title}}
 						{%if item.film.title_en%}/ {{item.film.title_en}}{%endif%}
-					</a>
+					{% if item.put_link %}
+						</a>
+					{%endif%}
 					/ {{item.film.director}}  {{item.film.year}}
 
 
@@ -52,8 +57,30 @@
 					<!--<a href="{% url 'filmbase:film_detail' item.film.pk %}">страница фильма, смотреть онлайн</a>-->
 			</div>
 			{% endfor %}
-	{% endfor %}
+		{% endfor %}
+		{% else %}
+<!--список без секция-->
+			{% for item in items%}
+				<div>
+					{%if item.put_link %}
+					<a href="{% url 'filmbase:film_detail' item.film.slug %}">
+					{%endif%}
+						{%if list.numered%}
+							{{list.fin_count|my_substract:forloop.counter0}}.
+						{%endif%}
+						{{item.film.title}}
+						{%if item.film.title_en%}/ {{item.film.title_en}}{%endif%}
+					{%if item.put_link %}
+					</a>
+					{%endif%}
+					/ {{item.film.director}}  {{item.film.year}}
 
+
+
+					<p>{{item.text|linebreaks}}</p>
+			</div>
+			{% endfor %}
+		{% endif %}
 
 		<!--{% for item in items %}-->
 			<!--<div>-->

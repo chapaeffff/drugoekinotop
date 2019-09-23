@@ -65,7 +65,11 @@ class Film_List_Elem(models.Model):
 
 
     def __str__(self):
-        return self.film.title
+        string = ''
+        if self.order:
+            string = str(self.order)
+        string+=self.film.title
+        return string
 
 
 class Review(models.Model):

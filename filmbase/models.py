@@ -57,7 +57,7 @@ class Film(models.Model):
 
     modified = models.DateTimeField(blank=True, null = True)
 
-    def videos(self, long = True):
+    def videos(self, long = False):
         vs = Video.objects.filter(film = self)
         return vs
 
@@ -76,6 +76,14 @@ class Film(models.Model):
                                                       'ru', reversed=True)))
         self.modified = timezone.now()
         super(Film, self).save(*args, **kwargs)
+
+
+    # def moonwalked(self):
+    #     if self.player:
+    #         if 'moonwalk' in self.player:
+    #             return True
+    #     else:
+    #         return False
 
 # default to 1 day from now
 # def get__film_slug(self):

@@ -30,6 +30,12 @@ def list(request, slug):
         type = 'compact'
     items = Film_List_Elem.objects.filter(owner_list=cur_list.pk).order_by('section')
     # items_all = Film_List_Elem.objects.all()
+    for item in items:
+        print (item.film)
+        if (item.film.videos()):
+            print (item.film.videos())
+            item.put_link = True
+            print (item.put_link)
     prev_section = ''
     for item in items:
         if item.section:

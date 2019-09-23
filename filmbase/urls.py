@@ -11,6 +11,7 @@ urlpatterns = [
     # url(r'^post/(?P<slug>.+)/$', views.post_detail, name='post_detail'),
     url(r'(?P<slug>[\w\-]+)$', views.film_detail, name='film_detail'),
     url(r'(?P<pk>\d+)', views.film_detail, name='film_detail'),
+    # url(r'kp(?P<kp_id>\d+)', views.film_detail, name='film_detail'),
 
     # url(r'(?P<slug>[\w-]+)$', views.list, name='list'),
 

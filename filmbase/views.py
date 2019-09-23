@@ -11,9 +11,12 @@ from images.models import *
 
 
 
-def film_detail(request, pk = '', slug = ''):
+def film_detail(request, pk = '', slug = '', kp_id = ''):
+    # print (request['pk'])
     if slug:
         film = get_object_or_404(Film, slug=slug)
+    elif kp_id:
+        film = get_object_or_404(Film, kp_id=kp_id)
     else:
         film = get_object_or_404(Film, pk=pk)
         #

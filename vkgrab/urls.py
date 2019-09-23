@@ -35,7 +35,12 @@ urlpatterns = [
     url(r'^test_func/$', views.test_func, name='test_func'),
     url(r'^photo_likes/$', views.photo_likes, name='photo_likes'),
     url(r'^add_moonwalk/$', views.add_moonwalk, name='add_moonwalk'),
+
+
+    url(r'^ak_upload/$', views.ak_upload, name='ak_upload'),
+
     url(r'^polls/$', views.polls, name='polls'),
+
 
     url(r'^$', views.vkgrab, name='vkgrab'),
 

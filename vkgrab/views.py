@@ -31,7 +31,7 @@ def vkgrab(request):
     # posts = VKPost.objects.all()
     month_ago_ts = time.time() - 30*24*3600
     beg_time = (2019, 7, 1, 0, 0, 0, 0, 0, 0)
-    end_time = (2019, 8, 1, 0, 0, 0, 0, 0, 0)
+    end_time = (2019, 9, 1, 0, 0, 0, 0, 0, 0)
     beg_ts = time.mktime(beg_time)
     end_ts = time.mktime(end_time)
     print (month_ago_ts, beg_ts, end_ts)
@@ -1614,6 +1614,75 @@ def add_moonwalk(request):
     return HttpResponse('')
 
 
+import shutil
+
+
+def ak_upload(request):
+    print('ak_upload')
+
+    group_id = 34014795
+    # new_settings = vk_api.groups.edit(v=v, group_id=group_id, video = 2) #вкл огр видео
+
+    mypath = ('E:/0akupload/')
+    files = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+    first_file = files[0]
+    full_path = mypath + first_file
+    size = stat(full_path).st_size
+    est_loading = size/5000000
+    print ('file size is: ', size)
+    video_file = open(full_path, 'rb')
+    print (video_file)
+    #сделаем словарь
+    for_upload = dict()
+    for_upload['group_id'] = group_id
+    for_upload['name'] = first_file
+    for_upload['description'] = 'vk.com/artkinoinfo'
+    for_upload['v'] = v
+    # print (for_upload)
+    files = {'video_file': video_file}
+
+    #
+    upload_url = vk_api.video.save(**for_upload)['upload_url']
+    #
+    # print (upload_url)
+    vid = upload_url[upload_url.find('&vid')+5:upload_url.find('&fid')]
+
+    preload_video_adress = str(-group_id) + '_' + str(vid)
+    preload_video = vk_api.video.get(v=v, videos = preload_video_adress)
+    print('preload_video: ', preload_video)
+    # new_name = 'sdflsv32342j3'
+    start_loading = time.time()
+    print ('loading...')
+    print ('прибл время загрузки ', est_loading)
+    print(datetime.datetime.now())
+
+    request = requests.post(upload_url, files=files)
+    print('время загрузки ', time.time() - start_loading)
+    # renamed = vk_api.video.edit \
+    #     (v=v, owner_id=str(-group_id), video_id=str(vid), name=new_name)
+
+    #хочу получить данные этого видео
+    vid = (request.json()['video_id'])
+
+    print(files)
+    video_file.close()
+    loaded_video_adress = str(-group_id) + '_' + str(vid)
+
+    loaded_video = vk_api.video.get(v=v, videos = loaded_video_adress)
+    print('loaded_video: ', loaded_video)
+    print ('***************')
+    dst = destination = mypath+"/uploaded/"
+
+    shutil.move(full_path, dst)
+
+    # video_state = (new_settings['video'])
+
+    # print('video_state стало: ',  video_state)
+
+    #пока найдем только с расширением mp4
+
+
+    return HttpResponse('')
 
 
 def polls(request):
