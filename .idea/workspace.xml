@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="df9d59a5-bae0-421c-a2ad-3efa346758a6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/list_compact.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/list_compact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmbase/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/filmbase/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmbase/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/filmbase/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filmbase/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/filmbase/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/templates/vkgrab/vkgrab.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vkgrab/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vkgrab/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vkgrab/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search_feeds.json" beforeDir="false" afterPath="$PROJECT_DIR$/search_feeds.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +18,7 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/filmbase/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
+            <state relative-caret-position="850">
               <caret line="60" column="43" selection-start-line="60" selection-start-column="43" selection-end-line="60" selection-end-column="43" />
             </state>
           </provider>
@@ -40,7 +32,7 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/video/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="820">
+            <state relative-caret-position="918">
               <caret line="58" selection-start-line="58" selection-end-line="63" selection-end-column="24" />
             </state>
           </provider>
@@ -61,7 +53,7 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/concept/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-540">
+            <state relative-caret-position="1734">
               <caret line="106" selection-start-line="106" selection-end-line="106" />
             </state>
           </provider>
@@ -70,8 +62,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blog/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="36" column="32" lean-forward="true" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+            <state relative-caret-position="476">
+              <caret line="30" selection-start-line="30" selection-end-line="36" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -79,7 +71,7 @@
       <file leaf-file-name="list_compact.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/templates/blog/list_compact.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="493">
               <caret line="29" selection-start-line="29" selection-end-line="29" />
             </state>
           </provider>
@@ -97,7 +89,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/filmbase/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
+            <state relative-caret-position="238">
               <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
               <folding>
                 <element signature="e#25#89#0" expanded="true" />
@@ -109,7 +101,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vkgrab/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
+            <state relative-caret-position="28220">
               <caret line="1675" column="30" selection-start-line="1675" selection-start-column="30" selection-end-line="1675" selection-end-column="30" />
               <folding>
                 <element signature="e#26#41#0" expanded="true" />
@@ -224,7 +216,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="width" value="1669" />
     <option name="height" value="1040" />
   </component>
@@ -709,7 +701,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vkgrab/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
+        <state relative-caret-position="28220">
           <caret line="1675" column="30" selection-start-line="1675" selection-start-column="30" selection-end-line="1675" selection-end-column="30" />
           <folding>
             <element signature="e#26#41#0" expanded="true" />
@@ -721,14 +713,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/filmbase/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
+        <state relative-caret-position="850">
           <caret line="60" column="43" selection-start-line="60" selection-start-column="43" selection-end-line="60" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/filmbase/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+        <state relative-caret-position="238">
           <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
           <folding>
             <element signature="e#25#89#0" expanded="true" />
@@ -745,14 +737,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/templates/blog/list_compact.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="493">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/concept/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540">
+        <state relative-caret-position="1734">
           <caret line="106" selection-start-line="106" selection-end-line="106" />
         </state>
       </provider>
@@ -769,15 +761,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/video/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
+        <state relative-caret-position="918">
           <caret line="58" selection-start-line="58" selection-end-line="63" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="36" column="32" lean-forward="true" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+        <state relative-caret-position="476">
+          <caret line="30" selection-start-line="30" selection-end-line="36" selection-end-column="32" />
         </state>
       </provider>
     </entry>
