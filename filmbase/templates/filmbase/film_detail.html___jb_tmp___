@@ -1,0 +1,104 @@
+{% extends 'blog/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ film.title}} / {{film.director}} {{film.year}} смотреть фильм онлайн{% endblock %}
+
+
+{% block content %}
+
+<div class = "post">
+
+
+<a href="http://vk.com/share.php?url=http://drugoekino.top/film/{{film.pk}}"
+   target="_blank" rel="nofollow">
+   поделиться ВК
+</a>
+
+<br><br>
+<!--Вернуться в статью: <a href = /lists/{{from_lists.owner_list.slug}}>{{from_lists.owner_list}}</a>-->
+
+
+
+<!-- 		{% for dir in directors %}
+			<div class = "">
+		    	<h1><a href="{% url 'director' pk=director.pk %}">{{ dir }}</a></h1>
+		        <!-- <p>{{ post.text|linebreaksbr }}</p> -->
+<!-- 		    </div>
+		{% endfor %} -->
+<!-- 		<h1>{{ director.name }}</h1>
+-->
+
+	<h1>{{ film.title}} / {{film.director}} {{film.year}} </h1>
+
+	{%if film.image%}
+	<img src = "{{film.image}}" width = 100%>
+	{%endif%}
+
+	{%if shots%}
+	{%for shot in shots%}
+	<img src = "{{ request.scheme }}://{{ request.get_host }}{{shot.image.url}}" width = 100%>
+	{%endfor%}
+	{%endif%}
+
+	<br><br>
+
+{%for review in reviews%}
+	{{review.extract|linebreaks}}
+{%endfor%}
+{% for list in from_lists %}
+	{% if list.text%}
+		<br>
+		<b>«</b>
+		{{list.text|linebreaks}}
+		<b>»</b> - цитата из статьи
+	{%else %}
+		входит в список:
+	{%endif%}
+	 <a href = /lists/{{list.owner_list.slug}}>{{list.owner_list}}</a>
+	<br><br>
+{% endfor %}
+
+
+{% if videos.count > 0%}
+
+
+<h3>Смотреть фильм {{film.title}} ({{film.director}}, {{film.year}}) онлайн: </h3>
+{%endif%}
+
+
+
+
+		{% for video in videos%}
+			{%if not video.copyrighted%}
+			<div class="embed-responsive embed-responsive-16by9">
+
+
+			<iframe src= {{video.player}} width = 100% height = 100% frameborder="0" allowfullscreen></iframe>
+
+
+			</div>
+
+			{%else%}
+		<br>
+		<strong>	видео удалено по требованию правообладателя</strong>
+		
+			{%endif%}
+			<br><br>
+		{% endfor %}
+
+			<br>
+
+
+<a href="http://vk.com/share.php?url=http://drugoekino.top/film/{{film.pk}}"
+   target="_blank" rel="nofollow">
+   поделиться ВК
+</a>
+
+<!--<br><br>-->
+<!--Вернуться в статью: <a href = /lists/{{from_lists.owner_list.slug}}>{{from_lists.owner_list}}</a>-->
+
+</div>
+
+{% endblock %}
+

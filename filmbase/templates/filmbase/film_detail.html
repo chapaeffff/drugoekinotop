@@ -70,6 +70,7 @@
 
 
 		{% for video in videos%}
+			{%if not video.copyrighted%}
 			<div class="embed-responsive embed-responsive-16by9">
 
 
@@ -77,6 +78,12 @@
 
 
 			</div>
+
+			{%else%}
+		<br>
+		<strong>	видео удалено по требованию правообладателя</strong>
+		
+			{%endif%}
 			<br><br>
 		{% endfor %}
 

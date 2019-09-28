@@ -21,6 +21,7 @@ class VideoBase(models.Model):
     date = models.PositiveIntegerField(null=True, blank=True)
     width = models.PositiveSmallIntegerField(null=True, blank=True)
     height = models.PositiveSmallIntegerField(null=True, blank=True)
+    copyrighted = models.BooleanField(blank=True, default=False)
 
     def __str__(self):
         if self.title:
