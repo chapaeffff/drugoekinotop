@@ -25,6 +25,7 @@ class Director(models.Model):
     def __str__(self):
         return self.name
 
+@python_2_unicode_compatible
 class Film(models.Model):
     title = models.CharField(max_length=150, blank = True)
     title_en = models.CharField(max_length=150, blank=True)

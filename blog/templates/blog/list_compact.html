@@ -62,7 +62,7 @@
 <!--список без секция-->
 			{% for item in items%}
 				<div>
-					{%if item.put_link %}
+					{%if item.put_link == True %}
 					<a href="{% url 'filmbase:film_detail' item.film.slug %}">
 					{%endif%}
 						{%if list.numered%}
