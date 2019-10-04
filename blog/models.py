@@ -11,6 +11,7 @@ from images.models import *
 # from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
+@python_2_unicode_compatible
 class Author (models.Model):
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
