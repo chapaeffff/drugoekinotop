@@ -66,7 +66,7 @@ class Film(models.Model):
     def __str__(self):
         try: fulltitle= self.title + ' / ' + self.director.name + ' ' + self.year
         except: fulltitle = self.title #+ 'no dir'
-        return fulltitle
+        return fulltitle.encode('utf8')
 
 
     def save(self, *args, **kwargs):

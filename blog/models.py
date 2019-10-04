@@ -62,13 +62,12 @@ class Film_List_Elem(models.Model):
     order = models.IntegerField(null = True, blank = True)
     owner_list = models.ForeignKey('List', on_delete=models.PROTECT, null=True, blank=True, default=1)
     section = models.ForeignKey('Section', on_delete = models.SET_NULL, blank = True, null = True)
-
     def __str__(self):
         string = ''
         if self.order:
             string = str(self.order)
         string+=self.film.title
-        return string
+        return string.encode('utf8')
 
 
 class Review(models.Model):
