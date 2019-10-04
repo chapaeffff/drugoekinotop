@@ -18,6 +18,7 @@ def lists(request):
 
 
 def list(request, slug):
+    print ('list')
     type = request.GET.get('type', 'html')
     print (type)
     # # do processing
@@ -47,7 +48,7 @@ def list(request, slug):
     sorted_by_section = {}
     sections = Section.objects.filter(owner = cur_list)
     for section in sections:
-        print ('=',section)
+        # print ('=',section)
 
         section_items = items.filter(section = section)
         if len(section_items)>0:
