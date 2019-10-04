@@ -54,6 +54,7 @@ class Section (models.Model):
     def __str__(self):
         return self.name
 
+@python_2_unicode_compatible
 class Film_List_Elem(models.Model):
     film = models.ForeignKey('filmbase.Film', on_delete=models.PROTECT)
     elem_image =  models.ForeignKey('images.Shot',  on_delete=models.PROTECT, blank = True, null = True)
@@ -61,8 +62,6 @@ class Film_List_Elem(models.Model):
     order = models.IntegerField(null = True, blank = True)
     owner_list = models.ForeignKey('List', on_delete=models.PROTECT, null=True, blank=True, default=1)
     section = models.ForeignKey('Section', on_delete = models.SET_NULL, blank = True, null = True)
-
-
 
     def __str__(self):
         string = ''
