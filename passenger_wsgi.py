@@ -3,8 +3,12 @@
 import os, sys
 
 #project directory
-sys.path.append('/home/d/drimspb/.local/lib/python2.7/site-packages')
-sys.path.append('/home/d/drimspb/drugoekino.top/public_html/mysite')
+# sys.path.append('/home/d/drimspb/.local/lib/python2.7/site-packages')
+# sys.path.append('/home/d/drimspb/drugoekino.top/public_html/mysite')
+sys.path.insert(0, '/home/d/drimspb/drugoekino.top/public_html/mysite')
+sys.path.insert(1, '/home/d/drimspb/.local/lib/python3.4/site-packages')
+
+
 
 #project settings
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
