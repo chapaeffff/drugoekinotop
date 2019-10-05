@@ -11,7 +11,7 @@ sys.path.insert(1, '/home/d/drimspb/.local/lib/python3.4/site-packages')
 
 
 #project settings
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
 
 #start server
 
