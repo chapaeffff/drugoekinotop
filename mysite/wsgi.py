@@ -20,6 +20,8 @@ import os, sys
 
 sys.path.insert(0, '/home/d/drimspb/drugoekino.top/public_html/mysite')
 sys.path.insert(1, '/home/d/drimspb/.local/lib/python3.4/site-packages')
+sys.path.insert(1, '/home/d/drimspb/.local/lib/python3.6/site-packages')
+
 
 
 
