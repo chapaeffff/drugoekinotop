@@ -6,6 +6,8 @@ PassengerAppRoot /home/d/drimspb/drugoekino.top/public_html/
 #PassengerPython /usr/bin/python2.7
 PassengerPython /home/d/drimspb/.local/bin/python3.6
 
+SetEnv PYTHONPATH /home/d/drimspb/.local/bin/python3.6/site-packages
+
 
 #PassengerPython /home/d/dafanapf/py27.dafanapf.bget.ru/env/bin/python
 
