@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+lists adm
+		{% for list in lists%}
+
+			<p>
+				<a href = {{list.slug}}>{{list}}{{list.total}} + {{list.to_drop}} + {{list.maybes}}</a>
+		    </p>
+		{% endfor %}
+{% endblock %}

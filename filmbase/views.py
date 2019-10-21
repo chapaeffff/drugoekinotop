@@ -9,6 +9,9 @@ from blog.models import *
 from video.models import *
 from images.models import *
 
+import requests
+import json
+
 
 
 def film_detail(request, pk = '', slug = '', kp_id = ''):
@@ -32,9 +35,26 @@ def film_detail(request, pk = '', slug = '', kp_id = ''):
     except Video.DoesNotExist:
         videos = None
 
-    for v in videos:
-        if v.moonwalked():
-            videos = [v]
+
+    # for v in videos:
+    #     if v.moonwalked():
+    #         videos = [v]
+
+    kodik_link = 'https://kodikapi.com/search?token=6c4f14a88c532aa24b15287e39ecb68c&kinopoisk_id='\
+                 + str(film.kp_id) + '&camrip=false'
+    print (kodik_link)
+    response = requests.get(kodik_link)
+    data = json.loads(response.text)['results']
+    print (data)
+    if data:
+        print ('True')
+        v = Video()
+        v.player = data[0]['link']
+        videos = [v]
+
+    else:
+        print ('no film')
+
 
     try:
         shots = Shot.objects.filter(movie = film)

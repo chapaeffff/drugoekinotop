@@ -28,18 +28,18 @@
 					<!--тут надо проверить - есть ли секции-->
 
 
-					{%if item.put_link %}
+					<!--{%if item.put_link %}-->
 						<a href="{% url 'filmbase:film_detail' item.film.pk %}">
-					{%endif%}
+					<!--{%endif%}-->
 						{%if list.numered%}
 							{{list.fin_count|my_substract:forloop.counter0}}.
 						{%endif%}
 
 						{{item.film.title}}
 						{%if item.film.title_en%}/ {{item.film.title_en}}{%endif%}
-					{% if item.put_link %}
+					<!--{% if item.put_link %}-->
 						</a>
-					{%endif%}
+					<!--{%endif%}-->
 					/ {{item.film.director}}  {{item.film.year}}
 
 
@@ -62,7 +62,7 @@
 <!--список без секция-->
 			{% for item in items%}
 				<div>
-					{%if item.put_link == True %}
+					{%if item.put_link == True%}
 					<a href="{% url 'filmbase:film_detail' item.film.slug %}">
 					{%endif%}
 						{%if list.numered%}

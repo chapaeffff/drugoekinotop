@@ -11,7 +11,7 @@ from images.models import *
 # from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
-@python_2_unicode_compatible
+# @python_2_unicode_compatible
 class Author (models.Model):
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
@@ -21,7 +21,7 @@ class Author (models.Model):
         return self.name + ' ' + self.surname + '(' + self.comment + ')'
 
 
-@python_2_unicode_compatible
+# @python_2_unicode_compatible
 class List(models.Model):
     title = models.CharField(max_length=400)
     intro = models.TextField(blank = True)
@@ -55,7 +55,7 @@ class Section (models.Model):
     def __str__(self):
         return self.name
 
-@python_2_unicode_compatible
+
 class Film_List_Elem(models.Model):
     film = models.ForeignKey('filmbase.Film', on_delete=models.PROTECT)
     elem_image =  models.ForeignKey('images.Shot',  on_delete=models.PROTECT, blank = True, null = True)
@@ -63,12 +63,14 @@ class Film_List_Elem(models.Model):
     order = models.IntegerField(null = True, blank = True)
     owner_list = models.ForeignKey('List', on_delete=models.PROTECT, null=True, blank=True, default=1)
     section = models.ForeignKey('Section', on_delete = models.SET_NULL, blank = True, null = True)
+    maybe = models.BooleanField(default = False)
+    to_drop = models.BooleanField(default = False)
     def __str__(self):
         string = ''
         if self.order:
             string = str(self.order)
-        string+=self.film.title
-        return string.encode('utf8')
+        string+=str(self.film.title) + ' ' + self.owner_list.title
+        return string
 
 
 class Review(models.Model):

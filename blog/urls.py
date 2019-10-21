@@ -24,16 +24,21 @@
 #from django.urls import include, path
 
 from django.conf.urls import include, url
-
+from django.urls import path
 
 
 from . import views
 
 urlpatterns = [
 
+    url(r'adm/(?P<slug>[\w-]+)$', views.list_adm, name='list_adm'),
     url(r'(?P<slug>[\w-]+)$', views.list, name='list'),
-    url(r'$', views.lists, name='lists'),
+    # url(r'$', views.lists, name='lists'),
+    path('', views.lists, name='lists'),
+    path('adm/', views.lists_adm, name='lists_adm'),
+
     # url('',  views.index, name='index' ),
+
 
     # (?P<slug>[\w-]+)/$
 # url(r'lists/<slug:slug>/', views.list, name='list'),

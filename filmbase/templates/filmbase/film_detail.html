@@ -60,7 +60,7 @@
 {% endfor %}
 
 
-{% if videos.count > 0%}
+{% if videos%}
 
 
 <h3>Смотреть фильм {{film.title}} ({{film.director}}, {{film.year}}) онлайн: </h3>
@@ -88,6 +88,27 @@
 		{% endfor %}
 
 			<br>
+
+
+<!--<script>-->
+<!--document.addEventListener('DOMContentLoaded', function() {-->
+  <!--window.addEventListener('message', function(e) {-->
+    <!--if (!e || !e.data) return;-->
+    <!--var q = document.querySelector('[data-yo="quality"]');-->
+    <!--var t = document.querySelector('[data-yo="translate"]');-->
+    <!--if (e.data.quality && q) {-->
+      <!--q.innerHTML = e.data.quality;-->
+    <!--}-->
+    <!--if (e.data.translate && t) {-->
+      <!--t.innerHTML = e.data.translate;-->
+    <!--}-->
+  <!--});-->
+<!--});-->
+<!--</script>-->
+<!--Качество: <span data-yo="quality"></span>-->
+
+<!--<div  class="embed-responsive embed-responsive-16by9" id="yohoho"  data-kinopoisk="{{film.kp_id}}" data-kodik= "6c4f14a88c532aa24b15287e39ecb68c" data-moonwalk="0c9f9366442c46dcd6649369ecb8c05b" data-player="moonwalk, kodik, videocdn, hdgo,iframe"></div>-->
+	<!--<script src="//yohoho.cc/yo.js"></script>-->
 
 
 <a href="http://vk.com/share.php?url=http://drugoekino.top/film/{{film.pk}}"

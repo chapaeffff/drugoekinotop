@@ -557,7 +557,6 @@ def no_long_videos_get_from_file(request):
         search_feeds = json.load(data_file,  encoding='utf-8')
         print (len(search_feeds))
     f = Film.objects.get(id = search_feeds[0])
-    print (f)
     full_video_ids = [] #это будет список video_id, которые я уже добавил
     full_videos = []
     full_video_posts = []
@@ -1697,4 +1696,73 @@ def polls(request):
     print (voters)
 
     # print (vk_atts.first().att_text)
+    return HttpResponse('')
+
+from bs4 import BeautifulSoup
+import requests
+
+
+def lena_schedule(request):
+    print ('lena_schedule')
+
+
+
+    website_url = 'https://gtifem.ru/dekanat/raspisanie-prepodavateley/shchetinina-elena-aleksandrovna/'
+    website = requests.get(website_url).text
+    # print (website)
+    soup = BeautifulSoup(website, "lxml")
+    content = soup.find("div", {"class": "content"})
+
+    trs = content.findAll("tr")
+    for tr in trs[0:3]:
+        # print (tr["class"])
+        try:
+            print (tr["class"])
+        except:
+            pass
+        tds = tr.find_all("td")
+        print (tds)
+        print()
+
+
+    # print(trs[0])
+
+    # dates = content.find("tr", {"class": "lesson-line"})
+    # print (dates["class"])
+    # for date in dates:
+    #     print (date.contents[0])
+    #     # print (type(date))
+    # after_dates = dates.next
+    # print (after_dates)
+
+
+    # h1 = soup.html.h1
+    # print (h1)
+    # print(soup.prettify())
+    # print (content)
+
+    return HttpResponse('')
+
+def get_vcdn(request):
+    print ('get_vcdn')
+
+    kodik_link = 'https://kodikapi.com/qualities?token=6c4f14a88c532aa24b15287e39ecb68c'
+    #яркая звезда
+    kodik_link = 'https://kodikapi.com/search?token=6c4f14a88c532aa24b15287e39ecb68c&kinopoisk_id=1047883&camrip=false'
+    response = requests.get(kodik_link)
+    data = json.loads(response.text)['results']
+    print (data)
+    if data:
+        print ('True')
+    else:
+        print ('no film')
+
+
+
+    return HttpResponse('')
+
+
+def get_draft_list(request):
+    print ('get_draft_list')
+    # Film.objects.update(yohoho=True)
     return HttpResponse('')

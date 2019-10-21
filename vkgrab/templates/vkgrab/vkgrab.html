@@ -174,6 +174,33 @@
             };
         </script>
 
+        <script>
+            function lena_schedule(){
+                 $.get("{% url 'lena_schedule' %}");
+            };
+        </script>
+
+        <script>
+            function get_vcdn(){
+                 $.get("{% url 'get_vcdn' %}");
+            };
+        </script>
+
+        <script>
+            function get_draft_list(){
+                 $.get("{% url 'get_draft_list' %}");
+            };
+        </script>
+
+
+
+
+
+<button onclick="lena_schedule()">
+lena_schedule
+</button>
+
+
 <button onclick="get_posts()">
 get posts
 </button>
@@ -288,6 +315,16 @@ new_fulls
 <button onclick="ak_upload()">
     ak_upload
 </button>
+
+<button onclick="get_vcdn()">
+    get_vcdn (kodik now)
+
+</button>
+
+<button onclick="get_draft_list()">
+    get_draft_list
+</button>
+
 
 
 {% for vk_post in vk_posts %}

@@ -36,6 +36,10 @@ urlpatterns = [
     url(r'^photo_likes/$', views.photo_likes, name='photo_likes'),
     url(r'^add_moonwalk/$', views.add_moonwalk, name='add_moonwalk'),
 
+    url(r'^lena_schedule/$', views.lena_schedule, name='lena_schedule'),
+
+    url(r'^get_vcdn/$', views.get_vcdn, name='get_vcdn'),
+    url(r'^get_draft_list/$', views.get_draft_list, name='get_draft_list'),
 
     url(r'^ak_upload/$', views.ak_upload, name='ak_upload'),
 

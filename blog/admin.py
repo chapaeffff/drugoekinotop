@@ -10,7 +10,7 @@ from django.db import models
 
 class ListAdmin(admin.ModelAdmin):
     pass
-    ordering = ('-id',)
+    ordering = ('id',)
 
 admin.site.register(List, ListAdmin)
 admin.site.register(Author)

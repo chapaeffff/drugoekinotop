@@ -22,7 +22,9 @@
 		{% for item in items %}
 			<div class = "post">
 				<h2>
-					<a href="{% url 'filmbase:film_detail' item.film.slug %}">
+					{%if item.put_link%}
+						<a href="{% url 'filmbase:film_detail' item.film.slug %}">
+					{%endif %}
 
 					{%if list.numered%}
 					{{list.fin_count|my_substract:forloop.counter0}}.
@@ -38,13 +40,18 @@
 				<img src = "{{item.elem_image.image.url}}" width = 100%> <br> <br>
 				{% elif item.film.image %}
 				<img src = "{{item.film.image}}" width = 100%> <br> <br>
+				{% elif item.film.first_image %}
+				<img src = "{{item.film.first_image.image.url}}" width = 100%> <br> <br>
+			    
 				{%endif%}
 				</a>
 
 
 				<p>{{item.text|linebreaks}}</p>
 		    	<!--{#<a href="{% url 'filmbase.film_detail' pk=item.film.pk %}">страница фильма</a>#}-->
-				<a href="{% url 'filmbase:film_detail' item.film.slug %}">страница фильма «{{item.film.title}}», смотреть онлайн</a>
+				{%if item.put_link%}
+					<a href="{% url 'filmbase:film_detail' item.film.slug %}">страница фильма «{{item.film.title}}», смотреть онлайн</a>
+				{%endif%}
 		    </div>
 			<div align = center>***</div>
 		{% endfor %}

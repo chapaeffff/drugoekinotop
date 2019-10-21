@@ -1,0 +1,64 @@
+{% extends 'blog/base.html' %}
+{% load my_substract %}
+{% load humanize %}
+
+{% block title %}{{list.title}}{% endblock %}
+
+{% block content %}
+
+list adm
+
+<a href="http://vk.com/share.php?url=http://drugoekino.top/lists/{{list.slug}}"
+
+   target="_blank" rel="nofollow">
+   поделиться ВК
+</a>
+
+	{{list.title}}
+
+		{{list.intro|linebreaks}}
+
+<table >
+		{% for item in items %}
+        <tr>
+
+
+            <td><b>{{item.film.rating | floatformat }}</b>  </td>
+            <td width = 10% align = right style="padding:5px"><i>{{item.film.votes | intcomma}}</i> </td>
+            <td>
+
+					{%if list.numered%}
+					({{list.fin_count|my_substract:forloop.counter0}}.
+											{%endif%})
+					{{item.film.title | truncatechars:25}} /
+					{%if item.film.title_en%}
+						{{item.film.title_en | truncatechars:25}} /
+					{%endif%}
+					{{item.film.director | truncatechars:15}} {{item.film.year}}
+
+            </td>
+
+</tr>
+
+
+
+		{% endfor %}
+</table>
+
+<br><br>
+{% if list.author %}
+<i>Автор текста:</i> <a href = https://vk.com/{{list.author.vk}}>{{list.author.name}} {{list.author.surname}}</a>
+<br>
+{% endif %}
+
+<div align = center>
+	<br>
+	{%if list.finished is False%}
+	<b>Продолжение следует... </b>
+	{%endif%}
+	<br>
+	Подпишитесь на рассылку, для уведомлений о новых публикациях! </div>
+
+
+
+{% endblock %}

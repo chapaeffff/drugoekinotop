@@ -17,7 +17,7 @@ from video.models import Video
 
 
 
-@python_2_unicode_compatible
+# @python_2_unicode_compatible
 class Director(models.Model):
     name = models.CharField(max_length=120)
     image = models.CharField(max_length=400, default = '', blank = True)
@@ -25,7 +25,7 @@ class Director(models.Model):
     def __str__(self):
         return self.name
 
-@python_2_unicode_compatible
+# @python_2_unicode_compatible
 class Film(models.Model):
     title = models.CharField(max_length=150, blank = True)
     title_en = models.CharField(max_length=150, blank=True)
@@ -58,6 +58,15 @@ class Film(models.Model):
 
     modified = models.DateTimeField(blank=True, null = True)
 
+    yohoho = models.BooleanField(default = True)
+
+    kodik = models.BooleanField(default=False)
+    last_kodik_search = models.DateTimeField(blank = True, null = True)
+
+
+
+
+
     def videos(self, long = False):
         vs = Video.objects.filter(film = self)
         return vs
@@ -66,7 +75,7 @@ class Film(models.Model):
     def __str__(self):
         try: fulltitle= self.title + ' / ' + self.director.name + ' ' + self.year
         except: fulltitle = self.title #+ 'no dir'
-        return fulltitle.encode('utf8')
+        return fulltitle
 
 
     def save(self, *args, **kwargs):
