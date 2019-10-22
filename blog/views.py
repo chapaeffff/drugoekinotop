@@ -78,7 +78,7 @@ def list(request, slug):
                     print (data)
                     item.film.kodik = True
                     item.film.save()
-            elif item.film.kodik:
+            if item.film.kodik:
                     item.put_link = True
 
 
