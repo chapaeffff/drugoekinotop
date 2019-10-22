@@ -15,7 +15,7 @@ def index(request):
 
 
 def lists(request):
-    lists = List.objects.filter(publish=1)
+    lists = List.objects.filter(publish='1')
     print (lists)
     return render(request, 'blog/lists.html', {'lists': lists})
 
