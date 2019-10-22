@@ -22,7 +22,7 @@
 		{% for item in items %}
 			<div class = "post">
 				<h2>
-					{%if item.put_link == True or item.film.kodik == True%}
+					{%if item.put_link or item.film.kodik%}
 						<a href="{% url 'filmbase:film_detail' item.film.slug %}">
 					{%endif %}
 
@@ -49,7 +49,7 @@
 
 				<p>{{item.text|linebreaks}}</p>
 		    	<!--{#<a href="{% url 'filmbase.film_detail' pk=item.film.pk %}">страница фильма</a>#}-->
-				{%if item.put_link%}
+				{%if item.put_link or item.film.kodik%}
 					<a href="{% url 'filmbase:film_detail' item.film.slug %}">страница фильма «{{item.film.title}}», смотреть онлайн</a>
 				{%endif%}
 		    </div>
