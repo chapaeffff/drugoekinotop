@@ -15,12 +15,12 @@ def index(request):
 
 
 def lists(request):
-    lists = List.objects.all().exclude(publish = False)
+    lists = List.objects.all().exclude(publish == False)
     return render(request, 'blog/lists.html', {'lists': lists})
 
 
 def lists_adm(request):
-    lists = List.objects.all().exclude(publish = True)
+    lists = List.objects.all().exclude(publish == True)
     for list in lists:
         total = Film_List_Elem.objects.filter(owner_list = list).exclude(maybe = True).exclude(to_drop = True).count()
         list.total = total
