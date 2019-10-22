@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df9d59a5-bae0-421c-a2ad-3efa346758a6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/lists.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/lists.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,14 +28,18 @@
       </file>
       <file leaf-file-name="lists.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/templates/blog/lists.html">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blog/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+            <state relative-caret-position="323">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="e#25#40#0" expanded="true" />
               </folding>
@@ -157,7 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/concepts/urls.py" />
         <option value="$PROJECT_DIR$/concepts/migrations/0003_auto_20190429_1042.py" />
         <option value="$PROJECT_DIR$/concepts/migrations/0002_auto_20190429_1023.py" />
         <option value="$PROJECT_DIR$/concept/templates/concept/index.html" />
@@ -207,6 +211,7 @@
         <option value="$PROJECT_DIR$/blog/templates/blog/list_compact.html" />
         <option value="$PROJECT_DIR$/filmbase/models.py" />
         <option value="$PROJECT_DIR$/blog/templates/blog/list.html" />
+        <option value="$PROJECT_DIR$/blog/templates/blog/lists.html" />
         <option value="$PROJECT_DIR$/blog/views.py" />
       </list>
     </option>
@@ -463,7 +468,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/blog/views.py</url>
-          <line>86</line>
+          <line>88</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
@@ -774,12 +779,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/templates/blog/lists.html">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+        <state relative-caret-position="323">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#25#40#0" expanded="true" />
           </folding>
